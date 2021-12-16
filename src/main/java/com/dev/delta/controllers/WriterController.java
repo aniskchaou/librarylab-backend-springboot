@@ -20,50 +20,45 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.dev.delta.entities.Writer;
 import com.dev.delta.services.WriterService;
+
 @RestController
-@RequestMapping("/writer")
+@RequestMapping("writer")
 @CrossOrigin
 public class WriterController {
 	@Autowired
 	WriterService writerService;
-	
-	
+
 	@PostMapping("/create")
-	 public ResponseEntity<?> addPTToBoard(@Validated @RequestBody Writer projectWriter, BindingResult result){
+	public ResponseEntity<?> addPTToBoard(@Validated @RequestBody Writer projectWriter, BindingResult result) {
 
-	    if(result.hasErrors()){
-	            Map<String, String> errorMap = new HashMap<String,String>();
+		if (result.hasErrors()) {
+			Map<String, String> errorMap = new HashMap<String, String>();
 
-	            for(FieldError error: result.getFieldErrors()){
-	                errorMap.put(error.getField(), error.getDefaultMessage());
-	            }
-	            return new ResponseEntity<Map<String, String>>(errorMap, HttpStatus.BAD_REQUEST);
-	        }
-          
-	        Writer newPT = writerService.saveOrUpdate(projectWriter);
+			for (FieldError error : result.getFieldErrors()) {
+				errorMap.put(error.getField(), error.getDefaultMessage());
+			}
+			return new ResponseEntity<Map<String, String>>(errorMap, HttpStatus.BAD_REQUEST);
+		}
 
-	        return new ResponseEntity<Writer>(newPT, HttpStatus.CREATED);
-	    }
-	
-	
-	
-   @GetMapping("/all")
-   public Iterable<Writer> getAllWriters()
-   {
-	   return writerService.findAll();
-   }
-   
-   @GetMapping("/{id}")
-   public ResponseEntity<Writer> getWriterById(@PathVariable Long id)
-   {
-	   Writer writer=writerService.findById(id);
-	   return new ResponseEntity<Writer>(writer,HttpStatus.OK);
-   }
-   
-   @DeleteMapping("/delete/{id}")
-   public ResponseEntity<String> deleteWriter(@PathVariable Long id)
-   {
-	   writerService.delete(id);
-	   return new ResponseEntity<String>("writer was deleted",HttpStatus.OK);
-   }
+		Writer newPT = writerService.saveOrUpdate(projectWriter);
+
+		return new ResponseEntity<Writer>(newPT, HttpStatus.CREATED);
+	}
+
+	@GetMapping("/all")
+	public Iterable<Writer> getAllWriters() {
+		return writerService.findAll();
+	}
+
+	@GetMapping("/{id}")
+	public ResponseEntity<Writer> getWriterById(@PathVariable Long id) {
+		Writer writer = writerService.findById(id);
+		return new ResponseEntity<Writer>(writer, HttpStatus.OK);
+	}
+
+	@DeleteMapping("/delete/{id}")
+	public ResponseEntity<String> deleteWriter(@PathVariable Long id) {
+		writerService.delete(id);
+		return new ResponseEntity<String>("writer was deleted", HttpStatus.OK);
+	}
 }

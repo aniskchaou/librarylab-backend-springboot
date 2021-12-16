@@ -22,49 +22,43 @@ import com.dev.delta.entities.TypeMember;
 import com.dev.delta.services.TypeMemberService;
 
 @RestController
-@RequestMapping("/typemember")
+@RequestMapping("typemember")
 @CrossOrigin
 public class TypeMemberController {
 	@Autowired
 	TypeMemberService typeMemberService;
-	
-	
+
 	@PostMapping("/create")
-	 public ResponseEntity<?> addPTToBoard(@Validated @RequestBody TypeMember projectTypeMember, BindingResult result){
+	public ResponseEntity<?> addPTToBoard(@Validated @RequestBody TypeMember projectTypeMember, BindingResult result) {
 
-	    if(result.hasErrors()){
-	            Map<String, String> errorMap = new HashMap<String,String>();
+		if (result.hasErrors()) {
+			Map<String, String> errorMap = new HashMap<String, String>();
 
-	            for(FieldError error: result.getFieldErrors()){
-	                errorMap.put(error.getField(), error.getDefaultMessage());
-	            }
-	            return new ResponseEntity<Map<String, String>>(errorMap, HttpStatus.BAD_REQUEST);
-	        }
-          
-	        TypeMember newPT = typeMemberService.saveOrUpdate(projectTypeMember);
+			for (FieldError error : result.getFieldErrors()) {
+				errorMap.put(error.getField(), error.getDefaultMessage());
+			}
+			return new ResponseEntity<Map<String, String>>(errorMap, HttpStatus.BAD_REQUEST);
+		}
 
-	        return new ResponseEntity<TypeMember>(newPT, HttpStatus.CREATED);
-	    }
-	
-	
-	
-   @GetMapping("/all")
-   public Iterable<TypeMember> getAllTypeMembers()
-   {
-	   return typeMemberService.findAll();
-   }
-   
-   @GetMapping("/{id}")
-   public ResponseEntity<TypeMember> getTypeMemberById(@PathVariable Long id)
-   {
-	   TypeMember typeMember=typeMemberService.findById(id);
-	   return new ResponseEntity<TypeMember>(typeMember,HttpStatus.OK);
-   }
-   
-   @DeleteMapping("/delete/{id}")
-   public ResponseEntity<String> deleteTypeMember(@PathVariable Long id)
-   {
-	   typeMemberService.delete(id);
-	   return new ResponseEntity<String>("typeMember was deleted",HttpStatus.OK);
-   }
+		TypeMember newPT = typeMemberService.saveOrUpdate(projectTypeMember);
+
+		return new ResponseEntity<TypeMember>(newPT, HttpStatus.CREATED);
+	}
+
+	@GetMapping("/all")
+	public Iterable<TypeMember> getAllTypeMembers() {
+		return typeMemberService.findAll();
+	}
+
+	@GetMapping("/{id}")
+	public ResponseEntity<TypeMember> getTypeMemberById(@PathVariable Long id) {
+		TypeMember typeMember = typeMemberService.findById(id);
+		return new ResponseEntity<TypeMember>(typeMember, HttpStatus.OK);
+	}
+
+	@DeleteMapping("/delete/{id}")
+	public ResponseEntity<String> deleteTypeMember(@PathVariable Long id) {
+		typeMemberService.delete(id);
+		return new ResponseEntity<String>("typeMember was deleted", HttpStatus.OK);
+	}
 }

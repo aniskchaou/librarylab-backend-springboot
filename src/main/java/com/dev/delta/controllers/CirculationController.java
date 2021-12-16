@@ -22,49 +22,44 @@ import com.dev.delta.entities.Circulation;
 import com.dev.delta.services.CirculationService;
 
 @RestController
-@RequestMapping("/circulation")
+@RequestMapping("circulation")
 @CrossOrigin
 public class CirculationController {
 	@Autowired
 	CirculationService circulationService;
-	
-	
+
 	@PostMapping("/create")
-	 public ResponseEntity<?> addPTToBoard(@Validated @RequestBody Circulation projectCirculation, BindingResult result){
+	public ResponseEntity<?> addPTToBoard(@Validated @RequestBody Circulation projectCirculation,
+			BindingResult result) {
 
-	    if(result.hasErrors()){
-	            Map<String, String> errorMap = new HashMap<String,String>();
+		if (result.hasErrors()) {
+			Map<String, String> errorMap = new HashMap<String, String>();
 
-	            for(FieldError error: result.getFieldErrors()){
-	                errorMap.put(error.getField(), error.getDefaultMessage());
-	            }
-	            return new ResponseEntity<Map<String, String>>(errorMap, HttpStatus.BAD_REQUEST);
-	        }
-          
-	        Circulation newPT = circulationService.saveOrUpdate(projectCirculation);
+			for (FieldError error : result.getFieldErrors()) {
+				errorMap.put(error.getField(), error.getDefaultMessage());
+			}
+			return new ResponseEntity<Map<String, String>>(errorMap, HttpStatus.BAD_REQUEST);
+		}
 
-	        return new ResponseEntity<Circulation>(newPT, HttpStatus.CREATED);
-	    }
-	
-	
-	
-   @GetMapping("/all")
-   public Iterable<Circulation> getAllCirculations()
-   {
-	   return circulationService.findAll();
-   }
-   
-   @GetMapping("/{id}")
-   public ResponseEntity<Circulation> getCirculationById(@PathVariable Long id)
-   {
-	   Circulation circulation=circulationService.findById(id);
-	   return new ResponseEntity<Circulation>(circulation,HttpStatus.OK);
-   }
-   
-   @DeleteMapping("/delete/{id}")
-   public ResponseEntity<String> deleteCirculation(@PathVariable Long id)
-   {
-	   circulationService.delete(id);
-	   return new ResponseEntity<String>("circulation was deleted",HttpStatus.OK);
-   }
+		Circulation newPT = circulationService.saveOrUpdate(projectCirculation);
+
+		return new ResponseEntity<Circulation>(newPT, HttpStatus.CREATED);
+	}
+
+	@GetMapping("/all")
+	public Iterable<Circulation> getAllCirculations() {
+		return circulationService.findAll();
+	}
+
+	@GetMapping("/{id}")
+	public ResponseEntity<Circulation> getCirculationById(@PathVariable Long id) {
+		Circulation circulation = circulationService.findById(id);
+		return new ResponseEntity<Circulation>(circulation, HttpStatus.OK);
+	}
+
+	@DeleteMapping("/delete/{id}")
+	public ResponseEntity<String> deleteCirculation(@PathVariable Long id) {
+		circulationService.delete(id);
+		return new ResponseEntity<String>("circulation was deleted", HttpStatus.OK);
+	}
 }

@@ -22,49 +22,53 @@ import com.dev.delta.entities.Book;
 import com.dev.delta.services.BookService;
 
 @RestController
-@RequestMapping("/book")
+@RequestMapping("book")
 @CrossOrigin
 public class BookController {
 	@Autowired
 	BookService bookService;
-	
-	
+
 	@PostMapping("/create")
-	 public ResponseEntity<?> addPTToBoard(@Validated @RequestBody Book projectBook, BindingResult result){
+	public ResponseEntity<?> addPTToBoard(@Validated @RequestBody Book projectBook, BindingResult result) {
 
-	    if(result.hasErrors()){
-	            Map<String, String> errorMap = new HashMap<String,String>();
+		if (result.hasErrors()) {
+			Map<String, String> errorMap = new HashMap<String, String>();
 
-	            for(FieldError error: result.getFieldErrors()){
-	                errorMap.put(error.getField(), error.getDefaultMessage());
-	            }
-	            return new ResponseEntity<Map<String, String>>(errorMap, HttpStatus.BAD_REQUEST);
-	        }
-          
-	        Book newPT = bookService.saveOrUpdate(projectBook);
+			for (FieldError error : result.getFieldErrors()) {
+				errorMap.put(error.getField(), error.getDefaultMessage());
+			}
+			return new ResponseEntity<Map<String, String>>(errorMap, HttpStatus.BAD_REQUEST);
+		}
 
-	        return new ResponseEntity<Book>(newPT, HttpStatus.CREATED);
-	    }
-	
-	
-	
-   @GetMapping("/all")
-   public Iterable<Book> getAllBooks()
-   {
-	   return bookService.findAll();
-   }
-   
-   @GetMapping("/{id}")
-   public ResponseEntity<Book> getBookById(@PathVariable Long id)
-   {
-	   Book book=bookService.findById(id);
-	   return new ResponseEntity<Book>(book,HttpStatus.OK);
-   }
-   
-   @DeleteMapping("/delete/{id}")
-   public ResponseEntity<String> deleteBook(@PathVariable Long id)
-   {
-	   bookService.delete(id);
-	   return new ResponseEntity<String>("book was deleted",HttpStatus.OK);
-   }
+		Book newPT = bookService.saveOrUpdate(projectBook);
+
+		return new ResponseEntity<Book>(newPT, HttpStatus.CREATED);
+	}
+
+	@GetMapping("/filter/{edition_year}/{publishing_year}/{publishing_place}/{number_of_pages}")
+	public ResponseEntity<Book> filterBook(@PathVariable String edition_year, @PathVariable String publishing_year,
+			@PathVariable String publishing_place, @PathVariable String number_of_pages) {
+
+		Book bookRes = bookService.filterBook(edition_year, publishing_year, publishing_place, number_of_pages);
+		// System.out.println(bookRes.toString());
+		return new ResponseEntity<Book>(bookRes, HttpStatus.OK);
+
+	}
+
+	@GetMapping("/all")
+	public Iterable<Book> getAllBooks() {
+		return bookService.findAll();
+	}
+
+	@GetMapping("/{id}")
+	public ResponseEntity<Book> getBookById(@PathVariable Long id) {
+		Book book = bookService.findById(id);
+		return new ResponseEntity<Book>(book, HttpStatus.OK);
+	}
+
+	@DeleteMapping("/delete/{id}")
+	public ResponseEntity<String> deleteBook(@PathVariable Long id) {
+		bookService.delete(id);
+		return new ResponseEntity<String>("book was deleted", HttpStatus.OK);
+	}
 }

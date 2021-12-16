@@ -5,8 +5,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import com.dev.delta.entities.Category;
 
-
 @RepositoryRestResource
-public interface CategoryBookRepository extends JpaRepository<Category, Long>  {
+public interface CategoryBookRepository extends JpaRepository<Category, Long> {
 
 }

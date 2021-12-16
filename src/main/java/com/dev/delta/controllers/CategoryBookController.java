@@ -22,49 +22,43 @@ import com.dev.delta.entities.Category;
 import com.dev.delta.services.CategoryBookService;
 
 @RestController
-@RequestMapping("/category")
+@RequestMapping("category")
 @CrossOrigin
 public class CategoryBookController {
 	@Autowired
 	CategoryBookService categoryService;
-	
-	
+
 	@PostMapping("/create")
-	 public ResponseEntity<?> addPTToBoard(@Validated @RequestBody Category projectCategory, BindingResult result){
+	public ResponseEntity<?> addPTToBoard(@Validated @RequestBody Category projectCategory, BindingResult result) {
 
-	    if(result.hasErrors()){
-	            Map<String, String> errorMap = new HashMap<String,String>();
+		if (result.hasErrors()) {
+			Map<String, String> errorMap = new HashMap<String, String>();
 
-	            for(FieldError error: result.getFieldErrors()){
-	                errorMap.put(error.getField(), error.getDefaultMessage());
-	            }
-	            return new ResponseEntity<Map<String, String>>(errorMap, HttpStatus.BAD_REQUEST);
-	        }
-          
-	        Category newPT = categoryService.saveOrUpdate(projectCategory);
+			for (FieldError error : result.getFieldErrors()) {
+				errorMap.put(error.getField(), error.getDefaultMessage());
+			}
+			return new ResponseEntity<Map<String, String>>(errorMap, HttpStatus.BAD_REQUEST);
+		}
 
-	        return new ResponseEntity<Category>(newPT, HttpStatus.CREATED);
-	    }
-	
-	
-	
-   @GetMapping("/all")
-   public Iterable<Category> getAllCategorys()
-   {
-	   return categoryService.findAll();
-   }
-   
-   @GetMapping("/{id}")
-   public ResponseEntity<Category> getCategoryById(@PathVariable Long id)
-   {
-	   Category category=categoryService.findById(id);
-	   return new ResponseEntity<Category>(category,HttpStatus.OK);
-   }
-   
-   @DeleteMapping("/delete/{id}")
-   public ResponseEntity<String> deleteCategory(@PathVariable Long id)
-   {
-	   categoryService.delete(id);
-	   return new ResponseEntity<String>("category was deleted",HttpStatus.OK);
-   }
+		Category newPT = categoryService.saveOrUpdate(projectCategory);
+
+		return new ResponseEntity<Category>(newPT, HttpStatus.CREATED);
+	}
+
+	@GetMapping("/all")
+	public Iterable<Category> getAllCategorys() {
+		return categoryService.findAll();
+	}
+
+	@GetMapping("/{id}")
+	public ResponseEntity<Category> getCategoryById(@PathVariable Long id) {
+		Category category = categoryService.findById(id);
+		return new ResponseEntity<Category>(category, HttpStatus.OK);
+	}
+
+	@DeleteMapping("/delete/{id}")
+	public ResponseEntity<String> deleteCategory(@PathVariable Long id) {
+		categoryService.delete(id);
+		return new ResponseEntity<String>("category was deleted", HttpStatus.OK);
+	}
 }

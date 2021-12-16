@@ -27,44 +27,38 @@ import com.dev.delta.services.WastageService;
 public class WastageController {
 	@Autowired
 	WastageService wastageService;
-	
-	
+
 	@PostMapping("/create")
-	 public ResponseEntity<?> addPTToBoard(@Validated @RequestBody Wastage projectWastage, BindingResult result){
+	public ResponseEntity<?> addPTToBoard(@Validated @RequestBody Wastage projectWastage, BindingResult result) {
 
-	    if(result.hasErrors()){
-	            Map<String, String> errorMap = new HashMap<String,String>();
+		if (result.hasErrors()) {
+			Map<String, String> errorMap = new HashMap<String, String>();
 
-	            for(FieldError error: result.getFieldErrors()){
-	                errorMap.put(error.getField(), error.getDefaultMessage());
-	            }
-	            return new ResponseEntity<Map<String, String>>(errorMap, HttpStatus.BAD_REQUEST);
-	        }
-          
-	        Wastage newPT = wastageService.saveOrUpdate(projectWastage);
+			for (FieldError error : result.getFieldErrors()) {
+				errorMap.put(error.getField(), error.getDefaultMessage());
+			}
+			return new ResponseEntity<Map<String, String>>(errorMap, HttpStatus.BAD_REQUEST);
+		}
 
-	        return new ResponseEntity<Wastage>(newPT, HttpStatus.CREATED);
-	    }
-	
-	
-	
-   @GetMapping("/all")
-   public Iterable<Wastage> getAllWastages()
-   {
-	   return wastageService.findAll();
-   }
-   
-   @GetMapping("/{id}")
-   public ResponseEntity<Wastage> getWastageById(@PathVariable Long id)
-   {
-	   Wastage wastage=wastageService.findById(id);
-	   return new ResponseEntity<Wastage>(wastage,HttpStatus.OK);
-   }
-   
-   @DeleteMapping("/delete/{id}")
-   public ResponseEntity<String> deleteWastage(@PathVariable Long id)
-   {
-	   wastageService.delete(id);
-	   return new ResponseEntity<String>("wastage was deleted",HttpStatus.OK);
-   }
+		Wastage newPT = wastageService.saveOrUpdate(projectWastage);
+
+		return new ResponseEntity<Wastage>(newPT, HttpStatus.CREATED);
+	}
+
+	@GetMapping("/all")
+	public Iterable<Wastage> getAllWastages() {
+		return wastageService.findAll();
+	}
+
+	@GetMapping("/{id}")
+	public ResponseEntity<Wastage> getWastageById(@PathVariable Long id) {
+		Wastage wastage = wastageService.findById(id);
+		return new ResponseEntity<Wastage>(wastage, HttpStatus.OK);
+	}
+
+	@DeleteMapping("/delete/{id}")
+	public ResponseEntity<String> deleteWastage(@PathVariable Long id) {
+		wastageService.delete(id);
+		return new ResponseEntity<String>("wastage was deleted", HttpStatus.OK);
+	}
 }

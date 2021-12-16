@@ -10,7 +10,7 @@ public class TypeMember {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
-	String member_type_name;
+	String name;
 
 	public TypeMember() {
 		// TODO Auto-generated constructor stub
@@ -18,7 +18,7 @@ public class TypeMember {
 
 	public TypeMember(String member_type_name) {
 		super();
-		this.member_type_name = member_type_name;
+		this.name = member_type_name;
 	}
 
 	public Long getId() {
@@ -29,12 +29,12 @@ public class TypeMember {
 		this.id = id;
 	}
 
-	public String getMember_type_name() {
-		return member_type_name;
+	public String getName() {
+		return name;
 	}
 
-	public void setMember_type_name(String member_type_name) {
-		this.member_type_name = member_type_name;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }

@@ -16,67 +16,54 @@ public class Book {
 	Long id;
 	String isbn;
 	String title;
-	String subtitle;
 	@ManyToOne
 	@JoinColumn(name = "author_id")
-	Writer author;
+	Writer writer;
 	String edition;
 	String edition_year;
-	String number_of_books;
 	String photo;
-	String physical_form;
 	@ManyToOne
 	@JoinColumn(name = "publisher_id")
 	Publisher publisher;
-	String series;
-	String size;
-	String price;
-	String call_no;
-	String location;
-	String clue_page;
-	String editor;
 	String publishing_year;
 	String publication_place;
 	String number_of_pages;
-	String source_details;
 	String notes;
-	String pdf;
-	String link;
+	String status;
+	@ManyToOne
+	@JoinColumn(name = "category_id")
+	Category category;
 
-	public Book() {
-		// TODO Auto-generated constructor stub
-	}
-
-	public Book(String isbn, String title, String subtitle, Writer author, String edition, String edition_year,
-			String number_of_books, String photo, String physical_form, Publisher publisher, String series, String size,
-			String price, String call_no, String location, String clue_page, String editor, String publishing_year,
-			String publication_place, String number_of_pages, String source_details, String notes, String pdf,
-			String link) {
+	public Book(Long id, String isbn, String title, Writer writer, String edition, String edition_year, String photo,
+			Publisher publisher, String publishing_year, String publication_place, String number_of_pages, String notes,
+			String status, Category category) {
 		super();
+		this.id = id;
 		this.isbn = isbn;
 		this.title = title;
-		this.subtitle = subtitle;
-		this.author = author;
+		this.writer = writer;
 		this.edition = edition;
 		this.edition_year = edition_year;
-		this.number_of_books = number_of_books;
 		this.photo = photo;
-		this.physical_form = physical_form;
 		this.publisher = publisher;
-		this.series = series;
-		this.size = size;
-		this.price = price;
-		this.call_no = call_no;
-		this.location = location;
-		this.clue_page = clue_page;
-		this.editor = editor;
 		this.publishing_year = publishing_year;
 		this.publication_place = publication_place;
 		this.number_of_pages = number_of_pages;
-		this.source_details = source_details;
 		this.notes = notes;
-		this.pdf = pdf;
-		this.link = link;
+		this.status = status;
+		this.category = category;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public Book() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public Long getId() {
@@ -103,28 +90,12 @@ public class Book {
 		this.title = title;
 	}
 
-	public String getSubtitle() {
-		return subtitle;
+	public Writer getWriter() {
+		return writer;
 	}
 
-	public void setSubtitle(String subtitle) {
-		this.subtitle = subtitle;
-	}
-
-	public Writer getAuthor() {
-		return author;
-	}
-
-	public void setAuthor(Writer author) {
-		this.author = author;
-	}
-
-	public Publisher getPublisher() {
-		return publisher;
-	}
-
-	public void setPublisher(Publisher publisher) {
-		this.publisher = publisher;
+	public void setWriter(Writer writer) {
+		this.writer = writer;
 	}
 
 	public String getEdition() {
@@ -143,14 +114,6 @@ public class Book {
 		this.edition_year = edition_year;
 	}
 
-	public String getNumber_of_books() {
-		return number_of_books;
-	}
-
-	public void setNumber_of_books(String number_of_books) {
-		this.number_of_books = number_of_books;
-	}
-
 	public String getPhoto() {
 		return photo;
 	}
@@ -159,68 +122,12 @@ public class Book {
 		this.photo = photo;
 	}
 
-	public String getPhysical_form() {
-		return physical_form;
+	public Publisher getPublisher() {
+		return publisher;
 	}
 
-	public void setPhysical_form(String physical_form) {
-		this.physical_form = physical_form;
-	}
-
-	public String getSeries() {
-		return series;
-	}
-
-	public void setSeries(String series) {
-		this.series = series;
-	}
-
-	public String getSize() {
-		return size;
-	}
-
-	public void setSize(String size) {
-		this.size = size;
-	}
-
-	public String getPrice() {
-		return price;
-	}
-
-	public void setPrice(String price) {
-		this.price = price;
-	}
-
-	public String getCall_no() {
-		return call_no;
-	}
-
-	public void setCall_no(String call_no) {
-		this.call_no = call_no;
-	}
-
-	public String getLocation() {
-		return location;
-	}
-
-	public void setLocation(String location) {
-		this.location = location;
-	}
-
-	public String getClue_page() {
-		return clue_page;
-	}
-
-	public void setClue_page(String clue_page) {
-		this.clue_page = clue_page;
-	}
-
-	public String getEditor() {
-		return editor;
-	}
-
-	public void setEditor(String editor) {
-		this.editor = editor;
+	public void setPublisher(Publisher publisher) {
+		this.publisher = publisher;
 	}
 
 	public String getPublishing_year() {
@@ -247,14 +154,6 @@ public class Book {
 		this.number_of_pages = number_of_pages;
 	}
 
-	public String getSource_details() {
-		return source_details;
-	}
-
-	public void setSource_details(String source_details) {
-		this.source_details = source_details;
-	}
-
 	public String getNotes() {
 		return notes;
 	}
@@ -263,20 +162,21 @@ public class Book {
 		this.notes = notes;
 	}
 
-	public String getPdf() {
-		return pdf;
+	public Category getCategory() {
+		return category;
 	}
 
-	public void setPdf(String pdf) {
-		this.pdf = pdf;
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 
-	public String getLink() {
-		return link;
-	}
-
-	public void setLink(String link) {
-		this.link = link;
+	@Override
+	public String toString() {
+		return "Book [id=" + id + ", isbn=" + isbn + ", title=" + title + ", writer=" + writer + ", edition=" + edition
+				+ ", edition_year=" + edition_year + ", photo=" + photo + ", publisher=" + publisher
+				+ ", publishing_year=" + publishing_year + ", publication_place=" + publication_place
+				+ ", number_of_pages=" + number_of_pages + ", notes=" + notes + ", status=" + status + ", category="
+				+ category + "]";
 	}
 
 }

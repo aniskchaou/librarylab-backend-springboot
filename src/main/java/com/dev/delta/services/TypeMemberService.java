@@ -9,27 +9,23 @@ import com.dev.delta.repositories.TypeMemberRepository;
 @Service
 public class TypeMemberService {
 	@Autowired
-	TypeMemberRepository  typeMemberRepository;
-	
-	public TypeMember saveOrUpdate(TypeMember typeMember)
-	{
-		
+	TypeMemberRepository typeMemberRepository;
+
+	public TypeMember saveOrUpdate(TypeMember typeMember) {
+
 		return typeMemberRepository.save(typeMember);
 	}
-	
-	public Iterable<TypeMember> findAll()
-	{
+
+	public Iterable<TypeMember> findAll() {
 		return typeMemberRepository.findAll();
 	}
-	
-	public TypeMember findById(Long id)
-	{
+
+	public TypeMember findById(Long id) {
 		return typeMemberRepository.findById(id).orElseThrow();
 	}
-	
-	public void delete(Long id)
-	{
-		TypeMember typeMember=findById(id);
+
+	public void delete(Long id) {
+		TypeMember typeMember = findById(id);
 		typeMemberRepository.delete(typeMember);
 	}
 }
