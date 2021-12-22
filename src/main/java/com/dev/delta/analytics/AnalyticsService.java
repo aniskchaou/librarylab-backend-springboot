@@ -14,6 +14,7 @@ import com.dev.delta.repositories.MemberRepository;
 
 /**
  * AnalyticsService
+ * 
  * @author Admin
  *
  */
@@ -34,6 +35,7 @@ public class AnalyticsService {
 
 	/**
 	 * findAllDays
+	 * 
 	 * @return
 	 */
 	public List<String> findAllDays() {
@@ -49,6 +51,7 @@ public class AnalyticsService {
 
 	/**
 	 * findBooksByDate
+	 * 
 	 * @return
 	 */
 	public List<String> findBooksByDate() {
@@ -65,6 +68,7 @@ public class AnalyticsService {
 
 	/**
 	 * findCategries
+	 * 
 	 * @return
 	 */
 	public List<String> findCategries() {
@@ -80,6 +84,7 @@ public class AnalyticsService {
 
 	/**
 	 * findBookByCategory
+	 * 
 	 * @return
 	 */
 	public List<Integer> findBookByCategory() {
@@ -90,6 +95,7 @@ public class AnalyticsService {
 
 	/**
 	 * findDashboardAnalytics
+	 * 
 	 * @return
 	 */
 	public DashboardAnalytics findDashboardAnalytics() {

@@ -17,8 +17,9 @@ public class Writer {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Writer(String name, String note) {
+	public Writer(Long id, String name, String note) {
 		super();
+		this.id = id;
 		this.name = name;
 		this.note = note;
 	}

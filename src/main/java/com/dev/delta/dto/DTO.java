@@ -31,7 +31,7 @@ import com.dev.delta.entitiesi18n.WriterI18n;
 import com.github.javafaker.Faker;
 
 public interface DTO {
-	
+
 	public Faker faker = new Faker();
 	public Archive archive = new Archive();
 	public Book book = new Book();
@@ -64,7 +64,7 @@ public interface DTO {
 	public Writer writer = new Writer();
 	public Settings settings = new Settings();
 
-	//EN
+	// EN
 	public BookI18n bookI18n = new BookI18n();
 	public CategoryI18n categoryI18n = new CategoryI18n();
 	public CirculationI18n circulationI18n = new CirculationI18n();
@@ -79,7 +79,7 @@ public interface DTO {
 	public MenuI18n menuI18n = new MenuI18n();
 	public DashboardI18n dashboardI18n = new DashboardI18n();
 
-	//AR
+	// AR
 	public BookI18n bookI18n2 = new BookI18n();
 	public CategoryI18n categoryI18n2 = new CategoryI18n();
 	public CirculationI18n circulationI18n2 = new CirculationI18n();
@@ -96,7 +96,7 @@ public interface DTO {
 	public SearchI18n searchI18n = new SearchI18n();
 	public SearchI18n searchI18n2 = new SearchI18n();
 
-	//HN
+	// HN
 	public BookI18n bookI18n3 = new BookI18n();
 	public CategoryI18n categoryI18n3 = new CategoryI18n();
 	public CirculationI18n circulationI18n3 = new CirculationI18n();
@@ -112,7 +112,7 @@ public interface DTO {
 	public DashboardI18n dashboardI18n3 = new DashboardI18n();
 	public SearchI18n searchI18n3 = new SearchI18n();
 
-	//BN
+	// BN
 	public BookI18n bookI18n4 = new BookI18n();
 	public CategoryI18n categoryI18n4 = new CategoryI18n();
 	public CirculationI18n circulationI18n4 = new CirculationI18n();

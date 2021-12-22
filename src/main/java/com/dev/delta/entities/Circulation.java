@@ -34,9 +34,10 @@ public class Circulation {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Circulation(Member memberName, Book bookName, Writer writer, String issueDate, String lastDate,
+	public Circulation(Long id, Member memberName, Book bookName, Writer writer, String issueDate, String lastDate,
 			String toReturn, String returnDate, String penalty, CirculationStatus returnStatus) {
 		super();
+		this.id = id;
 		this.memberName = memberName;
 		this.bookName = bookName;
 		this.writer = writer;

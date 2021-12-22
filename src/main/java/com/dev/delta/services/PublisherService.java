@@ -8,12 +8,13 @@ import com.dev.delta.repositories.PublisherRepository;
 
 /**
  * PublisherService
+ * 
  * @author Admin
  *
  */
 @Service
 public class PublisherService {
-	
+
 	/**
 	 * PublisherRepository
 	 */
@@ -22,6 +23,7 @@ public class PublisherService {
 
 	/**
 	 * saveOrUpdate
+	 * 
 	 * @param publisher
 	 * @return
 	 */
@@ -31,6 +33,7 @@ public class PublisherService {
 
 	/**
 	 * findAll
+	 * 
 	 * @return
 	 */
 	public Iterable<Publisher> findAll() {
@@ -39,6 +42,7 @@ public class PublisherService {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @return
 	 */
@@ -48,6 +52,7 @@ public class PublisherService {
 
 	/**
 	 * delete
+	 * 
 	 * @param id
 	 */
 	public void delete(Long id) {

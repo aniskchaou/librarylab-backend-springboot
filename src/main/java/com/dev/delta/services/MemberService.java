@@ -8,12 +8,13 @@ import com.dev.delta.repositories.MemberRepository;
 
 /**
  * MemberService
+ * 
  * @author Admin
  *
  */
 @Service
 public class MemberService {
-	
+
 	/**
 	 * MemberRepository
 	 */
@@ -22,6 +23,7 @@ public class MemberService {
 
 	/**
 	 * saveOrUpdate
+	 * 
 	 * @param member
 	 * @return
 	 */
@@ -31,6 +33,7 @@ public class MemberService {
 
 	/**
 	 * findAll
+	 * 
 	 * @return
 	 */
 	public Iterable<Member> findAll() {
@@ -39,6 +42,7 @@ public class MemberService {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @return
 	 */
@@ -48,6 +52,7 @@ public class MemberService {
 
 	/**
 	 * delete
+	 * 
 	 * @param id
 	 */
 	public void delete(Long id) {

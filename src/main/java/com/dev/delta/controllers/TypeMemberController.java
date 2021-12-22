@@ -29,7 +29,7 @@ import io.swagger.annotations.ApiResponses;
 @RestController
 @RequestMapping("typemember")
 @CrossOrigin
-@Api(value="BookController",description=" this is the typemember controller class")
+@Api(value = "BookController", description = " this is the typemember controller class")
 /**
  * 
  * @author Admin
@@ -48,8 +48,9 @@ public class TypeMemberController {
 	 * @param result
 	 * @return
 	 */
-	@ApiOperation(value=" add type member ")
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
+	@ApiOperation(value = " add type member ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
 	@PostMapping("/create")
 	public ResponseEntity<?> addtypeMember(@Validated @RequestBody TypeMember projectTypeMember, BindingResult result) {
 
@@ -71,8 +72,9 @@ public class TypeMemberController {
 	 * 
 	 * @return
 	 */
-	@ApiOperation(value=" get type members ")
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
+	@ApiOperation(value = " get type members ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
 	@GetMapping("/all")
 	public Iterable<TypeMember> getAllTypeMembers() {
 		return typeMemberService.findAll();
@@ -83,8 +85,9 @@ public class TypeMemberController {
 	 * @param id
 	 * @return
 	 */
-	@ApiOperation(value=" get member type by id ")
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
+	@ApiOperation(value = " get member type by id ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
 	@GetMapping("/{id}")
 	public ResponseEntity<TypeMember> getTypeMemberById(@PathVariable Long id) {
 		TypeMember typeMember = typeMemberService.findById(id);
@@ -96,8 +99,9 @@ public class TypeMemberController {
 	 * @param id
 	 * @return
 	 */
-	@ApiOperation(value=" rdeete type member ")
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
+	@ApiOperation(value = " rdeete type member ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<String> deleteTypeMember(@PathVariable Long id) {
 		typeMemberService.delete(id);

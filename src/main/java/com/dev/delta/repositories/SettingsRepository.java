@@ -10,8 +10,8 @@ import org.springframework.data.repository.query.Param;
 import com.dev.delta.entities.Settings;
 
 public interface SettingsRepository extends JpaRepository<Settings, Long> {
-    @Modifying
-    @Transactional 
+	@Modifying
+	@Transactional
 	@Query(nativeQuery = true, value = "update settings s set s.lang=:lang  where s.id=1")
 	void updateSettingsByLang(@Param("lang") String lang);
 }

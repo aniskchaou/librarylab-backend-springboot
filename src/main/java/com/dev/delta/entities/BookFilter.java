@@ -1,6 +1,8 @@
 package com.dev.delta.entities;
+
 /**
  * BookFilter
+ * 
  * @author Admin
  *
  */

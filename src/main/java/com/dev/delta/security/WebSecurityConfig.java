@@ -17,6 +17,7 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 @EnableWebSecurity
 /**
  * WebSecurityConfig
+ * 
  * @author Admin
  *
  */
@@ -26,9 +27,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	 * PasswordEncoder
 	 */
 	PasswordEncoder passwordEncoder;
-    
+
 	/**
 	 * WebSecurityConfig
+	 * 
 	 * @param passwordEncoder
 	 */
 	@Autowired
@@ -42,12 +44,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	 */
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.csrf().disable().
-				authorizeRequests().antMatchers(HttpMethod.OPTIONS, "/**").permitAll().anyRequest().authenticated()
-				.and().httpBasic();
+		http.csrf().disable().authorizeRequests().antMatchers(HttpMethod.OPTIONS, "/**").permitAll().anyRequest()
+				.authenticated().and().httpBasic();
 	}
 
-	
 	/**
 	 * userDetailsService
 	 */

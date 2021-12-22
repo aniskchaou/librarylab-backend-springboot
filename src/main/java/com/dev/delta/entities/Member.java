@@ -23,6 +23,12 @@ public class Member {
 		// TODO Auto-generated constructor stub
 	}
 
+	public Member(Long id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
+	}
+
 	public Member(String name, String user_type, String type_id, String email, String mobile, String password,
 			String address, String status) {
 		super();

@@ -5,14 +5,16 @@ import org.springframework.stereotype.Service;
 
 import com.dev.delta.entities.TypeMember;
 import com.dev.delta.repositories.TypeMemberRepository;
+
 /**
  * TypeMemberService
+ * 
  * @author Admin
  *
  */
 @Service
 public class TypeMemberService {
-	
+
 	/**
 	 * TypeMemberRepository
 	 */
@@ -21,6 +23,7 @@ public class TypeMemberService {
 
 	/**
 	 * saveOrUpdate
+	 * 
 	 * @param typeMember
 	 * @return
 	 */
@@ -28,9 +31,10 @@ public class TypeMemberService {
 
 		return typeMemberRepository.save(typeMember);
 	}
-    
+
 	/**
 	 * findAll
+	 * 
 	 * @return
 	 */
 	public Iterable<TypeMember> findAll() {
@@ -39,15 +43,17 @@ public class TypeMemberService {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @return
 	 */
 	public TypeMember findById(Long id) {
 		return typeMemberRepository.findById(id).orElseThrow();
 	}
-    
+
 	/**
 	 * TypeMemberRepository
+	 * 
 	 * @param id
 	 */
 	public void delete(Long id) {

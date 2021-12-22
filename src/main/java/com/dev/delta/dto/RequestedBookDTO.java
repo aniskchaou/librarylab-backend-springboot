@@ -55,24 +55,22 @@ public class RequestedBookDTO implements DTO {
 		requestedBookI18n3.setEditButtonI18n("সম্পাদনা");
 		requestedBookI18n3.setEditTitleI18n("অনুরোধকৃত বই সম্পাদনা করুন");
 		requestedBookI18nRepository.save(requestedBookI18n3);
-		
-		
-		requestBookI18n4.setBookI18n ("बुक");
-		requestBookI18n4.setCtagoryI18n ("श्रेणी");
-		requestBookI18n4.setEditionI18n ("संस्करण");
-		requestBookI18n4.setMemberI18n ("सदस्य");
-		requestBookI18n4.setNoteI18n ("नोट");
-		requestBookI18n4.setWriterI18n ("लेखक");
-		requestBookI18n4.setLangI18n ("HN");
-		requestBookI18n4.setAddButtonI18n ("बनाएं");
-		requestBookI18n4.setAddTitleI18n ("अनुरोधित पुस्तक बनाएं");
-		requestBookI18n4.setAllTitleI18n ("अनुरोधित पुस्तकें");
-		requestBookI18n4.setCloseButtonI18n ("बंद करें");
-		requestBookI18n4.setEditButtonI18n ("संपादित करें");
-		requestBookI18n4.setEditTitleI18n ("अनुरोधित पुस्तक संपादित करें");
+
+		requestBookI18n4.setBookI18n("बुक");
+		requestBookI18n4.setCtagoryI18n("श्रेणी");
+		requestBookI18n4.setEditionI18n("संस्करण");
+		requestBookI18n4.setMemberI18n("सदस्य");
+		requestBookI18n4.setNoteI18n("नोट");
+		requestBookI18n4.setWriterI18n("लेखक");
+		requestBookI18n4.setLangI18n("HN");
+		requestBookI18n4.setAddButtonI18n("बनाएं");
+		requestBookI18n4.setAddTitleI18n("अनुरोधित पुस्तक बनाएं");
+		requestBookI18n4.setAllTitleI18n("अनुरोधित पुस्तकें");
+		requestBookI18n4.setCloseButtonI18n("बंद करें");
+		requestBookI18n4.setEditButtonI18n("संपादित करें");
+		requestBookI18n4.setEditTitleI18n("अनुरोधित पुस्तक संपादित करें");
 		requestedBookI18nRepository.save(requestBookI18n4);
-		
-		
+
 		requestBookI18n2.setBookI18n("كتاب");
 		requestBookI18n2.setCtagoryI18n("الفئة");
 		requestBookI18n2.setEditionI18n("Edition");

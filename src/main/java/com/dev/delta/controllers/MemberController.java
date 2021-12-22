@@ -29,7 +29,7 @@ import io.swagger.annotations.ApiResponses;
 @RestController
 @RequestMapping("member")
 @CrossOrigin
-@Api(value="BookController",description=" this is the member controller class")
+@Api(value = "BookController", description = " this is the member controller class")
 /**
  * 
  * @author Admin
@@ -48,8 +48,9 @@ public class MemberController {
 	 * @param result
 	 * @return
 	 */
-	@ApiOperation(value=" create member ")
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
+	@ApiOperation(value = " create member ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
 	@PostMapping("/create")
 	public ResponseEntity<?> addPTToBoard(@Validated @RequestBody Member projectMember, BindingResult result) {
 
@@ -71,8 +72,9 @@ public class MemberController {
 	 * 
 	 * @return
 	 */
-	@ApiOperation(value=" get all members ")
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
+	@ApiOperation(value = " get all members ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
 	@GetMapping("/all")
 	public Iterable<Member> getAllMembers() {
 		return memberService.findAll();
@@ -83,8 +85,9 @@ public class MemberController {
 	 * @param id
 	 * @return
 	 */
-	@ApiOperation(value=" show member ")
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
+	@ApiOperation(value = " show member ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
 	@GetMapping("/{id}")
 	public ResponseEntity<Member> getMemberById(@PathVariable Long id) {
 		Member member = memberService.findById(id);
@@ -93,11 +96,13 @@ public class MemberController {
 
 	/**
 	 * delete member
+	 * 
 	 * @param id
 	 * @return
 	 */
-	@ApiOperation(value=" delete member by id ")
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
+	@ApiOperation(value = " delete member by id ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<String> deleteMember(@PathVariable Long id) {
 		memberService.delete(id);

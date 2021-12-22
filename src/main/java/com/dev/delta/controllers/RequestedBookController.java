@@ -29,14 +29,14 @@ import io.swagger.annotations.ApiResponses;
 @RestController
 @RequestMapping("requestedbook")
 @CrossOrigin
-@Api(value="BookController",description=" this is the requested book controller class")
+@Api(value = "BookController", description = " this is the requested book controller class")
 /**
  * 
  * @author Admin
  *
  */
 public class RequestedBookController {
-	
+
 	/**
 	 * 
 	 */
@@ -49,8 +49,9 @@ public class RequestedBookController {
 	 * @param result
 	 * @return
 	 */
-	@ApiOperation(value=" add requested book ")
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
+	@ApiOperation(value = " add requested book ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
 	@PostMapping("/create")
 	public ResponseEntity<?> addRequestedBook(@Validated @RequestBody RequestedBook projectRequestedBook,
 			BindingResult result) {
@@ -73,8 +74,9 @@ public class RequestedBookController {
 	 * 
 	 * @return
 	 */
-	@ApiOperation(value=" get all requested book ")
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
+	@ApiOperation(value = " get all requested book ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
 	@GetMapping("/all")
 	public Iterable<RequestedBook> getAllRequestedBooks() {
 		return requestedBookService.findAll();
@@ -85,8 +87,9 @@ public class RequestedBookController {
 	 * @param id
 	 * @return
 	 */
-	@ApiOperation(value=" get requested book by id ")
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
+	@ApiOperation(value = " get requested book by id ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
 	@GetMapping("/{id}")
 	public ResponseEntity<RequestedBook> getRequestedBookById(@PathVariable Long id) {
 		RequestedBook requestedBook = requestedBookService.findById(id);
@@ -98,8 +101,9 @@ public class RequestedBookController {
 	 * @param id
 	 * @return
 	 */
-	@ApiOperation(value=" delete requested book ")
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
+	@ApiOperation(value = " delete requested book ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<String> deleteRequestedBook(@PathVariable Long id) {
 		requestedBookService.delete(id);

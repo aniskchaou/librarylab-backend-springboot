@@ -10,6 +10,7 @@ import javax.persistence.Table;
 
 /**
  * Book
+ * 
  * @author Admin
  *
  */
@@ -39,7 +40,6 @@ public class Book {
 	@JoinColumn(name = "category_id")
 	private Category category;
 
-	
 	public Book(Long id, String isbn, String title, Writer writer, String edition, String edition_year, String photo,
 			Publisher publisher, String publishing_year, String publication_place, String number_of_pages, String notes,
 			String status, Category category) {

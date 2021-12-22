@@ -23,6 +23,12 @@ import com.dev.delta.entities.Writer;
 import com.dev.delta.repositories.BookRepository;
 import com.dev.delta.services.BookService;
 
+/**
+ * BookServiceTest
+ * 
+ * @author Admin
+ *
+ */
 @SpringBootTest
 class BookServiceTest {
 
@@ -32,14 +38,14 @@ class BookServiceTest {
 	@Mock
 	BookRepository bookRepository;
 
-	List<Category> list;
-
 	@BeforeEach
 	public void init() {
 		MockitoAnnotations.openMocks(this);
-		list = new ArrayList<Category>();
 	}
 
+	/**
+	 * getAllBooksTest
+	 */
 	@Test
 	public void getAllBooksTest() {
 		List<Book> list = new ArrayList<Book>();
@@ -53,40 +59,33 @@ class BookServiceTest {
 		list.add(book1);
 		list.add(book2);
 		list.add(book3);
-
 		when(bookRepository.findAll()).thenReturn(list);
-
-		// test
 		List<Book> bookList = (List<Book>) bookService.findAll();
-
 		assertEquals(3, bookList.size());
 		verify(bookRepository, times(1)).findAll();
 	}
-	
 
+	/**
+	 * getAllBooksTest
+	 */
 	@Test
 	public void getBookByIdTest() {
-		
-		  when(bookRepository.findById(1L)).thenReturn(Optional.of(new Book(1L, "123",
-		"title 1", new Writer(), "", "", "", new Publisher(), "", "", "", "", "", new
-		  Category())));
-		  
-		 Book book = bookService.findById(1L);
-		 
-		  assertEquals("123", book.getIsbn()); assertEquals("title 1",
-		  book.getTitle());
-		
-
+		when(bookRepository.findById(1L)).thenReturn(Optional.of(new Book(1L, "123", "title 1", new Writer(), "", "",
+				"", new Publisher(), "", "", "", "", "", new Category())));
+		Book book = bookService.findById(1L);
+		assertEquals("123", book.getIsbn());
+		assertEquals("title 1", book.getTitle());
 	}
 
+	/**
+	 * saveBookTest
+	 */
 	@Test
 	public void saveBookTest() {
 		Book book1 = new Book(1L, "123", "title 1", new Writer(), "", "", "", new Publisher(), "", "", "", "", "",
 				new Category());
-
 		bookService.saveOrUpdate(book1);
-
 		verify(bookRepository, times(1)).save(book1);
 	}
-   
+
 }

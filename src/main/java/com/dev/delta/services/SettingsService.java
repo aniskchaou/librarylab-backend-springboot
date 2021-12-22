@@ -5,14 +5,16 @@ import org.springframework.stereotype.Service;
 
 import com.dev.delta.entities.Settings;
 import com.dev.delta.repositories.SettingsRepository;
+
 /**
  * SettingsService
+ * 
  * @author Admin
  *
  */
 @Service
 public class SettingsService {
-	
+
 	/**
 	 * SettingsRepository
 	 */
@@ -21,6 +23,7 @@ public class SettingsService {
 
 	/**
 	 * saveOrUpdate
+	 * 
 	 * @param settings
 	 * @return
 	 */
@@ -30,6 +33,7 @@ public class SettingsService {
 
 	/**
 	 * findAll
+	 * 
 	 * @return
 	 */
 	public Iterable<Settings> findAll() {
@@ -38,6 +42,7 @@ public class SettingsService {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @return
 	 */
@@ -47,20 +52,21 @@ public class SettingsService {
 
 	/**
 	 * delete
+	 * 
 	 * @param id
 	 */
 	public void delete(Long id) {
 		Settings settings = findById(id);
 		settingsRepository.delete(settings);
 	}
-	
+
 	/**
 	 * changeLang
+	 * 
 	 * @param lang
 	 * @return
 	 */
-	public boolean changeLang(String lang)
-	{
+	public boolean changeLang(String lang) {
 		settingsRepository.updateSettingsByLang(lang);
 		return true;
 	}

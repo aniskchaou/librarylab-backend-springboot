@@ -29,14 +29,14 @@ import io.swagger.annotations.ApiResponses;
 @RestController
 @RequestMapping("publisher")
 @CrossOrigin
-@Api(value="BookController",description=" this is the publisher controller class")
+@Api(value = "BookController", description = " this is the publisher controller class")
 /**
  * 
  * @author Admin
  *
  */
 public class PublisherController {
-	
+
 	/**
 	 * 
 	 */
@@ -49,8 +49,9 @@ public class PublisherController {
 	 * @param result
 	 * @return
 	 */
-	@ApiOperation(value=" add publisher ")
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
+	@ApiOperation(value = " add publisher ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
 	@PostMapping("/create")
 	public ResponseEntity<?> addPublisher(@Validated @RequestBody Publisher projectPublisher, BindingResult result) {
 
@@ -72,8 +73,9 @@ public class PublisherController {
 	 * 
 	 * @return
 	 */
-	@ApiOperation(value=" get all publishers ")
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
+	@ApiOperation(value = " get all publishers ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
 	@GetMapping("/all")
 	public Iterable<Publisher> getAllPublishers() {
 		return publisherService.findAll();
@@ -84,8 +86,9 @@ public class PublisherController {
 	 * @param id
 	 * @return
 	 */
-	@ApiOperation(value=" get publisher ")
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
+	@ApiOperation(value = " get publisher ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
 	@GetMapping("/{id}")
 	public ResponseEntity<Publisher> getPublisherById(@PathVariable Long id) {
 		Publisher publisher = publisherService.findById(id);
@@ -97,8 +100,9 @@ public class PublisherController {
 	 * @param id
 	 * @return
 	 */
-	@ApiOperation(value=" delete publisher ")
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
+	@ApiOperation(value = " delete publisher ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<String> deletePublisher(@PathVariable Long id) {
 		publisherService.delete(id);

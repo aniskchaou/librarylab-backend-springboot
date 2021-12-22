@@ -8,6 +8,7 @@ import com.dev.delta.repositories.WriterRepository;
 
 /**
  * WriterService
+ * 
  * @author Admin
  *
  */
@@ -21,6 +22,7 @@ public class WriterService {
 
 	/**
 	 * saveOrUpdate
+	 * 
 	 * @param writer
 	 * @return
 	 */
@@ -30,6 +32,7 @@ public class WriterService {
 
 	/**
 	 * find all
+	 * 
 	 * @return
 	 */
 	public Iterable<Writer> findAll() {
@@ -38,17 +41,19 @@ public class WriterService {
 
 	/**
 	 * findById
+	 * 
 	 * @param id
 	 * @return
 	 */
 	public Writer findById(Long id) {
 		return writerRepository.findById(id).orElseThrow();
 	}
-	
-    /**
-     * delete
-     * @param id
-     */
+
+	/**
+	 * delete
+	 * 
+	 * @param id
+	 */
 	public void delete(Long id) {
 		Writer writer = findById(id);
 		writerRepository.delete(writer);

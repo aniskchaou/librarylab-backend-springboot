@@ -8,6 +8,7 @@ import java.util.zip.Inflater;
 
 /**
  * ImageUtil
+ * 
  * @author Admin
  *
  */
@@ -15,6 +16,7 @@ public class ImageUtil {
 
 	/**
 	 * compressBytes
+	 * 
 	 * @param data
 	 * @return
 	 */
@@ -38,6 +40,7 @@ public class ImageUtil {
 
 	/**
 	 * decompressBytes
+	 * 
 	 * @param data
 	 * @return
 	 */

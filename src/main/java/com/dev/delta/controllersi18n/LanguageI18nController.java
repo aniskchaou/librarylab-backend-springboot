@@ -38,6 +38,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+
 /**
  * 
  * @author Admin
@@ -46,7 +47,7 @@ import io.swagger.annotations.ApiResponses;
 @RestController
 @RequestMapping("i18n")
 @CrossOrigin
-@Api(value="BookController",description=" this is the language i18n controller class")
+@Api(value = "BookController", description = " this is the language i18n controller class")
 public class LanguageI18nController {
 
 	@Autowired
@@ -93,8 +94,9 @@ public class LanguageI18nController {
 	 * @param lang
 	 * @return
 	 */
-	@ApiOperation(value=" get dahboa ")
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
+	@ApiOperation(value = " get dahboa ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
 	@GetMapping("/dashboard/{lang}")
 	public ResponseEntity<DashboardI18n> getDashboard(@PathVariable String lang) {
 		DashboardI18n dashboardI18n = dashboardRepository.findByLangI18n(lang);
@@ -106,8 +108,9 @@ public class LanguageI18nController {
 	 * @param lang
 	 * @return
 	 */
-	@ApiOperation(value=" get menu lang ")
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
+	@ApiOperation(value = " get menu lang ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
 	@GetMapping("/menu/{lang}")
 	public ResponseEntity<MenuI18n> getMenu(@PathVariable String lang) {
 		MenuI18n menuI18n = menuI18nRepository.findByLangI18n(lang);
@@ -119,8 +122,9 @@ public class LanguageI18nController {
 	 * @param lang
 	 * @return
 	 */
-	@ApiOperation(value=" get requested book  ")
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
+	@ApiOperation(value = " get requested book  ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
 	@GetMapping("/requestedbook/{lang}")
 	public ResponseEntity<RequestedBookI18n> getRequestedBookByLang(@PathVariable String lang) {
 		RequestedBookI18n requestedBookI18n = requestedBookI18nRepository2.findByLangI18n(lang);
@@ -132,8 +136,9 @@ public class LanguageI18nController {
 	 * @param lang
 	 * @return
 	 */
-	@ApiOperation(value=" get category  ")
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
+	@ApiOperation(value = " get category  ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
 	@GetMapping("/category/{lang}")
 	public ResponseEntity<CategoryI18n> getcategoryByLang(@PathVariable String lang) {
 		CategoryI18n categoryI18n = categoryI18nRepository.findByLangI18n(lang);
@@ -145,8 +150,9 @@ public class LanguageI18nController {
 	 * @param lang
 	 * @return
 	 */
-	@ApiOperation(value=" get book ")
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
+	@ApiOperation(value = " get book ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
 	@GetMapping("/book/{lang}")
 	public ResponseEntity<BookI18n> getbookByLang(@PathVariable String lang) {
 		BookI18n bookI18n = bookI18nRepository.findByLangI18n(lang);
@@ -158,8 +164,9 @@ public class LanguageI18nController {
 	 * @param lang
 	 * @return
 	 */
-	@ApiOperation(value=" get circulation ")
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
+	@ApiOperation(value = " get circulation ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
 	@GetMapping("/circulation/{lang}")
 	public ResponseEntity<CirculationI18n> getCirculationByLang(@PathVariable String lang) {
 		CirculationI18n circulationI18n = circulationI18nRepository.findByLangI18n(lang);
@@ -171,8 +178,9 @@ public class LanguageI18nController {
 	 * @param lang
 	 * @return
 	 */
-	@ApiOperation(value=" returns all employees ")
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
+	@ApiOperation(value = " returns all employees ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
 	@GetMapping("/circulationstatus/{lang}")
 	public ResponseEntity<CirculationStatusI18n> getCirculationStatusByLang(@PathVariable String lang) {
 		CirculationStatusI18n circulationStatusI18n = circulationStatusI18nRepository.findByLangI18n(lang);
@@ -184,8 +192,9 @@ public class LanguageI18nController {
 	 * @param lang
 	 * @return
 	 */
-	@ApiOperation(value=" get member ")
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
+	@ApiOperation(value = " get member ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
 	@GetMapping("/member/{lang}")
 	public ResponseEntity<MemberI18n> getMemberByLang(@PathVariable String lang) {
 		MemberI18n memberI18n = memberI18nRepository.findByLangI18n(lang);
@@ -197,8 +206,9 @@ public class LanguageI18nController {
 	 * @param lang
 	 * @return
 	 */
-	@ApiOperation(value=" get publisher ")
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
+	@ApiOperation(value = " get publisher ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
 	@GetMapping("/publisher/{lang}")
 	public ResponseEntity<PublisherI18n> getPublisherByLang(@PathVariable String lang) {
 		PublisherI18n publisherI18n = publisherI18nRepository.findByLangI18n(lang);
@@ -210,8 +220,9 @@ public class LanguageI18nController {
 	 * @param lang
 	 * @return
 	 */
-	@ApiOperation(value=" get settings ")
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
+	@ApiOperation(value = " get settings ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
 	@GetMapping("/settings/{lang}")
 	public ResponseEntity<SettingsI18n> getSettingsByLang(@PathVariable String lang) {
 		SettingsI18n settingsI18n = settingsI18nRepository.findByLangI18n(lang);
@@ -223,8 +234,9 @@ public class LanguageI18nController {
 	 * @param lang
 	 * @return
 	 */
-	@ApiOperation(value=" get type member ")
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
+	@ApiOperation(value = " get type member ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
 	@GetMapping("/typemember/{lang}")
 	public ResponseEntity<TypeMemberI18n> getTypeMemberyLang(@PathVariable String lang) {
 		TypeMemberI18n typeMemberI18n = typeMemberI18nRepository.findByLangI18n(lang);
@@ -236,8 +248,9 @@ public class LanguageI18nController {
 	 * @param lang
 	 * @return
 	 */
-	@ApiOperation(value=" get writer ")
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
+	@ApiOperation(value = " get writer ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
 	@GetMapping("/writer/{lang}")
 	public ResponseEntity<WriterI18n> getWriterByLang(@PathVariable String lang) {
 		WriterI18n writerI18n = writerI18nRepository.findByLangI18n(lang);

@@ -13,16 +13,16 @@ public class ImageModel {
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@Column(name = "name")
 	private String name;
-	
+
 	@Column(name = "type")
 	private String type;
-	
+
 	@Column(name = "picByte", length = 4000)
 	private byte[] picByte;
-	
+
 	public ImageModel() {
 		super();
 	}
@@ -32,8 +32,6 @@ public class ImageModel {
 		this.type = type;
 		this.picByte = picByte;
 	}
-
-	
 
 	public Long getId() {
 		return id;

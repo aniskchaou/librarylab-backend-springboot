@@ -29,9 +29,10 @@ import io.swagger.annotations.ApiResponses;
 @RestController
 @RequestMapping("category")
 @CrossOrigin
-@Api(value="BookController",description=" this is the category book controller class")
+@Api(value = "BookController", description = " this is the category book controller class")
 /**
  * Category Controller
+ * 
  * @author Admin
  *
  */
@@ -51,7 +52,8 @@ public class CategoryBookController {
 	 */
 	@ApiOperation(value = " add category ")
 	@PostMapping("/create")
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
 	public ResponseEntity<?> addCategory(@Validated @RequestBody Category projectCategory, BindingResult result) {
 
 		if (result.hasErrors()) {
@@ -68,21 +70,19 @@ public class CategoryBookController {
 		return new ResponseEntity<Category>(newPT, HttpStatus.CREATED);
 	}
 
-	
 	/**
 	 * getAllCategorys
 	 * 
 	 * @return
 	 */
 	@ApiOperation(value = " find categories ")
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
 	@GetMapping("/all")
 	public Iterable<Category> getAllCategorys() {
 		return categoryService.findAll();
 	}
 
-	
-	
 	/**
 	 * getCategoryById
 	 * 
@@ -90,7 +90,8 @@ public class CategoryBookController {
 	 * @return
 	 */
 	@ApiOperation(value = " get category by id ")
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
 	@GetMapping("/{id}")
 	public ResponseEntity<Category> getCategoryById(@PathVariable Long id) {
 		Category category = categoryService.findById(id);
@@ -104,7 +105,8 @@ public class CategoryBookController {
 	 * @return
 	 */
 	@ApiOperation(value = " rdelete by id ")
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<String> deleteCategory(@PathVariable Long id) {
 		categoryService.delete(id);

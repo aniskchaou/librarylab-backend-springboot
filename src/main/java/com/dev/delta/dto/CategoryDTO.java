@@ -8,6 +8,7 @@ import com.dev.delta.repositoriesi18n.CategoryI18nRepository;
 
 /**
  * CategoryDTO
+ * 
  * @author Admin
  *
  */
@@ -40,8 +41,7 @@ public class CategoryDTO implements DTO {
 		categoryI18n.setEditButtonI18n("Edit");
 		categoryI18n.setEditTitleI18n("Edit Category");
 		categoryI18nRepository.save(categoryI18n);
-		
-		
+
 		categoryI18n3.setCategory_nameI18n("বিভাগ");
 		categoryI18n3.setLangI18n("BN");
 		categoryI18n3.setAddButtonI18n("তৈরি করুন");
@@ -51,15 +51,15 @@ public class CategoryDTO implements DTO {
 		categoryI18n3.setEditButtonI18n("সম্পাদনা");
 		categoryI18n3.setEditTitleI18n("বিভাগ সম্পাদনা করুন");
 		categoryI18nRepository.save(categoryI18n3);
-		
-		categoryI18n4.setCategory_nameI18n ("श्रेणी");
-		categoryI18n4.setLangI18n ("HN");
-		categoryI18n4.setAddButtonI18n ("बनाएं");
-		categoryI18n4.setAddTitleI18n ("श्रेणी बनाएं");
-		categoryI18n4.setAllTitleI18n ("श्रेणियां");
-		categoryI18n4.setCloseButtonI18n ("बंद करें");
-		categoryI18n4.setEditButtonI18n ("संपादित करें");
-		categoryI18n4.setEditTitleI18n ("श्रेणी संपादित करें");
+
+		categoryI18n4.setCategory_nameI18n("श्रेणी");
+		categoryI18n4.setLangI18n("HN");
+		categoryI18n4.setAddButtonI18n("बनाएं");
+		categoryI18n4.setAddTitleI18n("श्रेणी बनाएं");
+		categoryI18n4.setAllTitleI18n("श्रेणियां");
+		categoryI18n4.setCloseButtonI18n("बंद करें");
+		categoryI18n4.setEditButtonI18n("संपादित करें");
+		categoryI18n4.setEditTitleI18n("श्रेणी संपादित करें");
 		categoryI18nRepository.save(categoryI18n4);
 
 		categoryI18n2.setCategory_nameI18n("الفئة");

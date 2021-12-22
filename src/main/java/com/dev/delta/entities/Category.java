@@ -10,6 +10,7 @@ import javax.persistence.Id;
 
 /**
  * Category
+ * 
  * @author Admin
  *
  */
@@ -22,10 +23,17 @@ public class Category {
 	private String image_name;
 	@Column(name = "picByte", length = 1000)
 	private byte[] image;
-     
-public Category() {
+
+	public Category() {
 		// TODO Auto-generated constructor stub
 	}
+
+	public Category(Long id, String category_name) {
+		super();
+		this.id = id;
+		this.category_name = category_name;
+	}
+
 	public String getImage_name() {
 		return image_name;
 	}

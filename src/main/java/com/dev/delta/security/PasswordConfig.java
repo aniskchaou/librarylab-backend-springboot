@@ -7,6 +7,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
  * PasswordConfig
+ * 
  * @author Admin
  *
  */
@@ -15,6 +16,7 @@ public class PasswordConfig {
 
 	/**
 	 * password encoder
+	 * 
 	 * @return
 	 */
 	@Bean

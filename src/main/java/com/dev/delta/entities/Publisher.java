@@ -16,8 +16,9 @@ public class Publisher {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Publisher(String name) {
+	public Publisher(Long id, String name) {
 		super();
+		this.id = id;
 		this.name = name;
 	}
 

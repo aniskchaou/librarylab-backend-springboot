@@ -17,7 +17,7 @@ public class PublisherDTO implements DTO {
 
 	@Override
 	public void populate() {
-		
+
 		publisher.setName(faker.book().publisher());
 		publisherRepository.save(publisher);
 
@@ -40,17 +40,17 @@ public class PublisherDTO implements DTO {
 		publisherI18n2.setEditButtonI18n("تحرير");
 		publisherI18n2.setEditTitleI18n("تحرير الفئة");
 		publisherI18nRepository.save(publisherI18n2);
-		
-		publisherI18n3.setNameI18n ("प्रकाशक का नाम");
-		publisherI18n3.setLangI18n ("HN");
-		publisherI18n3.setAddButtonI18n ("बनाएं");
-		publisherI18n3.setAddTitleI18n ("प्रकाशक बनाएं");
-		publisherI18n3.setAllTitleI18n ("प्रकाशक");
-		publisherI18n3.setCloseButtonI18n ("बंद करें");
-		publisherI18n3.setEditButtonI18n ("संपादित करें");
-		publisherI18n3.setEditTitleI18n ("प्रकाशक संपादित करें");
+
+		publisherI18n3.setNameI18n("प्रकाशक का नाम");
+		publisherI18n3.setLangI18n("HN");
+		publisherI18n3.setAddButtonI18n("बनाएं");
+		publisherI18n3.setAddTitleI18n("प्रकाशक बनाएं");
+		publisherI18n3.setAllTitleI18n("प्रकाशक");
+		publisherI18n3.setCloseButtonI18n("बंद करें");
+		publisherI18n3.setEditButtonI18n("संपादित करें");
+		publisherI18n3.setEditTitleI18n("प्रकाशक संपादित करें");
 		publisherI18nRepository.save(publisherI18n3);
-		
+
 		publisherI18n4.setNameI18n("প্রকাশকের নাম");
 		publisherI18n4.setLangI18n("BN");
 		publisherI18n4.setAddButtonI18n("তৈরি করুন");
@@ -60,9 +60,7 @@ public class PublisherDTO implements DTO {
 		publisherI18n4.setEditButtonI18n("সম্পাদনা");
 		publisherI18n4.setEditTitleI18n("সম্পাদনা প্রকাশক");
 		publisherI18nRepository.save(publisherI18n4);
-		
-		
-		
+
 	}
 
 }

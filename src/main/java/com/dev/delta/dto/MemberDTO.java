@@ -65,25 +65,24 @@ public class MemberDTO implements DTO {
 		memberI18n2.setEditButtonI18n("تحرير");
 		memberI18n2.setEditTitleI18n("تحرير الفئة");
 		memberI18nRepository.save(memberI18n2);
-		
-		
-		memberI18n3.setAddressI18n ("पता");
-		memberI18n3.setEmailI18n ("ईमेल");
-		memberI18n3.setMobileI18n ("फोन");
-		memberI18n3.setNameI18n ("नाम");
-		memberI18n3.setPasswordI18n ("पासवर्ड");
-		memberI18n3.setStatusI18n ("स्थिति");
-		memberI18n3.setType_idI18n ("टाइप");
-		memberI18n3.setUser_typeI18n ("उपयोगकर्ता प्रकार");
-		memberI18n3.setLangI18n ("HN");
-		memberI18n3.setAddButtonI18n ("बनाएं");
-		memberI18n3.setAddTitleI18n ("सदस्य बनाएं");
-		memberI18n3.setAllTitleI18n ("सदस्य");
-		memberI18n3.setCloseButtonI18n ("बंद करें");
-		memberI18n3.setEditButtonI18n ("संपादित करें");
-		memberI18n3.setEditTitleI18n ("सदस्य संपादित करें");
+
+		memberI18n3.setAddressI18n("पता");
+		memberI18n3.setEmailI18n("ईमेल");
+		memberI18n3.setMobileI18n("फोन");
+		memberI18n3.setNameI18n("नाम");
+		memberI18n3.setPasswordI18n("पासवर्ड");
+		memberI18n3.setStatusI18n("स्थिति");
+		memberI18n3.setType_idI18n("टाइप");
+		memberI18n3.setUser_typeI18n("उपयोगकर्ता प्रकार");
+		memberI18n3.setLangI18n("HN");
+		memberI18n3.setAddButtonI18n("बनाएं");
+		memberI18n3.setAddTitleI18n("सदस्य बनाएं");
+		memberI18n3.setAllTitleI18n("सदस्य");
+		memberI18n3.setCloseButtonI18n("बंद करें");
+		memberI18n3.setEditButtonI18n("संपादित करें");
+		memberI18n3.setEditTitleI18n("सदस्य संपादित करें");
 		memberI18nRepository.save(memberI18n3);
-		
+
 		memberI18n4.setAddressI18n("ঠিকানা");
 		memberI18n4.setEmailI18n("ইমেল");
 		memberI18n4.setMobileI18n("ফোন");

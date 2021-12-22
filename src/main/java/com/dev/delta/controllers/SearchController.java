@@ -23,130 +23,132 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+
 @RestController
 @RequestMapping("search")
 @CrossOrigin
-@Api(value="BookController",description=" this is the search controller class")
+@Api(value = "BookController", description = " this is the search controller class")
 public class SearchController {
 
 	/**
 	 * 
 	 */
 	@Autowired
-	BookRepository  bookRepository;
-	
+	BookRepository bookRepository;
+
 	/**
 	 * 
 	 */
 	@Autowired
 	CategoryBookRepository categoryBookRepository;
-	
+
 	/**
 	 * 
 	 */
 	@Autowired
-	WriterRepository  writerRepository;
-	
+	WriterRepository writerRepository;
+
 	/**
 	 * 
 	 */
 	@Autowired
-	SearchRepository  searchRepository;
-	
+	SearchRepository searchRepository;
+
 	/**
 	 * 
 	 * @param book
 	 * @return
 	 * @throws IOException
 	 */
-	@ApiOperation(value=" search book ")
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
+	@ApiOperation(value = " search book ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
 	@GetMapping(path = { "/book/{book}" })
 	List<Book> searchBook(@PathVariable("book") String book) throws IOException {
-		List<Book> books=bookRepository.findByTitle(book);
+		List<Book> books = bookRepository.findByTitle(book);
 		return books;
 	}
-	
+
 	/**
 	 * 
 	 * @param category
 	 * @return
 	 * @throws IOException
 	 */
-	@ApiOperation(value=" search category ")
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
+	@ApiOperation(value = " search category ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
 	@GetMapping(path = { "/category/{category}" })
 	List<Category> searchCategory(@PathVariable("category") String category) throws IOException {
-		List<Category> categories=categoryBookRepository.findByname(category);
+		List<Category> categories = categoryBookRepository.findByname(category);
 		return categories;
 	}
-	
+
 	/**
 	 * 
 	 * @param writer
 	 * @return
 	 * @throws IOException
 	 */
-	@ApiOperation(value=" get writer by name ")
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
+	@ApiOperation(value = " get writer by name ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
 	@GetMapping(path = { "/writer/{writer}" })
 	List<Writer> searchAuthor(@PathVariable("writer") String writer) throws IOException {
-		List<Writer> writers=writerRepository.findByName(writer);
+		List<Writer> writers = writerRepository.findByName(writer);
 		return writers;
 	}
-	
+
 	/**
 	 * 
 	 * @param book
 	 * @return
 	 */
-	@ApiOperation(value=" book count ")
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
+	@ApiOperation(value = " book count ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
 	@GetMapping(path = { "/bookcount/{title}" })
-	Long getBookNumber(@PathVariable("title") String book)
-	{
+	Long getBookNumber(@PathVariable("title") String book) {
 		return bookRepository.getBookCount(book);
 	}
-	
+
 	/**
 	 * 
 	 * @param category
 	 * @return
 	 */
-	@ApiOperation(value=" category count ")
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
+	@ApiOperation(value = " category count ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
 	@GetMapping(path = { "/categorycount/{name}" })
-	Long getCategoryNumber(@PathVariable("name") String category)
-	{
+	Long getCategoryNumber(@PathVariable("name") String category) {
 		return categoryBookRepository.getCategoryCount(category);
 	}
-	
-	
+
 	/**
 	 * 
 	 * @param writer
 	 * @return
 	 */
-	@ApiOperation(value=" writer count ")
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
+	@ApiOperation(value = " writer count ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
 	@GetMapping(path = { "/writercount/{name}" })
-	Long getWriter(@PathVariable("name") String writer)
-	{
+	Long getWriter(@PathVariable("name") String writer) {
 		return writerRepository.getWriterCount(writer);
 	}
-	
+
 	/**
 	 * 
 	 * @param lang
 	 * @return
 	 */
-	@ApiOperation(value=" chnge lang ")
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
+	@ApiOperation(value = " chnge lang ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
 	@GetMapping(path = { "/i18n/{lang}" })
-	SearchI18n getTranslation(@PathVariable("lang") String lang)
-	{
+	SearchI18n getTranslation(@PathVariable("lang") String lang) {
 		return searchRepository.findByLangI18n(lang);
 	}
-	
-	
+
 }

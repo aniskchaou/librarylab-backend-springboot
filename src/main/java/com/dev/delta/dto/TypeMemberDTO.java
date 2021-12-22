@@ -29,7 +29,7 @@ public class TypeMemberDTO implements DTO {
 		typeMemberI18n.setEditButtonI18n("Edit");
 		typeMemberI18n.setEditTitleI18n("Edit Type Member");
 		typeMemberI18nRepository.save(typeMemberI18n);
-		
+
 		typeMemberI18n3.setMember_type_nameI18n("টাইপ মেম্বার");
 		typeMemberI18n3.setLangI18n("BN");
 		typeMemberI18n3.setAddButtonI18n("তৈরি করুন");
@@ -39,15 +39,15 @@ public class TypeMemberDTO implements DTO {
 		typeMemberI18n3.setEditButtonI18n("সম্পাদনা");
 		typeMemberI18n3.setEditTitleI18n("সম্পাদনা প্রকার সদস্য");
 		typeMemberI18nRepository.save(typeMemberI18n3);
-	
-		typeMemberI18n4.setMember_type_nameI18n ("सदस्य टाइप करें");
-		typeMemberI18n4.setLangI18n ("HN");
-		typeMemberI18n4.setAddButtonI18n ("बनाएं");
-		typeMemberI18n4.setAddTitleI18n ("प्रकार सदस्य बनाएं");
-		typeMemberI18n4.setAllTitleI18n ("सदस्य टाइप करें");
-		typeMemberI18n4.setCloseButtonI18n ("बंद करें");
-		typeMemberI18n4.setEditButtonI18n ("संपादित करें");
-		typeMemberI18n4.setEditTitleI18n ("टाइप सदस्य संपादित करें");
+
+		typeMemberI18n4.setMember_type_nameI18n("सदस्य टाइप करें");
+		typeMemberI18n4.setLangI18n("HN");
+		typeMemberI18n4.setAddButtonI18n("बनाएं");
+		typeMemberI18n4.setAddTitleI18n("प्रकार सदस्य बनाएं");
+		typeMemberI18n4.setAllTitleI18n("सदस्य टाइप करें");
+		typeMemberI18n4.setCloseButtonI18n("बंद करें");
+		typeMemberI18n4.setEditButtonI18n("संपादित करें");
+		typeMemberI18n4.setEditTitleI18n("टाइप सदस्य संपादित करें");
 		typeMemberI18nRepository.save(typeMemberI18n4);
 
 		typeMemberI18n2.setMember_type_nameI18n("نوع العضو");

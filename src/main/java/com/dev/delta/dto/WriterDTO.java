@@ -31,18 +31,18 @@ public class WriterDTO implements DTO {
 		writerI18n.setEditButtonI18n("Edit");
 		writerI18n.setEditTitleI18n("Edit Writer");
 		writerI18nRepository.save(writerI18n);
-		
-		writerI18n3.setNameI18n ("लेखक का नाम");
-		writerI18n3.setNoteI18n ("नोट");
-		writerI18n3.setLangI18n ("HN");
-		writerI18n3.setAddButtonI18n ("बनाएं");
-		writerI18n3.setAddTitleI18n ("लेखक बनाएं");
-		writerI18n3.setAllTitleI18n ("लेखक");
-		writerI18n3.setCloseButtonI18n ("बंद करें");
-		writerI18n3.setEditButtonI18n ("संपादित करें");
-		writerI18n3.setEditTitleI18n ("लेखक संपादित करें");
+
+		writerI18n3.setNameI18n("लेखक का नाम");
+		writerI18n3.setNoteI18n("नोट");
+		writerI18n3.setLangI18n("HN");
+		writerI18n3.setAddButtonI18n("बनाएं");
+		writerI18n3.setAddTitleI18n("लेखक बनाएं");
+		writerI18n3.setAllTitleI18n("लेखक");
+		writerI18n3.setCloseButtonI18n("बंद करें");
+		writerI18n3.setEditButtonI18n("संपादित करें");
+		writerI18n3.setEditTitleI18n("लेखक संपादित करें");
 		writerI18nRepository.save(writerI18n3);
-		
+
 		writerI18n4.setNameI18n("লেখকের নাম");
 		writerI18n4.setNoteI18n("নোট");
 		writerI18n4.setLangI18n("BN");
@@ -65,7 +65,5 @@ public class WriterDTO implements DTO {
 		writerI18n2.setEditTitleI18n("تحرير الفئة");
 		writerI18nRepository.save(writerI18n2);
 	}
-
-	
 
 }

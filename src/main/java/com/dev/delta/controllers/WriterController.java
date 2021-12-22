@@ -28,13 +28,14 @@ import io.swagger.annotations.ApiResponses;
 
 /**
  * WriterController
+ * 
  * @author Admin
  *
  */
 @RestController
 @RequestMapping("writer")
 @CrossOrigin
-@Api(value="WriterController",description=" this is the writer controller class")
+@Api(value = "WriterController", description = " this is the writer controller class")
 public class WriterController {
 	/**
 	 * writerService
@@ -44,12 +45,14 @@ public class WriterController {
 
 	/**
 	 * addWriter
+	 * 
 	 * @param projectWriter
 	 * @param result
 	 * @return
 	 */
-	@ApiOperation(value=" add writer ")
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
+	@ApiOperation(value = " add writer ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
 	@PostMapping("/create")
 	public ResponseEntity<?> addWriter(@Validated @RequestBody Writer projectWriter, BindingResult result) {
 
@@ -68,10 +71,12 @@ public class WriterController {
 
 	/**
 	 * getAllWriters
+	 * 
 	 * @return
 	 */
-	@ApiOperation(value=" get writers ")
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
+	@ApiOperation(value = " get writers ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
 	@GetMapping("/all")
 	public Iterable<Writer> getAllWriters() {
 		return writerService.findAll();
@@ -79,11 +84,13 @@ public class WriterController {
 
 	/**
 	 * getWriterById
+	 * 
 	 * @param id
 	 * @return
 	 */
-	@ApiOperation(value=" get writer by id ")
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
+	@ApiOperation(value = " get writer by id ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
 	@GetMapping("/{id}")
 	public ResponseEntity<Writer> getWriterById(@PathVariable Long id) {
 		Writer writer = writerService.findById(id);
@@ -92,11 +99,13 @@ public class WriterController {
 
 	/**
 	 * deleteWriter
+	 * 
 	 * @param id
 	 * @return
 	 */
-	@ApiOperation(value=" delete writer ")
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
+	@ApiOperation(value = " delete writer ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<String> deleteWriter(@PathVariable Long id) {
 		writerService.delete(id);

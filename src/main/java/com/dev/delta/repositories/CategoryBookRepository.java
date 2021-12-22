@@ -11,13 +11,11 @@ import com.dev.delta.entities.Category;
 @RepositoryRestResource
 public interface CategoryBookRepository extends JpaRepository<Category, Long> {
 
-
-	//List<Category> findBy;
+	// List<Category> findBy;
 	@Query(nativeQuery = true, value = "select * from Category c where c.category_name = :category_name")
 	List<Category> findByname(String category_name);
-	
+
 	@Query(nativeQuery = true, value = "select count(*) from Category c where c.category_name = :category_name")
 	Long getCategoryCount(String category_name);
-	
-	
+
 }

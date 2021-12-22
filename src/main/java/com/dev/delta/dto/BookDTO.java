@@ -16,6 +16,7 @@ import com.dev.delta.util.ImageUtil;
 
 /**
  * BookDTO
+ * 
  * @author Admin
  *
  */
@@ -27,9 +28,9 @@ public class BookDTO implements DTO {
 
 	@Autowired
 	BookI18nRepository bookI18nRepository;
-	
+
 	@Autowired
-	ImageModelrepository  imageRepository;
+	ImageModelrepository imageRepository;
 
 	@Override
 	public void populate() {
@@ -164,34 +165,34 @@ public class BookDTO implements DTO {
 		bookI18n.setSummaryButtonI18n("Summary");
 		bookI18n.setCloseButtonI18n("Close");
 		bookI18nRepository.save(bookI18n);
-		
-		bookI18n3.setAuthorI18n ("लेखक");
-		bookI18n3.setEditionI18n ("संस्करण");
-		bookI18n3.setEdition_yearI18n ("संस्करण वर्ष");
-		bookI18n3.setIsbnI18n ("आईएसबीएन");
-		bookI18n3.setNotesI18n ("नोट");
-		bookI18n3.setNumber_of_pagesI18n ("पृष्ठों की संख्या");
-		bookI18n3.setPhotoI18n ("फोटो");
-		bookI18n3.setPublication_placeI18n ("प्रकाशन स्थान");
-		bookI18n3.setPublisherI18n ("प्रकाशक");
-		bookI18n3.setPublishing_yearI18n ("प्रकाशन वर्ष");
-		bookI18n3.setTitleI18n ("शीर्षक");
-		bookI18n3.setAllTitleI18n ("किताबें");
-		bookI18n3.setAddTitleI18n ("पुस्तक बनाएं");
-		bookI18n3.setAddButtonI18n ("बनाएं");
-		bookI18n3.setEditTitleI18n ("पुस्तक संपादित करें");
-		bookI18n3.setResetButtonI18n ("रीसेट");
-		bookI18n3.setLangI18n ("HN");
-		bookI18n3.setCategoryI18n ("श्रेणी");
-		bookI18n3.setAddButtonI18n ("बनाएं");
-		bookI18n3.setEditButtonI18n ("संपादित करें");
-		bookI18n3.setShowButtonI18n ("दिखाएँ / छिपाएँ");
-		bookI18n3.setRefreshButtonI18n ("ताज़ा करें");
-		bookI18n3.setFilterI18n ("फ़िल्टर");
-		bookI18n3.setSummaryButtonI18n ("सारांश");
-		bookI18n3.setCloseButtonI18n ("बंद करें");
+
+		bookI18n3.setAuthorI18n("लेखक");
+		bookI18n3.setEditionI18n("संस्करण");
+		bookI18n3.setEdition_yearI18n("संस्करण वर्ष");
+		bookI18n3.setIsbnI18n("आईएसबीएन");
+		bookI18n3.setNotesI18n("नोट");
+		bookI18n3.setNumber_of_pagesI18n("पृष्ठों की संख्या");
+		bookI18n3.setPhotoI18n("फोटो");
+		bookI18n3.setPublication_placeI18n("प्रकाशन स्थान");
+		bookI18n3.setPublisherI18n("प्रकाशक");
+		bookI18n3.setPublishing_yearI18n("प्रकाशन वर्ष");
+		bookI18n3.setTitleI18n("शीर्षक");
+		bookI18n3.setAllTitleI18n("किताबें");
+		bookI18n3.setAddTitleI18n("पुस्तक बनाएं");
+		bookI18n3.setAddButtonI18n("बनाएं");
+		bookI18n3.setEditTitleI18n("पुस्तक संपादित करें");
+		bookI18n3.setResetButtonI18n("रीसेट");
+		bookI18n3.setLangI18n("HN");
+		bookI18n3.setCategoryI18n("श्रेणी");
+		bookI18n3.setAddButtonI18n("बनाएं");
+		bookI18n3.setEditButtonI18n("संपादित करें");
+		bookI18n3.setShowButtonI18n("दिखाएँ / छिपाएँ");
+		bookI18n3.setRefreshButtonI18n("ताज़ा करें");
+		bookI18n3.setFilterI18n("फ़िल्टर");
+		bookI18n3.setSummaryButtonI18n("सारांश");
+		bookI18n3.setCloseButtonI18n("बंद करें");
 		bookI18nRepository.save(bookI18n3);
-		
+
 		bookI18n4.setAuthorI18n("লেখক");
 		bookI18n4.setEditionI18n("সংস্করণ");
 		bookI18n4.setEdition_yearI18n("সংস্করণের বছর");
@@ -244,16 +245,13 @@ public class BookDTO implements DTO {
 		bookI18n2.setSummaryButtonI18n("الملخص");
 		bookI18n2.setCloseButtonI18n("إغلاق");
 		bookI18nRepository.save(bookI18n2);
-         
-        
-         
-         
+
 	}
 
 	private void insertImage(String photo) {
 		File resource;
 		try {
-			resource = new ClassPathResource("books/"+photo).getFile();
+			resource = new ClassPathResource("books/" + photo).getFile();
 			Files.readAllBytes(resource.toPath());
 			ImageModel img = new ImageModel(photo, "image/jpeg",
 
@@ -264,7 +262,7 @@ public class BookDTO implements DTO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 	}
 
 }

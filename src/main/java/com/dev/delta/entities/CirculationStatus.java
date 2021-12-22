@@ -13,7 +13,7 @@ public class CirculationStatus {
 	private String name;
 
 	public CirculationStatus() {
-		
+
 	}
 
 	public CirculationStatus(String name) {
