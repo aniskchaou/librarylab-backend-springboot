@@ -1,10 +1,14 @@
 package com.dev.delta.entities;
-
+/**
+ * BookFilter
+ * @author Admin
+ *
+ */
 public class BookFilter {
-	String edition_year;
-	String publishing_year;
-	String publishing_place;
-	String number_of_pages;
+	private String edition_year;
+	private String publishing_year;
+	private String publishing_place;
+	private String number_of_pages;
 
 	public BookFilter() {
 		// TODO Auto-generated constructor stub

@@ -19,4 +19,9 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 			@Param("publishing_place") String publishing_place, @Param("number_of_pages") String number_of_pages
 
 	);
+    
+	List<Book> findByTitle(String book);
+	
+	@Query(nativeQuery = true, value = "select count(*) from Book c where c.title = :title")
+	Long getBookCount(String title);
 }

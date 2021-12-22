@@ -1,19 +1,51 @@
 package com.dev.delta.entities;
 
+import java.util.Arrays;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+/**
+ * Category
+ * @author Admin
+ *
+ */
 @Entity
 public class Category {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Long id;
-	String category_name;
-
-	public Category() {
+	private Long id;
+	private String category_name;
+	private String image_name;
+	@Column(name = "picByte", length = 1000)
+	private byte[] image;
+     
+public Category() {
 		// TODO Auto-generated constructor stub
+	}
+	public String getImage_name() {
+		return image_name;
+	}
+
+	public void setImage_name(String image_name) {
+		this.image_name = image_name;
+	}
+
+	@Override
+	public String toString() {
+		return "Category [id=" + id + ", category_name=" + category_name + ", image_name=" + image_name + ", image="
+				+ Arrays.toString(image) + "]";
+	}
+
+	public byte[] getImage() {
+		return image;
+	}
+
+	public void setImage(byte[] image) {
+		this.image = image;
 	}
 
 	public Category(String category_name) {

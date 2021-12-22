@@ -11,24 +11,24 @@ import javax.persistence.ManyToOne;
 public class Circulation {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Long id;
+	private Long id;
 	@ManyToOne
 	@JoinColumn(name = "member_id")
-	Member memberName;
+	private Member memberName;
 	@ManyToOne
 	@JoinColumn(name = "book_id")
-	Book bookName;
+	private Book bookName;
 	@ManyToOne
 	@JoinColumn(name = "writer_id")
-	Writer writer;
-	String issueDate;
-	String lastDate;
-	String toReturn;
-	String returnDate;
-	String penalty;
+	private Writer writer;
+	private String issueDate;
+	private String lastDate;
+	private String toReturn;
+	private String returnDate;
+	private String penalty;
 	@ManyToOne
 	@JoinColumn(name = "category_id")
-	CirculationStatus returnStatus;
+	private CirculationStatus returnStatus;
 
 	public Circulation() {
 		// TODO Auto-generated constructor stub

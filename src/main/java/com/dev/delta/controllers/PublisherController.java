@@ -21,15 +21,38 @@ import org.springframework.web.bind.annotation.RestController;
 import com.dev.delta.entities.Publisher;
 import com.dev.delta.services.PublisherService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+
 @RestController
 @RequestMapping("publisher")
 @CrossOrigin
+@Api(value="BookController",description=" this is the publisher controller class")
+/**
+ * 
+ * @author Admin
+ *
+ */
 public class PublisherController {
+	
+	/**
+	 * 
+	 */
 	@Autowired
 	PublisherService publisherService;
 
+	/**
+	 * 
+	 * @param projectPublisher
+	 * @param result
+	 * @return
+	 */
+	@ApiOperation(value=" add publisher ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
 	@PostMapping("/create")
-	public ResponseEntity<?> addPTToBoard(@Validated @RequestBody Publisher projectPublisher, BindingResult result) {
+	public ResponseEntity<?> addPublisher(@Validated @RequestBody Publisher projectPublisher, BindingResult result) {
 
 		if (result.hasErrors()) {
 			Map<String, String> errorMap = new HashMap<String, String>();
@@ -45,17 +68,37 @@ public class PublisherController {
 		return new ResponseEntity<Publisher>(newPT, HttpStatus.CREATED);
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
+	@ApiOperation(value=" get all publishers ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
 	@GetMapping("/all")
 	public Iterable<Publisher> getAllPublishers() {
 		return publisherService.findAll();
 	}
 
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 */
+	@ApiOperation(value=" get publisher ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
 	@GetMapping("/{id}")
 	public ResponseEntity<Publisher> getPublisherById(@PathVariable Long id) {
 		Publisher publisher = publisherService.findById(id);
 		return new ResponseEntity<Publisher>(publisher, HttpStatus.OK);
 	}
 
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 */
+	@ApiOperation(value=" delete publisher ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<String> deletePublisher(@PathVariable Long id) {
 		publisherService.delete(id);

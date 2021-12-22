@@ -21,15 +21,38 @@ import org.springframework.web.bind.annotation.RestController;
 import com.dev.delta.entities.CirculationStatus;
 import com.dev.delta.services.CirculationStatusService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+
 @RestController
 @RequestMapping("circulationstatus")
 @CrossOrigin
+@Api(value="BookController",description=" this is the circulation status controller class")
+/**
+ * circulation status controller
+ * @author Admin
+ *
+ */
 public class CirculationStatusController {
+	
+	/**
+	 * 
+	 */
 	@Autowired
 	CirculationStatusService circulationStatusService;
 
+	/**
+	 * 
+	 * @param projectCirculationStatus
+	 * @param result
+	 * @return
+	 */
+	@ApiOperation(value=" add circulation status ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
 	@PostMapping("/create")
-	public ResponseEntity<?> addPTToBoard(@Validated @RequestBody CirculationStatus projectCirculationStatus,
+	public ResponseEntity<?> addCIrculationStatus(@Validated @RequestBody CirculationStatus projectCirculationStatus,
 			BindingResult result) {
 
 		if (result.hasErrors()) {
@@ -46,17 +69,37 @@ public class CirculationStatusController {
 		return new ResponseEntity<CirculationStatus>(newPT, HttpStatus.CREATED);
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
+	@ApiOperation(value=" get circulation status ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
 	@GetMapping("/all")
 	public Iterable<CirculationStatus> getAllCirculationStatuss() {
 		return circulationStatusService.findAll();
 	}
 
+	/**
+	 *  get circulation status by id
+	 * @param id
+	 * @return
+	 */
+	@ApiOperation(value=" find circulation status by id ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
 	@GetMapping("/{id}")
 	public ResponseEntity<CirculationStatus> getCirculationStatusById(@PathVariable Long id) {
 		CirculationStatus circulationStatus = circulationStatusService.findById(id);
 		return new ResponseEntity<CirculationStatus>(circulationStatus, HttpStatus.OK);
 	}
 
+	/**
+	 * delete circulation
+	 * @param id
+	 * @return
+	 */
+	@ApiOperation(value=" delete circulation by id ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<String> deleteCirculationStatus(@PathVariable Long id) {
 		circulationStatusService.delete(id);

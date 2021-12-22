@@ -21,13 +21,35 @@ import org.springframework.web.bind.annotation.RestController;
 import com.dev.delta.entities.Member;
 import com.dev.delta.services.MemberService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+
 @RestController
 @RequestMapping("member")
 @CrossOrigin
+@Api(value="BookController",description=" this is the member controller class")
+/**
+ * 
+ * @author Admin
+ *
+ */
 public class MemberController {
+	/**
+	 * 
+	 */
 	@Autowired
 	MemberService memberService;
 
+	/**
+	 * 
+	 * @param projectMember
+	 * @param result
+	 * @return
+	 */
+	@ApiOperation(value=" create member ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
 	@PostMapping("/create")
 	public ResponseEntity<?> addPTToBoard(@Validated @RequestBody Member projectMember, BindingResult result) {
 
@@ -45,17 +67,37 @@ public class MemberController {
 		return new ResponseEntity<Member>(newPT, HttpStatus.CREATED);
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
+	@ApiOperation(value=" get all members ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
 	@GetMapping("/all")
 	public Iterable<Member> getAllMembers() {
 		return memberService.findAll();
 	}
 
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 */
+	@ApiOperation(value=" show member ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
 	@GetMapping("/{id}")
 	public ResponseEntity<Member> getMemberById(@PathVariable Long id) {
 		Member member = memberService.findById(id);
 		return new ResponseEntity<Member>(member, HttpStatus.OK);
 	}
 
+	/**
+	 * delete member
+	 * @param id
+	 * @return
+	 */
+	@ApiOperation(value=" delete member by id ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<String> deleteMember(@PathVariable Long id) {
 		memberService.delete(id);

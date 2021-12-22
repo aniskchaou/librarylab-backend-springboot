@@ -7,35 +7,35 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "book")
+@Table(name = "booki18n")
 public class BookI18n {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Long id;
-	String isbnI18n;
-	String titleI18n;
-	String authorI18n;
-	String editionI18n;
-	String edition_yearI18n;
-	String photoI18n;
-	String publisherI18n;
-	String publishing_yearI18n;
-	String publication_placeI18n;
-	String number_of_pagesI18n;
-	String notesI18n;
-	String allTitleI18n;
-	String editTitleI18n;
-	String addTitleI18n;
-	String addButtonI18n;
-	String editButtonI18n;
-	String resetButtonI18n;
-	String closeButtonI18n;
-	String langI18n;
-	String categoryI18n;
-	String showButtonI18n;
-	String refreshButtonI18n;
-	String summaryButtonI18n;
-	String filterI18n;
+	private Long id;
+	private String isbnI18n;
+	private String titleI18n;
+	private  String authorI18n;
+	private  String editionI18n;
+	private  String edition_yearI18n;
+	private  String photoI18n;
+	private  String publisherI18n;
+	private  String publishing_yearI18n;
+	private  String publication_placeI18n;
+	private  String number_of_pagesI18n;
+	private  String notesI18n;
+	private  String allTitleI18n;
+	private  String editTitleI18n;
+	private  String addTitleI18n;
+	private  String addButtonI18n;
+	private  String editButtonI18n;
+	private  String resetButtonI18n;
+	private  String closeButtonI18n;
+	private  String langI18n;
+	private  String categoryI18n;
+	private  String showButtonI18n;
+	private  String refreshButtonI18n;
+	private  String summaryButtonI18n;
+	private  String filterI18n;
 
 	public String getShowButtonI18n() {
 		return showButtonI18n;

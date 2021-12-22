@@ -9,11 +9,11 @@ import javax.persistence.Id;
 public class CirculationStatus {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Long id;
-	String name;
+	private Long id;
+	private String name;
 
 	public CirculationStatus() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public CirculationStatus(String name) {

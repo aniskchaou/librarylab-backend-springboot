@@ -4,8 +4,8 @@ import java.util.List;
 
 public class IssueBookAnalytics {
 
-	List<String> numberIssueBook;
-	List<String> days;
+	private List<String> numberIssueBook;
+	private List<String> days;
 
 	public IssueBookAnalytics() {
 		// TODO Auto-generated constructor stub

@@ -10,12 +10,12 @@ public class Settings {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Long id;
-	String name;
-	String telephone;
-	String address;
-	String fax;
-	String lang;
+	private Long id;
+	private String name;
+	private String telephone;
+	private String address;
+	private String fax;
+	private String lang;
 
 	public Long getId() {
 		return id;

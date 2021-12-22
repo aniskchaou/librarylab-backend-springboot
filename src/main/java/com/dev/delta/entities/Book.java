@@ -8,32 +8,38 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+/**
+ * Book
+ * @author Admin
+ *
+ */
 @Entity
 @Table(name = "book")
 public class Book {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Long id;
-	String isbn;
-	String title;
+	private Long id;
+	private String isbn;
+	private String title;
 	@ManyToOne
 	@JoinColumn(name = "author_id")
 	Writer writer;
-	String edition;
-	String edition_year;
-	String photo;
+	private String edition;
+	private String edition_year;
+	private String photo;
 	@ManyToOne
 	@JoinColumn(name = "publisher_id")
 	Publisher publisher;
-	String publishing_year;
-	String publication_place;
-	String number_of_pages;
-	String notes;
-	String status;
+	private String publishing_year;
+	private String publication_place;
+	private String number_of_pages;
+	private String notes;
+	private String status;
 	@ManyToOne
 	@JoinColumn(name = "category_id")
-	Category category;
+	private Category category;
 
+	
 	public Book(Long id, String isbn, String title, Writer writer, String edition, String edition_year, String photo,
 			Publisher publisher, String publishing_year, String publication_place, String number_of_pages, String notes,
 			String status, Category category) {

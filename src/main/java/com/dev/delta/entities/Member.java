@@ -9,15 +9,15 @@ import javax.persistence.Id;
 public class Member {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Long id;
-	String name;
-	String user_type;
-	String type_id;
-	String email;
-	String mobile;
-	String password;
-	String address;
-	String status;
+	private Long id;
+	private String name;
+	private String user_type;
+	private String type_id;
+	private String email;
+	private String mobile;
+	private String password;
+	private String address;
+	private String status;
 
 	public Member() {
 		// TODO Auto-generated constructor stub

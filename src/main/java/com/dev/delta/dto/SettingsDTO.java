@@ -52,6 +52,38 @@ public class SettingsDTO implements DTO {
 		settingsI18n2.setLangI18n("AR");
 		settingsI18n2.setLanguageI18n("لغة");
 		settingsI18nRepository.save(settingsI18n2);
+		
+		
+		settingsI18n3.setAddressI18n("पता");
+		settingsI18n3.setFaxI18n ("फैक्स");
+		// सेटिंग्सI18n.setLangI18n ("भाषा");
+		settingsI18n3.setNameI18n ("लाइब्रेरी का नाम");
+		settingsI18n3.setTelephoneI18n ("फोन");
+		settingsI18n3.setLangI18n ("HN");
+		settingsI18n3.setAddButtonI18n ("बनाएं");
+		settingsI18n3.setAddTitleI18n ("बनाएं");
+		settingsI18n3.setAllTitleI18n ("सेटिंग्स");
+		settingsI18n3.setCloseButtonI18n ("बंद करें");
+		settingsI18n3.setEditButtonI18n ("संपादित करें");
+		settingsI18n3.setEditTitleI18n ("सेटिंग संपादित करें");
+		settingsI18n3.setLanguageI18n("भाषा");
+		settingsI18nRepository.save(settingsI18n3);
+		
+		
+		settingsI18n4.setAddressI18n("ঠিকানা");
+		settingsI18n4.setFaxI18n("ফ্যাক্স");
+		// settingsI18n.setLangI18n("ভাষা");
+		settingsI18n4.setNameI18n("লাইব্রেরির নাম");
+		settingsI18n4.setTelephoneI18n("ফোন");
+		settingsI18n4.setLangI18n("BN");
+		settingsI18n4.setAddButtonI18n("তৈরি করুন");
+		settingsI18n4.setAddTitleI18n("তৈরি করুন");
+		settingsI18n4.setAllTitleI18n("সেটিংস");
+		settingsI18n4.setCloseButtonI18n("বন্ধ");
+		settingsI18n4.setEditButtonI18n("সম্পাদনা");
+		settingsI18n4.setEditTitleI18n("সেটিংস সম্পাদনা করুন");
+		settingsI18n4.setLanguageI18n("ভাষা");
+		settingsI18nRepository.save(settingsI18n4);
 
 	}
 

@@ -9,9 +9,9 @@ import javax.persistence.Id;
 public class Writer {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Long id;
-	String name;
-	String note;
+	private Long id;
+	private String name;
+	private String note;
 
 	public Writer() {
 		// TODO Auto-generated constructor stub

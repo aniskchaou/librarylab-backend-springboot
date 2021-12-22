@@ -7,17 +7,14 @@ import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.runner.RunWith;
-import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import com.dev.delta.entities.Book;
 import com.dev.delta.entities.Category;
@@ -26,21 +23,22 @@ import com.dev.delta.entities.Writer;
 import com.dev.delta.repositories.BookRepository;
 import com.dev.delta.services.BookService;
 
-@ExtendWith(MockitoExtension.class)
-@DataJpaTest
+@SpringBootTest
 class BookServiceTest {
-/*
-	@Autowired
-	private BookRepository bookRepository;
-	@Autowired
+
+	@InjectMocks
 	BookService bookService;
-	
+
+	@Mock
+	BookRepository bookRepository;
+
+	List<Category> list;
+
 	@BeforeEach
-    void initUseCase() {
-		Book book1 = new Book(1L, "123", "title 1", new Writer(), "", "", "", new Publisher(), "", "", "", "", "",
-				new Category());
-		bookRepository.save(book1);
-    }
+	public void init() {
+		MockitoAnnotations.openMocks(this);
+		list = new ArrayList<Category>();
+	}
 
 	@Test
 	public void getAllBooksTest() {
@@ -90,5 +88,5 @@ class BookServiceTest {
 
 		verify(bookRepository, times(1)).save(book1);
 	}
-   */
+   
 }

@@ -5,6 +5,11 @@ import org.springframework.stereotype.Service;
 
 import com.dev.delta.repositoriesi18n.MenuI18nRepository;
 
+/**
+ * 
+ * @author Admin
+ *
+ */
 @Service
 public class MenuDTO implements DTO {
 
@@ -50,6 +55,45 @@ public class MenuDTO implements DTO {
 		menuI18n2.setWeitersI18n("الكتاب");
 		menuI18n2.setLangI18n("AR");
 		menuI18nRepository.save(menuI18n2);
+		
+		
+		menuI18n4.setArchivesI18n("আর্কাইভস");
+		menuI18n4.setBooksI18n("বই");
+		menuI18n4.setBooksMenuI18n("বই");
+		menuI18n4.setCategoriesI18n("বিভাগ");
+		menuI18n4.setCirculationsI18n("ইস্যু করা বই");
+		menuI18n4.setCirculationsMenuI18n("পরিচলন");
+		menuI18n4.setCirculationStatusI18n("পরিচলন অবস্থা");
+		menuI18n4.setDashboardI18n("ড্যাশবোর্ড");
+		menuI18n4.setLogOutI18n("লগ আউট");
+		menuI18n4.setMembersI18n("সদস্য");
+		menuI18n4.setMembersMenuI18n("সদস্য");
+		menuI18n4.setPublishersI18n("প্রকাশকরা");
+		menuI18n4.setRequesredBooksI18n("অনুরোধ করা বই");
+		menuI18n4.setSettingsI18n("সেটিংস");
+		menuI18n4.setTypeMembersI18n("সদস্যের ধরন");
+		menuI18n4.setWeitersI18n("লেখক");
+		menuI18n4.setLangI18n("BN");
+		menuI18nRepository.save(menuI18n4);
+		
+		menuI18n3.setArchivesI18n ("अभिलेखागार");
+		menuI18n3.setBooksI18n ("किताबें");
+		menuI18n3.setBooksMenuI18n ("पुस्तकें");
+		menuI18n3.setCategoriesI18n ("श्रेणियां");
+		menuI18n3.setCirculationsI18n ("जारी की गई पुस्तकें");
+		menuI18n3.setCirculationsMenuI18n ("परिसंचरण");
+		menuI18n3.setCirculationStatusI18n ("परिसंचरण स्थिति");
+		menuI18n3.setDashboardI18n ("डैशबोर्ड");
+		menuI18n3.setLogOutI18n ("लॉग आउट");
+		menuI18n3.setMembersI18n ("सदस्य");
+		menuI18n3.setMembersMenuI18n ("सदस्य");
+		menuI18n3.setPublishersI18n ("प्रकाशक");
+		menuI18n3.setRequesredBooksI18n ("अनुरोधित पुस्तकें");
+		menuI18n3.setSettingsI18n ("सेटिंग्स");
+		menuI18n3.setTypeMembersI18n ("सदस्य प्रकार");
+		menuI18n3.setWeitersI18n ("राइटर्स");
+		menuI18n3.setLangI18n ("HN");
+		menuI18nRepository.save(menuI18n3);
 
 	}
 

@@ -6,6 +6,11 @@ import org.springframework.stereotype.Service;
 import com.dev.delta.repositories.CirculationRepository;
 import com.dev.delta.repositoriesi18n.CirculationI18nRepository;
 
+/**
+ * CirculationDTO
+ * @author Admin
+ *
+ */
 @Service
 public class CirculationDTO implements DTO {
 
@@ -130,7 +135,43 @@ public class CirculationDTO implements DTO {
 		circulationI18n.setEditButtonI18n("Edit");
 		circulationI18n.setEditTitleI18n("Edit Circulation");
 		circulationnRepositoryI18n.save(circulationI18n);
+		
+		
+		circulationI18n3.setBookNameI18n ("पुस्तक का नाम");
+		circulationI18n3.setIssueDateI18n ("इश्यू डेट");
+		circulationI18n3.setLastDateI18n ("अंतिम तिथि");
+		circulationI18n3.setMemberNameI18n ("सदस्य का नाम");
+		circulationI18n3.setPenaltyI18n ("जुर्माना");
+		circulationI18n3.setReturnDateI18n ("रिटर्न डेट");
+		circulationI18n3.setReturnStatusI18n ("रिटर्न स्टेटस");
+		circulationI18n3.setToReturnI18n ("वापसी करने के लिए");
+		circulationI18n3.setWriterI18n ("लेखक");
+		circulationI18n3.setLangI18n ("HN");
+		circulationI18n3.setAddButtonI18n ("बनाएं");
+		circulationI18n3.setAddTitleI18n ("परिसंचरण बनाएँ");
+		circulationI18n3.setAllTitleI18n ("बुक सर्कुलेशन");
+		circulationI18n3.setCloseButtonI18n ("बंद करें");
+		circulationI18n3.setEditButtonI18n ("संपादित करें");
+		circulationI18n3.setEditTitleI18n ("परिसंचरण संपादित करें");
+		circulationnRepositoryI18n.save(circulationI18n3);
 
+		circulationI18n4.setBookNameI18n("বইয়ের নাম");
+		circulationI18n4.setIssueDateI18n("ইস্যু তারিখ");
+		circulationI18n4.setLastDateI18n("শেষ তারিখ");
+		circulationI18n4.setMemberNameI18n("সদস্যের নাম");
+		circulationI18n4.setPenaltyI18n("পেনাল্টি");
+		circulationI18n4.setReturnDateI18n("রিটার্ন ডেট");
+		circulationI18n4.setReturnStatusI18n("রিটার্ন স্ট্যাটাস");
+		circulationI18n4.setToReturnI18n("ফিরতে");
+		circulationI18n4.setWriterI18n("লেখক");
+		circulationI18n4.setLangI18n("BN");
+		circulationI18n4.setAddButtonI18n("তৈরি করুন");
+		circulationI18n4.setAddTitleI18n("সঞ্চালন তৈরি করুন");
+		circulationI18n4.setAllTitleI18n("বুক সার্কুলেশন");
+		circulationI18n4.setCloseButtonI18n("বন্ধ");
+		circulationI18n4.setEditButtonI18n("সম্পাদনা");
+		circulationI18n4.setEditTitleI18n("পরিচলন সম্পাদনা করুন");
+		circulationnRepositoryI18n.save(circulationI18n4);
 	}
 
 }

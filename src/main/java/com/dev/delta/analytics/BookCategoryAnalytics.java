@@ -4,8 +4,8 @@ import java.util.List;
 
 public class BookCategoryAnalytics {
 
-	List<Integer> books;
-	List<String> categories;
+	private List<Integer> books;
+	private List<String> categories;
 
 	public List<Integer> getBooks() {
 		return books;

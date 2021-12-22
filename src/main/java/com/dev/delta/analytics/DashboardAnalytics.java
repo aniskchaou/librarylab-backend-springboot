@@ -2,10 +2,10 @@ package com.dev.delta.analytics;
 
 public class DashboardAnalytics {
 
-	long bookNumber;
-	long memberNumber;
-	long issueBookNumber;
-	long categoryNumber;
+	private long bookNumber;
+	private long memberNumber;
+	private long issueBookNumber;
+	private long categoryNumber;
 
 	public DashboardAnalytics() {
 		// TODO Auto-generated constructor stub

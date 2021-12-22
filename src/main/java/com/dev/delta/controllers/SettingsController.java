@@ -20,13 +20,37 @@ import org.springframework.web.bind.annotation.RestController;
 import com.dev.delta.entities.Settings;
 import com.dev.delta.services.SettingsService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+
 @RestController
 @RequestMapping("settings")
 @CrossOrigin
+@Api(value="BookController",description=" this is the settings controller class")
+/**
+ * 
+ * @author Admin
+ *
+ */
 public class SettingsController {
+	
+	/**
+	 * 
+	 */
 	@Autowired
 	SettingsService settingsService;
 
+	
+	/**
+	 * 
+	 * @param settings
+	 * @param result
+	 * @return
+	 */
+	@ApiOperation(value=" create settings ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
 	@PostMapping("/create")
 	public ResponseEntity<?> addSettings(@Validated @RequestBody Settings settings, BindingResult result) {
 
@@ -44,11 +68,35 @@ public class SettingsController {
 		return new ResponseEntity<Settings>(newPT, HttpStatus.CREATED);
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
+	@ApiOperation(value=" get all settings ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
 	@GetMapping("/all")
 	public Iterable<Settings> getAllSettings() {
 		return settingsService.findAll();
 	}
+	
+	/**
+	 * 
+	 * @param lang
+	 */
+	@ApiOperation(value=" update lang ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
+	@GetMapping("/updatelang/{lang}")
+	public void getAllSettings(@PathVariable("lang") String lang) {
+		 settingsService.changeLang(lang);
+	}
 
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 */
+	@ApiOperation(value=" get settings ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),@ApiResponse(code = 404, message = "not found")})
 	@GetMapping("/{id}")
 	public ResponseEntity<Settings> getSettingsById(@PathVariable Long id) {
 		Settings settings = settingsService.findById(id);

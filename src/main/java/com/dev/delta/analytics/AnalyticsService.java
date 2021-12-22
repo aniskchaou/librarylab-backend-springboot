@@ -12,6 +12,11 @@ import com.dev.delta.repositories.CategoryBookRepository;
 import com.dev.delta.repositories.CirculationRepository;
 import com.dev.delta.repositories.MemberRepository;
 
+/**
+ * AnalyticsService
+ * @author Admin
+ *
+ */
 @Service
 public class AnalyticsService {
 
@@ -27,6 +32,10 @@ public class AnalyticsService {
 	@Autowired
 	MemberRepository memberRepository;
 
+	/**
+	 * findAllDays
+	 * @return
+	 */
 	public List<String> findAllDays() {
 		List<String> allBooksList = new ArrayList<String>();
 		circulationRepository.findAllCirculations().forEach(item -> {
@@ -38,6 +47,10 @@ public class AnalyticsService {
 		return allBooksList;
 	}
 
+	/**
+	 * findBooksByDate
+	 * @return
+	 */
 	public List<String> findBooksByDate() {
 		List<String> allDaysList = new ArrayList<String>();
 		circulationRepository.findBookByDate().forEach(item -> {
@@ -50,6 +63,10 @@ public class AnalyticsService {
 		return allDaysList;
 	}
 
+	/**
+	 * findCategries
+	 * @return
+	 */
 	public List<String> findCategries() {
 		List<String> categoryNames = new ArrayList<String>();
 		List<Category> categories = categoryBookRepository.findAll();
@@ -61,12 +78,20 @@ public class AnalyticsService {
 		return categoryNames;
 	}
 
+	/**
+	 * findBookByCategory
+	 * @return
+	 */
 	public List<Integer> findBookByCategory() {
 		List<Integer> bookByCategories = bookRepository.findBooksByCategory();
 
 		return bookByCategories;
 	}
 
+	/**
+	 * findDashboardAnalytics
+	 * @return
+	 */
 	public DashboardAnalytics findDashboardAnalytics() {
 		DashboardAnalytics dashboardAnalytics = new DashboardAnalytics();
 		dashboardAnalytics.setBookNumber(bookRepository.count());
@@ -74,7 +99,6 @@ public class AnalyticsService {
 		dashboardAnalytics.setIssueBookNumber(circulationRepository.count());
 		dashboardAnalytics.setMemberNumber(memberRepository.count());
 		;
-
 		return dashboardAnalytics;
 	}
 

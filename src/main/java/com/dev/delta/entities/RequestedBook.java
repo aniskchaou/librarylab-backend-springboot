@@ -11,21 +11,21 @@ import javax.persistence.ManyToOne;
 public class RequestedBook {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Long id;
+	private Long id;
 	@ManyToOne
 	@JoinColumn(name = "book_id")
-	Book book;
+	private Book book;
 	@ManyToOne
 	@JoinColumn(name = "writer_id")
-	Writer writer;
+	private Writer writer;
 	@ManyToOne
 	@JoinColumn(name = "category_id")
-	Category ctagory;
-	String edition;
-	String note;
+	private Category ctagory;
+	private String edition;
+	private String note;
 	@ManyToOne
 	@JoinColumn(name = "member_id")
-	Member member;
+	private Member member;
 
 	public RequestedBook() {
 		// TODO Auto-generated constructor stub
