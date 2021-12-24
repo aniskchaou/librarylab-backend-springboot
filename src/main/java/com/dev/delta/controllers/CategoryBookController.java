@@ -88,12 +88,13 @@ public class CategoryBookController {
 	 * 
 	 * @param id
 	 * @return
+	 * @throws Exception 
 	 */
 	@ApiOperation(value = " get category by id ")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
 			@ApiResponse(code = 404, message = "not found") })
 	@GetMapping("/{id}")
-	public ResponseEntity<Category> getCategoryById(@PathVariable Long id) {
+	public ResponseEntity<Category> getCategoryById(@PathVariable Long id) throws Exception {
 		Category category = categoryService.findById(id);
 		return new ResponseEntity<Category>(category, HttpStatus.OK);
 	}
@@ -103,12 +104,13 @@ public class CategoryBookController {
 	 * 
 	 * @param id
 	 * @return
+	 * @throws Exception 
 	 */
 	@ApiOperation(value = " rdelete by id ")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
 			@ApiResponse(code = 404, message = "not found") })
 	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<String> deleteCategory(@PathVariable Long id) {
+	public ResponseEntity<String> deleteCategory(@PathVariable Long id) throws Exception {
 		categoryService.delete(id);
 		return new ResponseEntity<String>("category was deleted", HttpStatus.OK);
 	}

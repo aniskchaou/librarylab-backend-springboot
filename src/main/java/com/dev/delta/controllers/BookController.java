@@ -121,12 +121,13 @@ public class BookController {
 	 * 
 	 * @param id
 	 * @return
+	 * @throws Exception 
 	 */
 	@ApiOperation(value = " find book by id ")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
 			@ApiResponse(code = 404, message = "not found") })
 	@GetMapping("/{id}")
-	public ResponseEntity<Book> getBookById(@PathVariable Long id) {
+	public ResponseEntity<Book> getBookById(@PathVariable Long id) throws Exception {
 		Book book = bookService.findById(id);
 		return new ResponseEntity<Book>(book, HttpStatus.OK);
 	}
@@ -136,12 +137,13 @@ public class BookController {
 	 * 
 	 * @param id
 	 * @return
+	 * @throws Exception 
 	 */
 	@ApiOperation(value = " delete by id ")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
 			@ApiResponse(code = 404, message = "not found") })
 	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<String> deleteBook(@PathVariable Long id) {
+	public ResponseEntity<String> deleteBook(@PathVariable Long id) throws Exception {
 		bookService.delete(id);
 		return new ResponseEntity<String>("book was deleted", HttpStatus.OK);
 	}

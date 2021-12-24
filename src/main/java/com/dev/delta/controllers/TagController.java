@@ -25,40 +25,5 @@ import com.dev.delta.services.TagService;
 @RequestMapping("/tag")
 @CrossOrigin
 public class TagController {
-	@Autowired
-	TagService tagService;
-
-	@PostMapping("/create")
-	public ResponseEntity<?> addPTToBoard(@Validated @RequestBody Tag projectTag, BindingResult result) {
-
-		if (result.hasErrors()) {
-			Map<String, String> errorMap = new HashMap<String, String>();
-
-			for (FieldError error : result.getFieldErrors()) {
-				errorMap.put(error.getField(), error.getDefaultMessage());
-			}
-			return new ResponseEntity<Map<String, String>>(errorMap, HttpStatus.BAD_REQUEST);
-		}
-
-		Tag newPT = tagService.saveOrUpdate(projectTag);
-
-		return new ResponseEntity<Tag>(newPT, HttpStatus.CREATED);
-	}
-
-	@GetMapping("/all")
-	public Iterable<Tag> getAllTags() {
-		return tagService.findAll();
-	}
-
-	@GetMapping("/{id}")
-	public ResponseEntity<Tag> getTagById(@PathVariable Long id) {
-		Tag tag = tagService.findById(id);
-		return new ResponseEntity<Tag>(tag, HttpStatus.OK);
-	}
-
-	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<String> deleteTag(@PathVariable Long id) {
-		tagService.delete(id);
-		return new ResponseEntity<String>("tag was deleted", HttpStatus.OK);
-	}
+	
 }

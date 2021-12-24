@@ -64,9 +64,10 @@ class CategoryServiceTest {
 
 	/**
 	 * getCategoryByIdTest
+	 * @throws Exception 
 	 */
 	@Test
-	public void getCategoryByIdTest() {
+	public void getCategoryByIdTest() throws Exception {
 		when(categoryRepository.findById(1L)).thenReturn(Optional.of(new Category(1L, "Technology")));
 		Category category = categoryService.findById(1L);
 		assertEquals("Technology", category.getCategory_name());

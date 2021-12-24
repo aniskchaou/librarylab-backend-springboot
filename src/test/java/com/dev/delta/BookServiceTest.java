@@ -67,9 +67,10 @@ class BookServiceTest {
 
 	/**
 	 * getAllBooksTest
+	 * @throws Exception 
 	 */
 	@Test
-	public void getBookByIdTest() {
+	public void getBookByIdTest() throws Exception {
 		when(bookRepository.findById(1L)).thenReturn(Optional.of(new Book(1L, "123", "title 1", new Writer(), "", "",
 				"", new Publisher(), "", "", "", "", "", new Category())));
 		Book book = bookService.findById(1L);

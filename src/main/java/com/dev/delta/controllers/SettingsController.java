@@ -96,12 +96,13 @@ public class SettingsController {
 	 * 
 	 * @param id
 	 * @return
+	 * @throws Exception 
 	 */
 	@ApiOperation(value = " get settings ")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
 			@ApiResponse(code = 404, message = "not found") })
 	@GetMapping("/{id}")
-	public ResponseEntity<Settings> getSettingsById(@PathVariable Long id) {
+	public ResponseEntity<Settings> getSettingsById(@PathVariable Long id) throws Exception {
 		Settings settings = settingsService.findById(id);
 		return new ResponseEntity<Settings>(settings, HttpStatus.OK);
 	}

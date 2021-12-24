@@ -44,17 +44,19 @@ public class WriterService {
 	 * 
 	 * @param id
 	 * @return
+	 * @throws Exception 
 	 */
-	public Writer findById(Long id) {
-		return writerRepository.findById(id).orElseThrow();
+	public Writer findById(Long id) throws Exception {
+		return writerRepository.findById(id).orElseThrow(() -> new Exception("not Found"));
 	}
 
 	/**
 	 * delete
 	 * 
 	 * @param id
+	 * @throws Exception 
 	 */
-	public void delete(Long id) {
+	public void delete(Long id) throws Exception {
 		Writer writer = findById(id);
 		writerRepository.delete(writer);
 	}

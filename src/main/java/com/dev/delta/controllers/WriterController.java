@@ -87,12 +87,13 @@ public class WriterController {
 	 * 
 	 * @param id
 	 * @return
+	 * @throws Exception 
 	 */
 	@ApiOperation(value = " get writer by id ")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
 			@ApiResponse(code = 404, message = "not found") })
 	@GetMapping("/{id}")
-	public ResponseEntity<Writer> getWriterById(@PathVariable Long id) {
+	public ResponseEntity<Writer> getWriterById(@PathVariable Long id) throws Exception {
 		Writer writer = writerService.findById(id);
 		return new ResponseEntity<Writer>(writer, HttpStatus.OK);
 	}
@@ -102,12 +103,13 @@ public class WriterController {
 	 * 
 	 * @param id
 	 * @return
+	 * @throws Exception 
 	 */
 	@ApiOperation(value = " delete writer ")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
 			@ApiResponse(code = 404, message = "not found") })
 	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<String> deleteWriter(@PathVariable Long id) {
+	public ResponseEntity<String> deleteWriter(@PathVariable Long id) throws Exception {
 		writerService.delete(id);
 		return new ResponseEntity<String>("writer was deleted", HttpStatus.OK);
 	}

@@ -45,17 +45,19 @@ public class PublisherService {
 	 * 
 	 * @param id
 	 * @return
+	 * @throws Exception 
 	 */
-	public Publisher findById(Long id) {
-		return publisherRepository.findById(id).orElseThrow();
+	public Publisher findById(Long id) throws Exception {
+		return publisherRepository.findById(id).orElseThrow(() -> new Exception("not Found"));
 	}
 
 	/**
 	 * delete
 	 * 
 	 * @param id
+	 * @throws Exception 
 	 */
-	public void delete(Long id) {
+	public void delete(Long id) throws Exception {
 		Publisher publisher = findById(id);
 		publisherRepository.delete(publisher);
 	}

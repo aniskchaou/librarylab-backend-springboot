@@ -25,40 +25,5 @@ import com.dev.delta.services.ArchiveService;
 @RequestMapping("/archive")
 @CrossOrigin
 public class ArchiveController {
-	@Autowired
-	ArchiveService archiveService;
-
-	@PostMapping("/create")
-	public ResponseEntity<?> addPTToBoard(@Validated @RequestBody Archive projectArchive, BindingResult result) {
-
-		if (result.hasErrors()) {
-			Map<String, String> errorMap = new HashMap<String, String>();
-
-			for (FieldError error : result.getFieldErrors()) {
-				errorMap.put(error.getField(), error.getDefaultMessage());
-			}
-			return new ResponseEntity<Map<String, String>>(errorMap, HttpStatus.BAD_REQUEST);
-		}
-
-		Archive newPT = archiveService.saveOrUpdate(projectArchive);
-
-		return new ResponseEntity<Archive>(newPT, HttpStatus.CREATED);
-	}
-
-	@GetMapping("/all")
-	public Iterable<Archive> getAllArchives() {
-		return archiveService.findAll();
-	}
-
-	@GetMapping("/{id}")
-	public ResponseEntity<Archive> getArchiveById(@PathVariable Long id) {
-		Archive archive = archiveService.findById(id);
-		return new ResponseEntity<Archive>(archive, HttpStatus.OK);
-	}
-
-	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<String> deleteArchive(@PathVariable Long id) {
-		archiveService.delete(id);
-		return new ResponseEntity<String>("archive was deleted", HttpStatus.OK);
-	}
+	
 }

@@ -88,12 +88,13 @@ public class CirculationStatusController {
 	 * 
 	 * @param id
 	 * @return
+	 * @throws Exception 
 	 */
 	@ApiOperation(value = " find circulation status by id ")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
 			@ApiResponse(code = 404, message = "not found") })
 	@GetMapping("/{id}")
-	public ResponseEntity<CirculationStatus> getCirculationStatusById(@PathVariable Long id) {
+	public ResponseEntity<CirculationStatus> getCirculationStatusById(@PathVariable Long id) throws Exception {
 		CirculationStatus circulationStatus = circulationStatusService.findById(id);
 		return new ResponseEntity<CirculationStatus>(circulationStatus, HttpStatus.OK);
 	}
@@ -103,12 +104,13 @@ public class CirculationStatusController {
 	 * 
 	 * @param id
 	 * @return
+	 * @throws Exception 
 	 */
 	@ApiOperation(value = " delete circulation by id ")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
 			@ApiResponse(code = 404, message = "not found") })
 	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<String> deleteCirculationStatus(@PathVariable Long id) {
+	public ResponseEntity<String> deleteCirculationStatus(@PathVariable Long id) throws Exception {
 		circulationStatusService.delete(id);
 		return new ResponseEntity<String>("circulationStatus was deleted", HttpStatus.OK);
 	}

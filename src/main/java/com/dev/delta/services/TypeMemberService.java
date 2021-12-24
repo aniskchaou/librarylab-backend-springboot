@@ -46,17 +46,19 @@ public class TypeMemberService {
 	 * 
 	 * @param id
 	 * @return
+	 * @throws Exception 
 	 */
-	public TypeMember findById(Long id) {
-		return typeMemberRepository.findById(id).orElseThrow();
+	public TypeMember findById(Long id) throws Exception {
+		return typeMemberRepository.findById(id).orElseThrow(() -> new Exception("not Found"));
 	}
 
 	/**
 	 * TypeMemberRepository
 	 * 
 	 * @param id
+	 * @throws Exception 
 	 */
-	public void delete(Long id) {
+	public void delete(Long id) throws Exception {
 		TypeMember typeMember = findById(id);
 		typeMemberRepository.delete(typeMember);
 	}

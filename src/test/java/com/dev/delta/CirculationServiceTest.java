@@ -77,9 +77,10 @@ class CirculationServiceTest {
 
 	/**
 	 * getCirculationByIdTest
+	 * @throws Exception 
 	 */
 	@Test
-	public void getCirculationByIdTest() {
+	public void getCirculationByIdTest() throws Exception {
 		when(circulationRepository.findById(1L)).thenReturn(Optional.of(new Circulation(1L, new Member(), new Book(),
 				new Writer(), "11/12/2021", "11/12/2021", "11/12/2021", "11/12/2021", "", new CirculationStatus())));
 		Circulation circulation = circulationService.findById(1L);

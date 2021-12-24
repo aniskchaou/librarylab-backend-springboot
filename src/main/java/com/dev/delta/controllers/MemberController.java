@@ -84,12 +84,13 @@ public class MemberController {
 	 * 
 	 * @param id
 	 * @return
+	 * @throws Exception 
 	 */
 	@ApiOperation(value = " show member ")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
 			@ApiResponse(code = 404, message = "not found") })
 	@GetMapping("/{id}")
-	public ResponseEntity<Member> getMemberById(@PathVariable Long id) {
+	public ResponseEntity<Member> getMemberById(@PathVariable Long id) throws Exception {
 		Member member = memberService.findById(id);
 		return new ResponseEntity<Member>(member, HttpStatus.OK);
 	}
@@ -99,12 +100,13 @@ public class MemberController {
 	 * 
 	 * @param id
 	 * @return
+	 * @throws Exception 
 	 */
 	@ApiOperation(value = " delete member by id ")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
 			@ApiResponse(code = 404, message = "not found") })
 	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<String> deleteMember(@PathVariable Long id) {
+	public ResponseEntity<String> deleteMember(@PathVariable Long id) throws Exception {
 		memberService.delete(id);
 		return new ResponseEntity<String>("member was deleted", HttpStatus.OK);
 	}

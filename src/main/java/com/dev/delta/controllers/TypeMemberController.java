@@ -84,12 +84,13 @@ public class TypeMemberController {
 	 * 
 	 * @param id
 	 * @return
+	 * @throws Exception 
 	 */
 	@ApiOperation(value = " get member type by id ")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
 			@ApiResponse(code = 404, message = "not found") })
 	@GetMapping("/{id}")
-	public ResponseEntity<TypeMember> getTypeMemberById(@PathVariable Long id) {
+	public ResponseEntity<TypeMember> getTypeMemberById(@PathVariable Long id) throws Exception {
 		TypeMember typeMember = typeMemberService.findById(id);
 		return new ResponseEntity<TypeMember>(typeMember, HttpStatus.OK);
 	}
@@ -98,12 +99,13 @@ public class TypeMemberController {
 	 * 
 	 * @param id
 	 * @return
+	 * @throws Exception 
 	 */
 	@ApiOperation(value = " rdeete type member ")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
 			@ApiResponse(code = 404, message = "not found") })
 	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<String> deleteTypeMember(@PathVariable Long id) {
+	public ResponseEntity<String> deleteTypeMember(@PathVariable Long id) throws Exception {
 		typeMemberService.delete(id);
 		return new ResponseEntity<String>("typeMember was deleted", HttpStatus.OK);
 	}

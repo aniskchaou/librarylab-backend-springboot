@@ -65,9 +65,10 @@ class PublisherServiceTest {
 
 	/**
 	 * getPublisherByIdTest
+	 * @throws Exception 
 	 */
 	@Test
-	public void getPublisherByIdTest() {
+	public void getPublisherByIdTest() throws Exception {
 		when(publisherRepository.findById(1L)).thenReturn(Optional.of(new Publisher(1L, "John")));
 		Publisher publisher = publisherService.findById(1L);
 		assertEquals("John", publisher.getName());

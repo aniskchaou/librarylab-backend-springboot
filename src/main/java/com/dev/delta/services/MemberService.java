@@ -45,17 +45,19 @@ public class MemberService {
 	 * 
 	 * @param id
 	 * @return
+	 * @throws Exception 
 	 */
-	public Member findById(Long id) {
-		return memberRepository.findById(id).orElseThrow();
+	public Member findById(Long id) throws Exception {
+		return memberRepository.findById(id).orElseThrow(() -> new Exception("not Found"));
 	}
 
 	/**
 	 * delete
 	 * 
 	 * @param id
+	 * @throws Exception 
 	 */
-	public void delete(Long id) {
+	public void delete(Long id) throws Exception {
 		Member member = findById(id);
 		memberRepository.delete(member);
 	}

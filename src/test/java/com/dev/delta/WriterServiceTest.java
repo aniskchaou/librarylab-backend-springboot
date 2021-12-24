@@ -62,9 +62,10 @@ class WriterServiceTest {
 
 	/**
 	 * getWriterByIdTest
+	 * @throws Exception 
 	 */
 	@Test
-	public void getWriterByIdTest() {
+	public void getWriterByIdTest() throws Exception {
 		when(writerRepository.findById(1L)).thenReturn(Optional.of(new Writer(1L, "John", "")));
 		Writer writer = writerService.findById(1L);
 		assertEquals("John", writer.getName());

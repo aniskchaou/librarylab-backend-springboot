@@ -65,9 +65,10 @@ class MemberServiceTest {
 
 	/**
 	 * getMemberByIdTest
+	 * @throws Exception 
 	 */
 	@Test
-	public void getMemberByIdTest() {
+	public void getMemberByIdTest() throws Exception {
 
 		when(memberRepository.findById(1L)).thenReturn(Optional.of(new Member(1L, "admin")));
 

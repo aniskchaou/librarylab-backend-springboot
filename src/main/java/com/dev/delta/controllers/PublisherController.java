@@ -85,12 +85,13 @@ public class PublisherController {
 	 * 
 	 * @param id
 	 * @return
+	 * @throws Exception 
 	 */
 	@ApiOperation(value = " get publisher ")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
 			@ApiResponse(code = 404, message = "not found") })
 	@GetMapping("/{id}")
-	public ResponseEntity<Publisher> getPublisherById(@PathVariable Long id) {
+	public ResponseEntity<Publisher> getPublisherById(@PathVariable Long id) throws Exception {
 		Publisher publisher = publisherService.findById(id);
 		return new ResponseEntity<Publisher>(publisher, HttpStatus.OK);
 	}
@@ -99,12 +100,13 @@ public class PublisherController {
 	 * 
 	 * @param id
 	 * @return
+	 * @throws Exception 
 	 */
 	@ApiOperation(value = " delete publisher ")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
 			@ApiResponse(code = 404, message = "not found") })
 	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<String> deletePublisher(@PathVariable Long id) {
+	public ResponseEntity<String> deletePublisher(@PathVariable Long id) throws Exception {
 		publisherService.delete(id);
 		return new ResponseEntity<String>("publisher was deleted", HttpStatus.OK);
 	}

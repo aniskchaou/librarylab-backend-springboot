@@ -45,17 +45,19 @@ public class CategoryBookService {
 	 * 
 	 * @param id
 	 * @return
+	 * @throws Exception 
 	 */
-	public Category findById(Long id) {
-		return categoryRepository.findById(id).orElseThrow();
+	public Category findById(Long id) throws Exception {
+		return categoryRepository.findById(id).orElseThrow(() -> new Exception("not Found"));
 	}
 
 	/**
 	 * delete
 	 * 
 	 * @param id
+	 * @throws Exception 
 	 */
-	public void delete(Long id) {
+	public void delete(Long id) throws Exception {
 		Category category = findById(id);
 		categoryRepository.delete(category);
 	}
