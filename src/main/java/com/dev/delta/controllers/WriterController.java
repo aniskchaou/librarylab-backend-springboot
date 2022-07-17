@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiResponses;
  */
 @RestController
 @RequestMapping("writer")
-@CrossOrigin
+@CrossOrigin(origins = "*")
 @Api(value = "WriterController", description = " this is the writer controller class")
 public class WriterController {
 	/**
@@ -87,7 +87,7 @@ public class WriterController {
 	 * 
 	 * @param id
 	 * @return
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	@ApiOperation(value = " get writer by id ")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
@@ -103,7 +103,7 @@ public class WriterController {
 	 * 
 	 * @param id
 	 * @return
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	@ApiOperation(value = " delete writer ")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),

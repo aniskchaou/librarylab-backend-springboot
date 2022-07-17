@@ -27,7 +27,7 @@ public class Circulation {
 	private String returnDate;
 	private String penalty;
 	@ManyToOne
-	@JoinColumn(name = "category_id")
+	@JoinColumn(name = "return_status")
 	private CirculationStatus returnStatus;
 
 	public Circulation() {

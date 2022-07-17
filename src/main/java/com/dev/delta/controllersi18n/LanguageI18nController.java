@@ -14,8 +14,11 @@ import com.dev.delta.entitiesi18n.CategoryI18n;
 import com.dev.delta.entitiesi18n.CirculationI18n;
 import com.dev.delta.entitiesi18n.CirculationStatusI18n;
 import com.dev.delta.entitiesi18n.DashboardI18n;
+import com.dev.delta.entitiesi18n.ExpenseI18n;
+import com.dev.delta.entitiesi18n.IncomeI18n;
 import com.dev.delta.entitiesi18n.MemberI18n;
 import com.dev.delta.entitiesi18n.MenuI18n;
+import com.dev.delta.entitiesi18n.PaymentI18n;
 import com.dev.delta.entitiesi18n.PublisherI18n;
 import com.dev.delta.entitiesi18n.RequestedBookI18n;
 import com.dev.delta.entitiesi18n.SettingsI18n;
@@ -26,8 +29,11 @@ import com.dev.delta.repositoriesi18n.BookI18nRepository;
 import com.dev.delta.repositoriesi18n.CategoryI18nRepository;
 import com.dev.delta.repositoriesi18n.CirculationI18nRepository;
 import com.dev.delta.repositoriesi18n.CirculationStatusI18nRepository;
+import com.dev.delta.repositoriesi18n.ExpenseI18nRepository;
+import com.dev.delta.repositoriesi18n.IncomeI18nRepository;
 import com.dev.delta.repositoriesi18n.MemberI18nRepository;
 import com.dev.delta.repositoriesi18n.MenuI18nRepository;
+import com.dev.delta.repositoriesi18n.PaymentI18nRepository;
 import com.dev.delta.repositoriesi18n.PublisherI18nRepository;
 import com.dev.delta.repositoriesi18n.RequestedBookI18nRepository;
 import com.dev.delta.repositoriesi18n.SettingsI18nRepository;
@@ -46,7 +52,7 @@ import io.swagger.annotations.ApiResponses;
  */
 @RestController
 @RequestMapping("i18n")
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200")
 @Api(value = "BookController", description = " this is the language i18n controller class")
 public class LanguageI18nController {
 
@@ -88,6 +94,15 @@ public class LanguageI18nController {
 
 	@Autowired
 	DashboardRepository dashboardRepository;
+
+	@Autowired
+	IncomeI18nRepository incomeI18nRepository;
+
+	@Autowired
+	ExpenseI18nRepository expenseI18nRepository;
+
+	@Autowired
+	PaymentI18nRepository paymentI18nRepository;
 
 	/**
 	 * 
@@ -255,5 +270,32 @@ public class LanguageI18nController {
 	public ResponseEntity<WriterI18n> getWriterByLang(@PathVariable String lang) {
 		WriterI18n writerI18n = writerI18nRepository.findByLangI18n(lang);
 		return new ResponseEntity<WriterI18n>(writerI18n, HttpStatus.OK);
+	}
+
+	@ApiOperation(value = " get writer ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
+	@GetMapping("/income/{lang}")
+	public ResponseEntity<IncomeI18n> getIncomeByLang(@PathVariable String lang) {
+		IncomeI18n incomeI18n = incomeI18nRepository.findByLangI18n(lang);
+		return new ResponseEntity<IncomeI18n>(incomeI18n, HttpStatus.OK);
+	}
+
+	@ApiOperation(value = " get writer ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
+	@GetMapping("/payment/{lang}")
+	public ResponseEntity<PaymentI18n> getPaymentByLang(@PathVariable String lang) {
+		PaymentI18n paymentI18n = paymentI18nRepository.findByLangI18n(lang);
+		return new ResponseEntity<PaymentI18n>(paymentI18n, HttpStatus.OK);
+	}
+
+	@ApiOperation(value = " get writer ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
+	@GetMapping("/expense/{lang}")
+	public ResponseEntity<ExpenseI18n> getExpenseByLang(@PathVariable String lang) {
+		ExpenseI18n expenseI18n = expenseI18nRepository.findByLangI18n(lang);
+		return new ResponseEntity<ExpenseI18n>(expenseI18n, HttpStatus.OK);
 	}
 }

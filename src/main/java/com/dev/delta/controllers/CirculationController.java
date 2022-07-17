@@ -1,6 +1,7 @@
 package com.dev.delta.controllers;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,7 @@ import io.swagger.annotations.ApiResponses;
 
 @RestController
 @RequestMapping("circulation")
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200")
 @Api(value = "BookController", description = " this is the circulation controller class")
 /**
  * circulation controller
@@ -83,13 +84,34 @@ public class CirculationController {
 	public Iterable<Circulation> getAllCirculations() {
 		return circulationService.findAll();
 	}
+	
+	
+
+	@ApiOperation(value = " find all circulations ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
+	@GetMapping("/return/{id}")
+	public ResponseEntity<Void> returnStatus(@PathVariable int id) {
+		circulationService.returnBook(id);
+		return new ResponseEntity<Void>(HttpStatus.OK);
+	}
+
+	
+	
+	@ApiOperation(value = " find all circulations ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
+	@GetMapping("/returnedbook")
+	public Iterable<Circulation> getReturnedBook() throws Exception {
+		return circulationService.findReturnedBook();
+	}
 
 	/**
 	 * get circulation
 	 * 
 	 * @param id
 	 * @return
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	@ApiOperation(value = " find by id ")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
@@ -105,7 +127,7 @@ public class CirculationController {
 	 * 
 	 * @param id
 	 * @return
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	@ApiOperation(value = " delete ")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
@@ -114,5 +136,20 @@ public class CirculationController {
 	public ResponseEntity<String> deleteCirculation(@PathVariable Long id) throws Exception {
 		circulationService.delete(id);
 		return new ResponseEntity<String>("circulation was deleted", HttpStatus.OK);
+	}
+
+	
+	
+	@ApiOperation(value = " filter book ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
+	@GetMapping("/circulationreport/{member_id}/{category_id}/{book_id}")
+	public ResponseEntity<List<Circulation>> filterCirculationByCriteria(@PathVariable int member_id,
+			@PathVariable int book_id, @PathVariable int category_id) throws Exception {
+
+		List<Circulation> bookRes = circulationService.filterCirculationCriteria(member_id, book_id, category_id);
+		// System.out.println(bookRes.toString());
+		return new ResponseEntity<List<Circulation>>(bookRes, HttpStatus.OK);
+
 	}
 }

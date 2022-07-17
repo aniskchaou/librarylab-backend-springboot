@@ -47,6 +47,7 @@ public class BookDTO implements DTO {
 		book.setTitle(faker.book().title());
 		book.setCategory(category);
 		insertImage(book.getPhoto());
+		book.setStatus(bookStatus);
 		bookRepository.save(book);
 
 		book2.setWriter(writer);
@@ -62,6 +63,7 @@ public class BookDTO implements DTO {
 		book2.setTitle(faker.book().title());
 		book2.setCategory(category2);
 		insertImage(book2.getPhoto());
+		book2.setStatus(bookStatus);
 		bookRepository.save(book2);
 
 		book3.setWriter(writer);
@@ -77,6 +79,7 @@ public class BookDTO implements DTO {
 		book3.setTitle(faker.book().title());
 		book3.setCategory(category3);
 		insertImage(book3.getPhoto());
+		book3.setStatus(bookStatus2);
 		bookRepository.save(book3);
 
 		book4.setWriter(writer);
@@ -92,6 +95,7 @@ public class BookDTO implements DTO {
 		book4.setTitle(faker.book().title());
 		book4.setCategory(category);
 		insertImage(book4.getPhoto());
+		book4.setStatus(bookStatus3);
 		bookRepository.save(book4);
 
 		book5.setWriter(writer);
@@ -107,6 +111,7 @@ public class BookDTO implements DTO {
 		book5.setTitle(faker.book().title());
 		book5.setCategory(category);
 		insertImage(book5.getPhoto());
+		book5.setStatus(bookStatus2);
 		bookRepository.save(book5);
 
 		book6.setWriter(writer);
@@ -121,6 +126,7 @@ public class BookDTO implements DTO {
 		book6.setPublishing_year("2001");
 		book6.setTitle(faker.book().title());
 		book6.setCategory(category);
+		book6.setStatus(bookStatus);
 		insertImage(book6.getPhoto());
 		bookRepository.save(book6);
 
@@ -136,6 +142,7 @@ public class BookDTO implements DTO {
 		book7.setPublishing_year("1990");
 		book7.setTitle(faker.book().title());
 		book7.setCategory(category2);
+		book7.setStatus(bookStatus);
 		insertImage(book7.getPhoto());
 		bookRepository.save(book7);
 
@@ -164,6 +171,8 @@ public class BookDTO implements DTO {
 		bookI18n.setFilterI18n("Filter");
 		bookI18n.setSummaryButtonI18n("Summary");
 		bookI18n.setCloseButtonI18n("Close");
+		bookI18n.setFiltersI18n("Filters");
+		bookI18n.setGroupByI18n("Group by");
 		bookI18nRepository.save(bookI18n);
 
 		bookI18n3.setAuthorI18n("लेखक");
@@ -191,6 +200,8 @@ public class BookDTO implements DTO {
 		bookI18n3.setFilterI18n("फ़िल्टर");
 		bookI18n3.setSummaryButtonI18n("सारांश");
 		bookI18n3.setCloseButtonI18n("बंद करें");
+		bookI18n3.setFiltersI18n("फिल्टर");
+		bookI18n3.setGroupByI18n("समूह द्वारा");
 		bookI18nRepository.save(bookI18n3);
 
 		bookI18n4.setAuthorI18n("লেখক");
@@ -218,6 +229,8 @@ public class BookDTO implements DTO {
 		bookI18n4.setFilterI18n("ফিল্টার");
 		bookI18n4.setSummaryButtonI18n("সারাংশ");
 		bookI18n4.setCloseButtonI18n("বন্ধ");
+		bookI18n4.setFiltersI18n("ফিল্টার");
+		bookI18n4.setGroupByI18n("দ্বারা গ্রুপ");
 		bookI18nRepository.save(bookI18n4);
 
 		bookI18n2.setEditionI18n("الإصدار");
@@ -244,6 +257,8 @@ public class BookDTO implements DTO {
 		bookI18n2.setFilterI18n("عامل التصفية");
 		bookI18n2.setSummaryButtonI18n("الملخص");
 		bookI18n2.setCloseButtonI18n("إغلاق");
+		bookI18n2.setFiltersI18n("عوامل التصفية");
+		bookI18n2.setGroupByI18n("تجميع حسب");
 		bookI18nRepository.save(bookI18n2);
 
 	}

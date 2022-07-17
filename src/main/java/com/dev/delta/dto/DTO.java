@@ -1,12 +1,17 @@
 package com.dev.delta.dto;
 
+import com.dev.delta.email.EmailSetting;
 import com.dev.delta.entities.Archive;
 import com.dev.delta.entities.Book;
+import com.dev.delta.entities.BookStatus;
 import com.dev.delta.entities.Category;
 import com.dev.delta.entities.Circulation;
 import com.dev.delta.entities.CirculationStatus;
 import com.dev.delta.entities.EBook;
+import com.dev.delta.entities.Expense;
+import com.dev.delta.entities.Income;
 import com.dev.delta.entities.Member;
+import com.dev.delta.entities.Payment;
 import com.dev.delta.entities.Publisher;
 import com.dev.delta.entities.RequestedBook;
 import com.dev.delta.entities.Settings;
@@ -20,8 +25,11 @@ import com.dev.delta.entitiesi18n.CirculationI18n;
 import com.dev.delta.entitiesi18n.CirculationStatusI18n;
 import com.dev.delta.entitiesi18n.DashboardI18n;
 import com.dev.delta.entitiesi18n.EBookI18n;
+import com.dev.delta.entitiesi18n.ExpenseI18n;
+import com.dev.delta.entitiesi18n.IncomeI18n;
 import com.dev.delta.entitiesi18n.MemberI18n;
 import com.dev.delta.entitiesi18n.MenuI18n;
+import com.dev.delta.entitiesi18n.PaymentI18n;
 import com.dev.delta.entitiesi18n.PublisherI18n;
 import com.dev.delta.entitiesi18n.RequestedBookI18n;
 import com.dev.delta.entitiesi18n.SearchI18n;
@@ -63,6 +71,15 @@ public interface DTO {
 	public Wastage wastage = new Wastage();
 	public Writer writer = new Writer();
 	public Settings settings = new Settings();
+	public BookStatus bookStatus = new BookStatus();
+	public BookStatus bookStatus2 = new BookStatus();
+	public BookStatus bookStatus3 = new BookStatus();
+	public Income income = new Income();
+	public Income income2 = new Income();
+	public Expense expense = new Expense();
+	public Expense expense2 = new Expense();
+	public Payment payment = new Payment();
+	public EmailSetting emailSetting = new EmailSetting();
 
 	// EN
 	public BookI18n bookI18n = new BookI18n();
@@ -78,7 +95,9 @@ public interface DTO {
 	public SettingsI18n settingsI18n = new SettingsI18n();
 	public MenuI18n menuI18n = new MenuI18n();
 	public DashboardI18n dashboardI18n = new DashboardI18n();
-
+	public IncomeI18n incomeI18n = new IncomeI18n();
+	public PaymentI18n paymentI18n = new PaymentI18n();
+	public ExpenseI18n expenseI18n = new ExpenseI18n();
 	// AR
 	public BookI18n bookI18n2 = new BookI18n();
 	public CategoryI18n categoryI18n2 = new CategoryI18n();
@@ -95,6 +114,9 @@ public interface DTO {
 	public DashboardI18n dashboardI18n2 = new DashboardI18n();
 	public SearchI18n searchI18n = new SearchI18n();
 	public SearchI18n searchI18n2 = new SearchI18n();
+	public IncomeI18n incomeI18n2 = new IncomeI18n();
+	public PaymentI18n paymentI18n2 = new PaymentI18n();
+	public ExpenseI18n expenseI18n2 = new ExpenseI18n();
 
 	// HN
 	public BookI18n bookI18n3 = new BookI18n();
@@ -111,6 +133,9 @@ public interface DTO {
 	public MenuI18n menuI18n3 = new MenuI18n();
 	public DashboardI18n dashboardI18n3 = new DashboardI18n();
 	public SearchI18n searchI18n3 = new SearchI18n();
+	public IncomeI18n incomeI18n3 = new IncomeI18n();
+	public PaymentI18n paymentI18n3 = new PaymentI18n();
+	public ExpenseI18n expenseI18n3 = new ExpenseI18n();
 
 	// BN
 	public BookI18n bookI18n4 = new BookI18n();
@@ -127,6 +152,9 @@ public interface DTO {
 	public MenuI18n menuI18n4 = new MenuI18n();
 	public DashboardI18n dashboardI18n4 = new DashboardI18n();
 	public SearchI18n searchI18n4 = new SearchI18n();
+	public IncomeI18n incomeI18n4 = new IncomeI18n();
+	public PaymentI18n paymentI18n4 = new PaymentI18n();
+	public ExpenseI18n expenseI18n4 = new ExpenseI18n();
 
 	public void populate();
 }

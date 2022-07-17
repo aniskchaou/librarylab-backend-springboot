@@ -45,7 +45,7 @@ public class CirculationStatusService {
 	 * 
 	 * @param id
 	 * @return
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public CirculationStatus findById(Long id) throws Exception {
 		return circulationStatusRepository.findById(id).orElseThrow(() -> new Exception("not Found"));
@@ -55,7 +55,7 @@ public class CirculationStatusService {
 	 * delete
 	 * 
 	 * @param id
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public void delete(Long id) throws Exception {
 		CirculationStatus circulationStatus = findById(id);

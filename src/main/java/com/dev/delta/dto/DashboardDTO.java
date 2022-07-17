@@ -26,6 +26,8 @@ public class DashboardDTO implements DTO {
 		dashboardI18n.setMembersNumberI18n("Members");
 		dashboardI18n.setLangI18n("EN");
 		dashboardI18n.setTitleI18n("Dashboard");
+		dashboardI18n.setExpensesI18n("Expenses");
+		dashboardI18n.setIncomesI18n("Incomes");
 		dashboardRepository.save(dashboardI18n);
 
 		dashboardI18n3.setBooksI18n("বই");
@@ -36,6 +38,8 @@ public class DashboardDTO implements DTO {
 		dashboardI18n3.setMembersNumberI18n("সদস্য");
 		dashboardI18n3.setLangI18n("BN");
 		dashboardI18n3.setTitleI18n("ড্যাশবোর্ড");
+		dashboardI18n3.setExpensesI18n("ব্যয়");
+		dashboardI18n3.setIncomesI18n("আয়");
 		dashboardRepository.save(dashboardI18n);
 
 		dashboardI18n4.setBooksI18n("पुस्तकें");
@@ -46,6 +50,8 @@ public class DashboardDTO implements DTO {
 		dashboardI18n4.setMembersNumberI18n("सदस्य");
 		dashboardI18n4.setLangI18n("HN");
 		dashboardI18n4.setTitleI18n("डैशबोर्ड");
+		dashboardI18n4.setExpensesI18n("व्यय");
+		dashboardI18n4.setIncomesI18n("आय");
 		dashboardRepository.save(dashboardI18n4);
 
 		dashboardI18n2.setBooksI18n("الكتب");
@@ -56,6 +62,8 @@ public class DashboardDTO implements DTO {
 		dashboardI18n2.setMembersNumberI18n("الأعضاء");
 		dashboardI18n2.setLangI18n("AR");
 		dashboardI18n2.setTitleI18n("لوحة المعلومات");
+		dashboardI18n2.setExpensesI18n("النفقات");
+		dashboardI18n2.setIncomesI18n("الدخل");
 		dashboardRepository.save(dashboardI18n2);
 	}
 

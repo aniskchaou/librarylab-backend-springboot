@@ -45,7 +45,7 @@ public class PublisherService {
 	 * 
 	 * @param id
 	 * @return
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public Publisher findById(Long id) throws Exception {
 		return publisherRepository.findById(id).orElseThrow(() -> new Exception("not Found"));
@@ -55,7 +55,7 @@ public class PublisherService {
 	 * delete
 	 * 
 	 * @param id
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public void delete(Long id) throws Exception {
 		Publisher publisher = findById(id);

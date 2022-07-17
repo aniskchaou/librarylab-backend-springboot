@@ -28,7 +28,7 @@ import io.swagger.annotations.ApiResponses;
 
 @RestController
 @RequestMapping("requestedbook")
-@CrossOrigin
+@CrossOrigin(origins = "*")
 @Api(value = "BookController", description = " this is the requested book controller class")
 /**
  * 
@@ -64,7 +64,7 @@ public class RequestedBookController {
 			}
 			return new ResponseEntity<Map<String, String>>(errorMap, HttpStatus.BAD_REQUEST);
 		}
-
+		projectRequestedBook.setStatus("Pending");
 		RequestedBook newPT = requestedBookService.saveOrUpdate(projectRequestedBook);
 
 		return new ResponseEntity<RequestedBook>(newPT, HttpStatus.CREATED);
@@ -86,7 +86,7 @@ public class RequestedBookController {
 	 * 
 	 * @param id
 	 * @return
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	@ApiOperation(value = " get requested book by id ")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
@@ -97,11 +97,31 @@ public class RequestedBookController {
 		return new ResponseEntity<RequestedBook>(requestedBook, HttpStatus.OK);
 	}
 
+	@ApiOperation(value = " get requested book by id ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
+	@GetMapping("/resolve/{id}")
+	public ResponseEntity<Void> resolveBook(@PathVariable int id) throws Exception {
+		requestedBookService.resolve(id);
+		return new ResponseEntity<Void>(HttpStatus.OK);
+	}
+
+	@ApiOperation(value = " get requested book by id ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
+	@GetMapping("/reject/{id}")
+	public ResponseEntity<Void> rejectBook(@PathVariable int id) throws Exception {
+		System.out.println(id);
+		requestedBookService.reject(id);
+
+		return new ResponseEntity<Void>(HttpStatus.OK);
+	}
+
 	/**
 	 * 
 	 * @param id
 	 * @return
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	@ApiOperation(value = " delete requested book ")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),

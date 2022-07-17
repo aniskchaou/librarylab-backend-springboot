@@ -45,7 +45,7 @@ public class SettingsService {
 	 * 
 	 * @param id
 	 * @return
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public Settings findById(Long id) throws Exception {
 		return settingsRepository.findById(id).orElseThrow(() -> new Exception("not Found"));
@@ -55,7 +55,7 @@ public class SettingsService {
 	 * delete
 	 * 
 	 * @param id
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public void delete(Long id) throws Exception {
 		Settings settings = findById(id);

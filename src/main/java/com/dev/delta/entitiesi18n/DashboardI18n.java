@@ -17,7 +17,25 @@ public class DashboardI18n {
 	String issueBookNumberI18n;
 	String booksI18n;
 	String categoriesI18n;
+	String expensesI18n;
+	String incomesI18n;
 	String langI18n;
+
+	public String getExpensesI18n() {
+		return expensesI18n;
+	}
+
+	public void setExpensesI18n(String expensesI18n) {
+		this.expensesI18n = expensesI18n;
+	}
+
+	public String getIncomesI18n() {
+		return incomesI18n;
+	}
+
+	public void setIncomesI18n(String incomesI18n) {
+		this.incomesI18n = incomesI18n;
+	}
 
 	public DashboardI18n() {
 		// TODO Auto-generated constructor stub

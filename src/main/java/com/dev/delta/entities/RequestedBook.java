@@ -27,11 +27,22 @@ public class RequestedBook {
 	@JoinColumn(name = "member_id")
 	private Member member;
 
+	private String status;
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
 	public RequestedBook() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public RequestedBook(Book book, Writer writer, Category ctagory, String edition, String note, Member member) {
+	public RequestedBook(Book book, Writer writer, Category ctagory, String edition, String note, Member member,
+			String status) {
 		super();
 		this.book = book;
 		this.writer = writer;
@@ -39,6 +50,7 @@ public class RequestedBook {
 		this.edition = edition;
 		this.note = note;
 		this.member = member;
+		this.status = status;
 	}
 
 	public Long getId() {

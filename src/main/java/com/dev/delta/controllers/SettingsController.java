@@ -27,7 +27,7 @@ import io.swagger.annotations.ApiResponses;
 
 @RestController
 @RequestMapping("settings")
-@CrossOrigin
+@CrossOrigin(origins = "*")
 @Api(value = "BookController", description = " this is the settings controller class")
 /**
  * 
@@ -96,7 +96,7 @@ public class SettingsController {
 	 * 
 	 * @param id
 	 * @return
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	@ApiOperation(value = " get settings ")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),

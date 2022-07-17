@@ -77,7 +77,8 @@ class CirculationServiceTest {
 
 	/**
 	 * getCirculationByIdTest
-	 * @throws Exception 
+	 * 
+	 * @throws Exception
 	 */
 	@Test
 	public void getCirculationByIdTest() throws Exception {

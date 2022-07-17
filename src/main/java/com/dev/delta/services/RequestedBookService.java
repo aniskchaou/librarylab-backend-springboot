@@ -44,7 +44,7 @@ public class RequestedBookService {
 	 * 
 	 * @param id
 	 * @return
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public RequestedBook findById(Long id) throws Exception {
 		return requestedRequestedBookRepository.findById(id).orElseThrow(() -> new Exception("not Found"));
@@ -54,10 +54,18 @@ public class RequestedBookService {
 	 * delete
 	 * 
 	 * @param id
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public void delete(Long id) throws Exception {
 		RequestedBook requestedRequestedBook = findById(id);
 		requestedRequestedBookRepository.delete(requestedRequestedBook);
+	}
+
+	public void resolve(int id) {
+		requestedRequestedBookRepository.resoveRequest(id);
+	}
+
+	public void reject(int id) {
+		requestedRequestedBookRepository.rejectRequest(id);
 	}
 }

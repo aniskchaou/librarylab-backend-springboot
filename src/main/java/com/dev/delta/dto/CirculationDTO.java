@@ -26,7 +26,7 @@ public class CirculationDTO implements DTO {
 
 		circulation.setBookName(book);
 		circulation.setIssueDate("11/11/2021");
-		circulation.setLastDate("12/03/2022");
+		circulation.setLastDate("12/12/2021");
 		circulation.setMemberName(member);
 		circulation.setPenalty("5");
 		circulation.setReturnDate("11/9/2021");
@@ -35,9 +35,9 @@ public class CirculationDTO implements DTO {
 		circulation.setWriter(writer);
 		circulationRepository.save(circulation);
 
-		circulation2.setBookName(book);
-		circulation2.setIssueDate("11/11/2021");
-		circulation2.setLastDate("12/03/2022");
+		circulation2.setBookName(book3);
+		circulation2.setIssueDate("01/04/2022");
+		circulation2.setLastDate("01/05/2022");
 		circulation2.setMemberName(member);
 		circulation2.setPenalty("5");
 		circulation2.setReturnDate("11/9/2021");
@@ -46,8 +46,8 @@ public class CirculationDTO implements DTO {
 		circulation2.setWriter(writer);
 		circulationRepository.save(circulation2);
 
-		circulation3.setBookName(book);
-		circulation3.setIssueDate("11/11/2021");
+		circulation3.setBookName(book4);
+		circulation3.setIssueDate("10/03/2022");
 		circulation3.setLastDate("12/03/2022");
 		circulation3.setMemberName(member);
 		circulation3.setPenalty("5");
@@ -57,9 +57,9 @@ public class CirculationDTO implements DTO {
 		circulation3.setWriter(writer);
 		circulationRepository.save(circulation3);
 
-		circulation4.setBookName(book);
-		circulation4.setIssueDate("11/11/2021");
-		circulation4.setLastDate("12/03/2022");
+		circulation4.setBookName(book6);
+		circulation4.setIssueDate("01/04/2022");
+		circulation4.setLastDate("02/04/2022");
 		circulation4.setMemberName(member);
 		circulation4.setPenalty("5");
 		circulation4.setReturnDate("11/9/2021");
@@ -68,9 +68,9 @@ public class CirculationDTO implements DTO {
 		circulation4.setWriter(writer);
 		circulationRepository.save(circulation4);
 
-		circulation5.setBookName(book);
-		circulation5.setIssueDate("13/11/2021");
-		circulation5.setLastDate("12/03/2022");
+		circulation5.setBookName(book5);
+		circulation5.setIssueDate("01/01/2022");
+		circulation5.setLastDate("02/06/2022");
 		circulation5.setMemberName(member);
 		circulation5.setPenalty("5");
 		circulation5.setReturnDate("11/9/2021");
@@ -79,9 +79,9 @@ public class CirculationDTO implements DTO {
 		circulation5.setWriter(writer);
 		circulationRepository.save(circulation5);
 
-		circulation6.setBookName(book);
-		circulation6.setIssueDate("12/11/2021");
-		circulation6.setLastDate("12/03/2022");
+		circulation6.setBookName(book2);
+		circulation6.setIssueDate("03/02/2022");
+		circulation6.setLastDate("04/03/2022");
 		circulation6.setMemberName(member);
 		circulation6.setPenalty("5");
 		circulation6.setReturnDate("11/9/2021");
@@ -90,9 +90,9 @@ public class CirculationDTO implements DTO {
 		circulation6.setWriter(writer);
 		circulationRepository.save(circulation6);
 
-		circulation.setBookName(book);
-		circulation.setIssueDate("13/11/2021");
-		circulation.setLastDate("12/03/2022");
+		circulation.setBookName(book3);
+		circulation.setIssueDate("02/01/2022");
+		circulation.setLastDate("02/05/2022");
 		circulation.setMemberName(member);
 		circulation.setPenalty("5");
 		circulation.setReturnDate("11/9/2021");
@@ -117,6 +117,9 @@ public class CirculationDTO implements DTO {
 		circulationI18n2.setCloseButtonI18n("إغلاق");
 		circulationI18n2.setEditButtonI18n("تحرير");
 		circulationI18n2.setEditTitleI18n("تحرير التدوير");
+		circulationI18n2.setSendEmailI18n("إرسال");
+		circulationI18n2.setContactMemberTitleI18n("عضو الاتصال");
+		circulationI18n2.setMessageI18n("رسالة");
 		circulationnRepositoryI18n.save(circulationI18n2);
 
 		circulationI18n.setBookNameI18n("Book Name");
@@ -135,6 +138,9 @@ public class CirculationDTO implements DTO {
 		circulationI18n.setCloseButtonI18n("Close");
 		circulationI18n.setEditButtonI18n("Edit");
 		circulationI18n.setEditTitleI18n("Edit Circulation");
+		circulationI18n.setSendEmailI18n("Send");
+		circulationI18n.setContactMemberTitleI18n("Contact member");
+		circulationI18n.setMessageI18n("Message");
 		circulationnRepositoryI18n.save(circulationI18n);
 
 		circulationI18n3.setBookNameI18n("पुस्तक का नाम");
@@ -153,6 +159,9 @@ public class CirculationDTO implements DTO {
 		circulationI18n3.setCloseButtonI18n("बंद करें");
 		circulationI18n3.setEditButtonI18n("संपादित करें");
 		circulationI18n3.setEditTitleI18n("परिसंचरण संपादित करें");
+		circulationI18n3.setSendEmailI18n("भेजना");
+		circulationI18n3.setContactMemberTitleI18n("सदस्य संपर्क");
+		circulationI18n3.setMessageI18n("संदेश");
 		circulationnRepositoryI18n.save(circulationI18n3);
 
 		circulationI18n4.setBookNameI18n("বইয়ের নাম");
@@ -171,6 +180,9 @@ public class CirculationDTO implements DTO {
 		circulationI18n4.setCloseButtonI18n("বন্ধ");
 		circulationI18n4.setEditButtonI18n("সম্পাদনা");
 		circulationI18n4.setEditTitleI18n("পরিচলন সম্পাদনা করুন");
+		circulationI18n4.setSendEmailI18n("পাঠান");
+		circulationI18n4.setContactMemberTitleI18n("সদস্য যোগাযোগ");
+		circulationI18n4.setMessageI18n("বার্তা");
 		circulationnRepositoryI18n.save(circulationI18n4);
 	}
 

@@ -27,10 +27,45 @@ public class MenuI18n {
 	String weitersI18n;
 	String settingsI18n;
 	String logOutI18n;
+	String archivedBookI18n;
+	String destroyedBookI18n;
+	String calendarI18n;
+	String expenseI18n;
+	String account18n;
+	String income18n;
+	String membershipI18n;
+	String paymentI18n;
+	String reportI18n;
+	String bookReportI18n;
+	String memberReportI18n;
+	String circulationI18n;
+	String circulationReportI18n;
+	String analyticsI18n;
+	String bookAnalayticsI18n;
+	String accountI18n;
+	String emailSettingsI18n;
+	String generalSettingsI18n;
 	String langI18n;
+	String accountAnalyticsI18n;
+
+	public String getAccountAnalyticsI18n() {
+		return accountAnalyticsI18n;
+	}
+
+	public void setAccountAnalyticsI18n(String accountAnalyticsI18n) {
+		this.accountAnalyticsI18n = accountAnalyticsI18n;
+	}
 
 	public Long getId() {
 		return id;
+	}
+
+	public String getCirculationReportI18n() {
+		return circulationReportI18n;
+	}
+
+	public void setCirculationReportI18n(String circulationReportI18n) {
+		this.circulationReportI18n = circulationReportI18n;
 	}
 
 	public void setId(Long id) {
@@ -171,6 +206,142 @@ public class MenuI18n {
 
 	public void setLangI18n(String langI18n) {
 		this.langI18n = langI18n;
+	}
+
+	public String getArchivedBookI18n() {
+		return archivedBookI18n;
+	}
+
+	public void setArchivedBookI18n(String archivedBookI18n) {
+		this.archivedBookI18n = archivedBookI18n;
+	}
+
+	public String getDestroyedBookI18n() {
+		return destroyedBookI18n;
+	}
+
+	public void setDestroyedBookI18n(String destroyedBookI18n) {
+		this.destroyedBookI18n = destroyedBookI18n;
+	}
+
+	public String getCalendarI18n() {
+		return calendarI18n;
+	}
+
+	public void setCalendarI18n(String calendarI18n) {
+		this.calendarI18n = calendarI18n;
+	}
+
+	public String getExpenseI18n() {
+		return expenseI18n;
+	}
+
+	public void setExpenseI18n(String expenseI18n) {
+		this.expenseI18n = expenseI18n;
+	}
+
+	public String getAccount18n() {
+		return account18n;
+	}
+
+	public void setAccount18n(String account18n) {
+		this.account18n = account18n;
+	}
+
+	public String getIncome18n() {
+		return income18n;
+	}
+
+	public void setIncome18n(String income18n) {
+		this.income18n = income18n;
+	}
+
+	public String getMembershipI18n() {
+		return membershipI18n;
+	}
+
+	public void setMembershipI18n(String membershipI18n) {
+		this.membershipI18n = membershipI18n;
+	}
+
+	public String getPaymentI18n() {
+		return paymentI18n;
+	}
+
+	public void setPaymentI18n(String paymentI18n) {
+		this.paymentI18n = paymentI18n;
+	}
+
+	public String getReportI18n() {
+		return reportI18n;
+	}
+
+	public void setReportI18n(String reportI18n) {
+		this.reportI18n = reportI18n;
+	}
+
+	public String getBookReportI18n() {
+		return bookReportI18n;
+	}
+
+	public void setBookReportI18n(String bookReportI18n) {
+		this.bookReportI18n = bookReportI18n;
+	}
+
+	public String getMemberReportI18n() {
+		return memberReportI18n;
+	}
+
+	public void setMemberReportI18n(String memberReportI18n) {
+		this.memberReportI18n = memberReportI18n;
+	}
+
+	public String getCirculationI18n() {
+		return circulationI18n;
+	}
+
+	public void setCirculationI18n(String circulationI18n) {
+		this.circulationI18n = circulationI18n;
+	}
+
+	public String getAnalyticsI18n() {
+		return analyticsI18n;
+	}
+
+	public void setAnalyticsI18n(String analyticsI18n) {
+		this.analyticsI18n = analyticsI18n;
+	}
+
+	public String getBookAnalayticsI18n() {
+		return bookAnalayticsI18n;
+	}
+
+	public void setBookAnalayticsI18n(String bookAnalayticsI18n) {
+		this.bookAnalayticsI18n = bookAnalayticsI18n;
+	}
+
+	public String getAccountI18n() {
+		return accountI18n;
+	}
+
+	public void setAccountI18n(String accountI18n) {
+		this.accountI18n = accountI18n;
+	}
+
+	public String getEmailSettingsI18n() {
+		return emailSettingsI18n;
+	}
+
+	public void setEmailSettingsI18n(String emailSettingsI18n) {
+		this.emailSettingsI18n = emailSettingsI18n;
+	}
+
+	public String getGeneralSettingsI18n() {
+		return generalSettingsI18n;
+	}
+
+	public void setGeneralSettingsI18n(String generalSettingsI18n) {
+		this.generalSettingsI18n = generalSettingsI18n;
 	}
 
 }

@@ -28,7 +28,7 @@ import io.swagger.annotations.ApiResponses;
 
 @RestController
 @RequestMapping("category")
-@CrossOrigin
+@CrossOrigin(origins = "*")
 @Api(value = "BookController", description = " this is the category book controller class")
 /**
  * Category Controller
@@ -88,7 +88,7 @@ public class CategoryBookController {
 	 * 
 	 * @param id
 	 * @return
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	@ApiOperation(value = " get category by id ")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
@@ -104,7 +104,7 @@ public class CategoryBookController {
 	 * 
 	 * @param id
 	 * @return
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	@ApiOperation(value = " rdelete by id ")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),

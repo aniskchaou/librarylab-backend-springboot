@@ -1,6 +1,7 @@
 package com.dev.delta.controllers;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,7 @@ import io.swagger.annotations.ApiResponses;
 
 @RestController
 @RequestMapping("member")
-@CrossOrigin
+@CrossOrigin(origins = "*")
 @Api(value = "BookController", description = " this is the member controller class")
 /**
  * 
@@ -80,11 +81,27 @@ public class MemberController {
 		return memberService.findAll();
 	}
 
+	@ApiOperation(value = " get all members ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
+	@GetMapping("/status")
+	public Iterable<String> getStatus() {
+		return memberService.findStatus();
+	}
+
+	@ApiOperation(value = " get all members ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
+	@GetMapping("/usertype")
+	public Iterable<String> getusertype() {
+		return memberService.findUserType();
+	}
+
 	/**
 	 * 
 	 * @param id
 	 * @return
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	@ApiOperation(value = " show member ")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
@@ -100,7 +117,7 @@ public class MemberController {
 	 * 
 	 * @param id
 	 * @return
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	@ApiOperation(value = " delete member by id ")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
@@ -109,5 +126,18 @@ public class MemberController {
 	public ResponseEntity<String> deleteMember(@PathVariable Long id) throws Exception {
 		memberService.delete(id);
 		return new ResponseEntity<String>("member was deleted", HttpStatus.OK);
+	}
+
+	@ApiOperation(value = " filter book ")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
+			@ApiResponse(code = 404, message = "not found") })
+	@GetMapping("/memberreport/{status}/{type_id}")
+	public ResponseEntity<List<Member>> filterCirculationByCriteria(@PathVariable String status,
+			@PathVariable String type_id) throws Exception {
+
+		List<Member> bookRes = memberService.filterMemberCriteria(status, type_id);
+		// System.out.println(bookRes.toString());
+		return new ResponseEntity<List<Member>>(bookRes, HttpStatus.OK);
+
 	}
 }
