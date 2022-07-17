@@ -52,7 +52,7 @@ import io.swagger.annotations.ApiResponses;
  */
 @RestController
 @RequestMapping("i18n")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @Api(value = "BookController", description = " this is the language i18n controller class")
 public class LanguageI18nController {
 
