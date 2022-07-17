@@ -19,7 +19,7 @@ public interface CirculationRepository extends JpaRepository<Circulation, Long> 
 	@Query("select distinct c.issueDate from Circulation c")
 	List<String> findAllCirculations();
 
-	@Query(nativeQuery = true, value = "select * from circulation c where c.member_id = :member_id and c.book_id=:book_id  and c.category_id=:category_id ")
+	@Query(nativeQuery = true, value = "select * from circulation  where member_id = :member_id and book_id=:book_id  and category_id=:category_id ")
 	List<Circulation> findBookFilter(@Param("member_id") int member_id, @Param("book_id") int book_id,
 			@Param("category_id") int category_id
 
@@ -30,6 +30,6 @@ public interface CirculationRepository extends JpaRepository<Circulation, Long> 
 
 	@Transactional
 	@Modifying(clearAutomatically = true)
-	@Query(nativeQuery = true, value = "UPDATE circulation  c SET c.return_status=2 WHERE c.id=:id ")
+	@Query(nativeQuery = true, value = "UPDATE circulation   SET return_status=2 WHERE id=:id ")
 	void returnBook(@Param("id") int id);
 }
