@@ -24,6 +24,42 @@ public class SettingsI18n {
 	String closeButtonI18n;
 	String langI18n;
 	String languageI18n;
+	String authI18n;
+	String enableTLS;
+	String hostI18n;
+	String emailI18n;
+
+	public String getAuthI18n() {
+		return authI18n;
+	}
+
+	public void setAuthI18n(String authI18n) {
+		this.authI18n = authI18n;
+	}
+
+	public String getEnableTLS() {
+		return enableTLS;
+	}
+
+	public void setEnableTLS(String enableTLS) {
+		this.enableTLS = enableTLS;
+	}
+
+	public String getHostI18n() {
+		return hostI18n;
+	}
+
+	public void setHostI18n(String hostI18n) {
+		this.hostI18n = hostI18n;
+	}
+
+	public String getEmailI18n() {
+		return emailI18n;
+	}
+
+	public void setEmailI18n(String emailI18n) {
+		this.emailI18n = emailI18n;
+	}
 
 	public String getLanguageI18n() {
 		return languageI18n;

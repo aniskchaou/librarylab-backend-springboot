@@ -1,5 +1,7 @@
 package com.dev.delta.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +22,11 @@ public class CirculationService {
 	 */
 	@Autowired
 	CirculationRepository circulationRepository;
+
+	public long count() {
+
+		return circulationRepository.count();
+	}
 
 	/**
 	 * saveOrUpdate
@@ -45,7 +52,7 @@ public class CirculationService {
 	 * 
 	 * @param id
 	 * @return
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public Circulation findById(Long id) throws Exception {
 		return circulationRepository.findById(id).orElseThrow(() -> new Exception("not Found"));
@@ -55,10 +62,23 @@ public class CirculationService {
 	 * delete
 	 * 
 	 * @param id
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public void delete(Long id) throws Exception {
 		Circulation circulation = findById(id);
 		circulationRepository.delete(circulation);
+	}
+
+	public Iterable<Circulation> findReturnedBook() throws Exception {
+		return circulationRepository.findReturnedBooks();
+	}
+
+	public List<Circulation> filterCirculationCriteria(int member_id, int book_id, int category_id) throws Exception {
+		return circulationRepository.findBookFilter(member_id, book_id, category_id);
+	}
+
+	public void returnBook(int id) {
+		circulationRepository.returnBook(id);
+
 	}
 }

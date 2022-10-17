@@ -14,7 +14,6 @@ public class Writer {
 	private String note;
 
 	public Writer() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public Writer(Long id, String name, String note) {

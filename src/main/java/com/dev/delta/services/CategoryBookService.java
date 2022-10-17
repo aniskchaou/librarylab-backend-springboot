@@ -21,6 +21,11 @@ public class CategoryBookService {
 	@Autowired
 	CategoryBookRepository categoryRepository;
 
+	public long count() {
+
+		return categoryRepository.count();
+	}
+
 	/**
 	 * saveOrUpdate
 	 * 
@@ -45,7 +50,7 @@ public class CategoryBookService {
 	 * 
 	 * @param id
 	 * @return
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public Category findById(Long id) throws Exception {
 		return categoryRepository.findById(id).orElseThrow(() -> new Exception("not Found"));
@@ -55,7 +60,7 @@ public class CategoryBookService {
 	 * delete
 	 * 
 	 * @param id
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public void delete(Long id) throws Exception {
 		Category category = findById(id);

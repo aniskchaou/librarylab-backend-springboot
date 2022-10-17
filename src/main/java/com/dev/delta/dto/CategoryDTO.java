@@ -40,6 +40,9 @@ public class CategoryDTO implements DTO {
 		categoryI18n.setCloseButtonI18n("Close");
 		categoryI18n.setEditButtonI18n("Edit");
 		categoryI18n.setEditTitleI18n("Edit Category");
+		categoryI18n.setReloadI18n("Reload");
+		categoryI18n.setAnalyticsI18n("Analytics");
+
 		categoryI18nRepository.save(categoryI18n);
 
 		categoryI18n3.setCategory_nameI18n("বিভাগ");
@@ -50,6 +53,8 @@ public class CategoryDTO implements DTO {
 		categoryI18n3.setCloseButtonI18n("বন্ধ");
 		categoryI18n3.setEditButtonI18n("সম্পাদনা");
 		categoryI18n3.setEditTitleI18n("বিভাগ সম্পাদনা করুন");
+		categoryI18n3.setReloadI18n("পুনরায় লোড করুন");
+		categoryI18n3.setAnalyticsI18n("বিশ্লেষণ");
 		categoryI18nRepository.save(categoryI18n3);
 
 		categoryI18n4.setCategory_nameI18n("श्रेणी");
@@ -60,6 +65,8 @@ public class CategoryDTO implements DTO {
 		categoryI18n4.setCloseButtonI18n("बंद करें");
 		categoryI18n4.setEditButtonI18n("संपादित करें");
 		categoryI18n4.setEditTitleI18n("श्रेणी संपादित करें");
+		categoryI18n4.setReloadI18n("पुनः लोड करें");
+		categoryI18n4.setAnalyticsI18n("एनालिटिक्स");
 		categoryI18nRepository.save(categoryI18n4);
 
 		categoryI18n2.setCategory_nameI18n("الفئة");
@@ -70,6 +77,8 @@ public class CategoryDTO implements DTO {
 		categoryI18n2.setCloseButtonI18n("إغلاق");
 		categoryI18n2.setEditButtonI18n("تحرير");
 		categoryI18n2.setEditTitleI18n("تحرير الفئة");
+		categoryI18n2.setReloadI18n("إعادة تحميل");
+		categoryI18n2.setAnalyticsI18n("تحليلات");
 		categoryI18nRepository.save(categoryI18n2);
 
 	}

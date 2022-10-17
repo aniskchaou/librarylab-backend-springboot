@@ -28,7 +28,7 @@ import io.swagger.annotations.ApiResponses;
 
 @RestController
 @RequestMapping("typemember")
-@CrossOrigin
+@CrossOrigin(origins = "*")
 @Api(value = "BookController", description = " this is the typemember controller class")
 /**
  * 
@@ -84,7 +84,7 @@ public class TypeMemberController {
 	 * 
 	 * @param id
 	 * @return
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	@ApiOperation(value = " get member type by id ")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
@@ -99,7 +99,7 @@ public class TypeMemberController {
 	 * 
 	 * @param id
 	 * @return
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	@ApiOperation(value = " rdeete type member ")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),

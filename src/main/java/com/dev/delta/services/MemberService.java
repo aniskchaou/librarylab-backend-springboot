@@ -1,5 +1,7 @@
 package com.dev.delta.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,10 +18,15 @@ import com.dev.delta.repositories.MemberRepository;
 public class MemberService {
 
 	/**
-	 * MemberRepository
+	 * PaymentRepository
 	 */
 	@Autowired
 	MemberRepository memberRepository;
+
+	public long count() {
+
+		return memberRepository.count();
+	}
 
 	/**
 	 * saveOrUpdate
@@ -40,12 +47,20 @@ public class MemberService {
 		return memberRepository.findAll();
 	}
 
+	public Iterable<String> findStatus() {
+		return memberRepository.getStatus();
+	}
+
+	public Iterable<String> findUserType() {
+		return memberRepository.getUserType();
+	}
+
 	/**
 	 * findById
 	 * 
 	 * @param id
 	 * @return
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public Member findById(Long id) throws Exception {
 		return memberRepository.findById(id).orElseThrow(() -> new Exception("not Found"));
@@ -55,10 +70,14 @@ public class MemberService {
 	 * delete
 	 * 
 	 * @param id
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public void delete(Long id) throws Exception {
 		Member member = findById(id);
 		memberRepository.delete(member);
+	}
+
+	public List<Member> filterMemberCriteria(String status, String type_id) throws Exception {
+		return memberRepository.filterMemberByCriteria(status, type_id);
 	}
 }

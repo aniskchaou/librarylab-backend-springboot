@@ -64,7 +64,8 @@ class CategoryServiceTest {
 
 	/**
 	 * getCategoryByIdTest
-	 * @throws Exception 
+	 * 
+	 * @throws Exception
 	 */
 	@Test
 	public void getCategoryByIdTest() throws Exception {

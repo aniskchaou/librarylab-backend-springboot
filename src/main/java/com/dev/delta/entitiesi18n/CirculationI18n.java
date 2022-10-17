@@ -27,9 +27,36 @@ public class CirculationI18n {
 	String resetButtonI18n;
 	String closeButtonI18n;
 	String langI18n;
+	String contactMemberTitleI18n;
+	String messageI18n;
+	String sendEmailI18n;
 
 	public CirculationI18n() {
 		// TODO Auto-generated constructor stub
+	}
+
+	public String getContactMemberTitleI18n() {
+		return contactMemberTitleI18n;
+	}
+
+	public void setContactMemberTitleI18n(String contactMemberTitleI18n) {
+		this.contactMemberTitleI18n = contactMemberTitleI18n;
+	}
+
+	public String getMessageI18n() {
+		return messageI18n;
+	}
+
+	public void setMessageI18n(String messageI18n) {
+		this.messageI18n = messageI18n;
+	}
+
+	public String getSendEmailI18n() {
+		return sendEmailI18n;
+	}
+
+	public void setSendEmailI18n(String sendEmailI18n) {
+		this.sendEmailI18n = sendEmailI18n;
 	}
 
 	public Long getId() {

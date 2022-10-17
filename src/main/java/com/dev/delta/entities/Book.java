@@ -35,16 +35,17 @@ public class Book {
 	private String publication_place;
 	private String number_of_pages;
 	private String notes;
-	private String status;
+	@ManyToOne
+	@JoinColumn(name = "book_status_id")
+	private BookStatus status;
 	@ManyToOne
 	@JoinColumn(name = "category_id")
 	private Category category;
 
-	public Book(Long id, String isbn, String title, Writer writer, String edition, String edition_year, String photo,
+	public Book(String isbn, String title, Writer writer, String edition, String edition_year, String photo,
 			Publisher publisher, String publishing_year, String publication_place, String number_of_pages, String notes,
-			String status, Category category) {
+			BookStatus status, Category category) {
 		super();
-		this.id = id;
 		this.isbn = isbn;
 		this.title = title;
 		this.writer = writer;
@@ -60,11 +61,11 @@ public class Book {
 		this.category = category;
 	}
 
-	public String getStatus() {
+	public BookStatus getStatus() {
 		return status;
 	}
 
-	public void setStatus(String status) {
+	public void setStatus(BookStatus status) {
 		this.status = status;
 	}
 

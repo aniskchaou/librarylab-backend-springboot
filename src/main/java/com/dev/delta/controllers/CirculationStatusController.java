@@ -28,7 +28,7 @@ import io.swagger.annotations.ApiResponses;
 
 @RestController
 @RequestMapping("circulationstatus")
-@CrossOrigin
+@CrossOrigin(origins = "*")
 @Api(value = "BookController", description = " this is the circulation status controller class")
 /**
  * circulation status controller
@@ -88,7 +88,7 @@ public class CirculationStatusController {
 	 * 
 	 * @param id
 	 * @return
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	@ApiOperation(value = " find circulation status by id ")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
@@ -104,7 +104,7 @@ public class CirculationStatusController {
 	 * 
 	 * @param id
 	 * @return
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	@ApiOperation(value = " delete circulation by id ")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),

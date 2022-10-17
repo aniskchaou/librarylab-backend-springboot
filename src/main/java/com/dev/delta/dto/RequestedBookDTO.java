@@ -24,6 +24,7 @@ public class RequestedBookDTO implements DTO {
 		requestedBook.setMember(member);
 		requestedBook.setNote("N/A");
 		requestedBook.setWriter(writer);
+		requestedBook.setStatus("Pending");
 		requestedBookRepository.save(requestedBook);
 
 		requestedBookI18n.setBookI18n("Book");

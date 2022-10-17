@@ -28,7 +28,7 @@ import io.swagger.annotations.ApiResponses;
 
 @RestController
 @RequestMapping("publisher")
-@CrossOrigin
+@CrossOrigin(origins = "*")
 @Api(value = "BookController", description = " this is the publisher controller class")
 /**
  * 
@@ -85,7 +85,7 @@ public class PublisherController {
 	 * 
 	 * @param id
 	 * @return
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	@ApiOperation(value = " get publisher ")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
@@ -100,7 +100,7 @@ public class PublisherController {
 	 * 
 	 * @param id
 	 * @return
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	@ApiOperation(value = " delete publisher ")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),

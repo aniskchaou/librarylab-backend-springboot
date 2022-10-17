@@ -65,7 +65,8 @@ class PublisherServiceTest {
 
 	/**
 	 * getPublisherByIdTest
-	 * @throws Exception 
+	 * 
+	 * @throws Exception
 	 */
 	@Test
 	public void getPublisherByIdTest() throws Exception {

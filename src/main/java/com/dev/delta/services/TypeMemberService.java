@@ -46,7 +46,7 @@ public class TypeMemberService {
 	 * 
 	 * @param id
 	 * @return
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public TypeMember findById(Long id) throws Exception {
 		return typeMemberRepository.findById(id).orElseThrow(() -> new Exception("not Found"));
@@ -56,7 +56,7 @@ public class TypeMemberService {
 	 * TypeMemberRepository
 	 * 
 	 * @param id
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public void delete(Long id) throws Exception {
 		TypeMember typeMember = findById(id);

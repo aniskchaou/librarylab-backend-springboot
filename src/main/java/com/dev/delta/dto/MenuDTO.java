@@ -35,6 +35,26 @@ public class MenuDTO implements DTO {
 		menuI18n.setTypeMembersI18n("Member Types");
 		menuI18n.setWeitersI18n("Writers");
 		menuI18n.setLangI18n("EN");
+		menuI18n.setArchivedBookI18n("Archived Books");
+		menuI18n.setDestroyedBookI18n("Destroyed Books");
+		menuI18n.setCalendarI18n("Calendar");
+		menuI18n.setExpenseI18n("Expenses");
+		menuI18n.setIncome18n("Incomes");
+		menuI18n.setMembershipI18n("Membership");
+		menuI18n.setPaymentI18n("Payment");
+		menuI18n.setReportI18n("Reports");
+		menuI18n.setBookReportI18n("Book Reports");
+		menuI18n.setMemberReportI18n("Member Reports");
+		menuI18n.setCirculationReportI18n("Circulation Report");
+		menuI18n.setAnalyticsI18n("Analytics");
+		menuI18n.setBookAnalayticsI18n("Books Analytics");
+		menuI18n.setAccount18n("Account");
+		menuI18n.setEmailSettingsI18n("Email Settings");
+		menuI18n.setGeneralSettingsI18n("General Settings");
+		menuI18n.setAccountAnalyticsI18n("Account Analytics");
+		menuI18n.setSettingsI18n("Settings");
+		menuI18n.setAnalyticsI18n("Analytics");
+
 		menuI18nRepository.save(menuI18n);
 
 		menuI18n2.setArchivesI18n("المحفوظات");
@@ -54,6 +74,25 @@ public class MenuDTO implements DTO {
 		menuI18n2.setTypeMembersI18n("أنواع الأعضاء");
 		menuI18n2.setWeitersI18n("الكتاب");
 		menuI18n2.setLangI18n("AR");
+		menuI18n2.setArchivedBookI18n("الكتب المؤرشفة");
+		menuI18n2.setDestroyedBookI18n("الكتب المدمرة");
+		menuI18n2.setCalendarI18n("التقويم");
+		menuI18n2.setExpenseI18n("المصاريف");
+		menuI18n2.setIncome18n("الدخل");
+		menuI18n2.setMembershipI18n("العضوية");
+		menuI18n2.setPaymentI18n("الدفع");
+		menuI18n2.setReportI18n("تقارير");
+		menuI18n2.setBookReportI18n("تقارير الكتاب");
+		menuI18n2.setMemberReportI18n("تقارير الأعضاء");
+		menuI18n2.setCirculationReportI18n("تقرير الإعارة");
+		menuI18n2.setAnalyticsI18n("Analytics");
+		menuI18n2.setBookAnalayticsI18n("تحليلات الكتب");
+		menuI18n2.setAccount18n("الحساب");
+		menuI18n2.setEmailSettingsI18n("إعدادات البريد الإلكتروني");
+		menuI18n2.setGeneralSettingsI18n("الإعدادات العامة");
+		menuI18n2.setAccountAnalyticsI18n("تحليلات الحساب");
+		menuI18n2.setSettingsI18n("الإعدادات");
+		menuI18n2.setAnalyticsI18n("تحليلات");
 		menuI18nRepository.save(menuI18n2);
 
 		menuI18n4.setArchivesI18n("আর্কাইভস");
@@ -73,6 +112,25 @@ public class MenuDTO implements DTO {
 		menuI18n4.setTypeMembersI18n("সদস্যের ধরন");
 		menuI18n4.setWeitersI18n("লেখক");
 		menuI18n4.setLangI18n("BN");
+		menuI18n4.setArchivedBookI18n("আর্কাইভ করা বই");
+		menuI18n4.setDestroyedBookI18n("ধ্বংস করা বই");
+		menuI18n4.setCalendarI18n("ক্যালেন্ডার");
+		menuI18n4.setExpenseI18n("ব্যয়");
+		menuI18n4.setIncome18n("আয়");
+		menuI18n4.setMembershipI18n("সদস্যতা");
+		menuI18n4.setPaymentI18n("পেমেন্ট");
+		menuI18n4.setReportI18n("রিপোর্ট");
+		menuI18n4.setBookReportI18n("বুক রিপোর্ট");
+		menuI18n4.setMemberReportI18n("সদস্য রিপোর্ট");
+		menuI18n4.setCirculationReportI18n("সার্কুলেশন রিপোর্ট");
+		menuI18n4.setAnalyticsI18n("Analytics");
+		menuI18n4.setBookAnalayticsI18n("বই অ্যানালাইটিকস");
+		menuI18n4.setAccount18n("অ্যাকাউন্ট");
+		menuI18n4.setEmailSettingsI18n("ইমেল সেটিংস");
+		menuI18n4.setGeneralSettingsI18n("সাধারণ সেটিংস");
+		menuI18n4.setAccountAnalyticsI18n("অ্যাকাউন্ট অ্যানালিটিক্স");
+		menuI18n4.setSettingsI18n("সেটিংস");
+		menuI18n4.setAnalyticsI18n("বিশ্লেষণ");
 		menuI18nRepository.save(menuI18n4);
 
 		menuI18n3.setArchivesI18n("अभिलेखागार");
@@ -92,6 +150,25 @@ public class MenuDTO implements DTO {
 		menuI18n3.setTypeMembersI18n("सदस्य प्रकार");
 		menuI18n3.setWeitersI18n("राइटर्स");
 		menuI18n3.setLangI18n("HN");
+		menuI18n3.setArchivedBookI18n("संग्रहीत पुस्तकें");
+		menuI18n3.setDestroyedBookI18n("नष्ट पुस्तकें");
+		menuI18n3.setCalendarI18n("कैलेंडर");
+		menuI18n3.setExpenseI18n("व्यय");
+		menuI18n3.setIncome18n("आय");
+		menuI18n3.setMembershipI18n("सदस्यता");
+		menuI18n3.setPaymentI18n("भुगतान");
+		menuI18n3.setReportI18n("रिपोर्ट");
+		menuI18n3.setBookReportI18n("पुस्तक रिपोर्ट");
+		menuI18n3.setMemberReportI18n("सदस्य रिपोर्ट");
+		menuI18n3.setCirculationReportI18n("परिसंचरण रिपोर्ट");
+		menuI18n3.setAnalyticsI18n("एनालिटिक्स");
+		menuI18n3.setBookAnalayticsI18n("पुस्तक विश्लेषिकी");
+		menuI18n3.setAccount18n("खाता");
+		menuI18n3.setEmailSettingsI18n("ईमेल सेटिंग्स");
+		menuI18n3.setGeneralSettingsI18n("सामान्य सेटिंग्स");
+		menuI18n3.setAccountAnalyticsI18n("खाता विश्लेषण");
+		menuI18n3.setSettingsI18n("सेटिंग्स");
+		menuI18n3.setAnalyticsI18n("एनालिटिक्स");
 		menuI18nRepository.save(menuI18n3);
 
 	}

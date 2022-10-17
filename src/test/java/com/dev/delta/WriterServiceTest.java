@@ -62,7 +62,8 @@ class WriterServiceTest {
 
 	/**
 	 * getWriterByIdTest
-	 * @throws Exception 
+	 * 
+	 * @throws Exception
 	 */
 	@Test
 	public void getWriterByIdTest() throws Exception {

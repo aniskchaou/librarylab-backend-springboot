@@ -23,7 +23,7 @@ public class MemberDTO implements DTO {
 	@Override
 	public void populate() {
 		member.setAddress(faker.address().fullAddress());
-		member.setEmail(faker.internet().emailAddress());
+		member.setEmail("kchaouanis25@gmail.com");
 		member.setMobile(faker.phoneNumber().cellPhone());
 		member.setName(faker.name().fullName());
 		member.setPassword("dfzefzee");

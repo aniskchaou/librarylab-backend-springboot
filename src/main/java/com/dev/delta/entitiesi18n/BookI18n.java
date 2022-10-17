@@ -35,7 +35,25 @@ public class BookI18n {
 	private String showButtonI18n;
 	private String refreshButtonI18n;
 	private String summaryButtonI18n;
+	private String filtersI18n;
+	private String groupByI18n;
 	private String filterI18n;
+
+	public String getFiltersI18n() {
+		return filtersI18n;
+	}
+
+	public void setFiltersI18n(String filtersI18n) {
+		this.filtersI18n = filtersI18n;
+	}
+
+	public String getGroupByI18n() {
+		return groupByI18n;
+	}
+
+	public void setGroupByI18n(String groupByI18n) {
+		this.groupByI18n = groupByI18n;
+	}
 
 	public String getShowButtonI18n() {
 		return showButtonI18n;

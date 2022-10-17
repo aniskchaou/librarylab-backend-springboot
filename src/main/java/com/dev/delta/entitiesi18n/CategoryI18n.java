@@ -18,10 +18,28 @@ public class CategoryI18n {
 	private String editButtonI18n;
 	private String resetButtonI18n;
 	private String closeButtonI18n;
+	private String reloadI18n;
+	private String analyticsI18n;
 	private String langI18n;
 
 	public CategoryI18n() {
 		// TODO Auto-generated constructor stub
+	}
+
+	public String getReloadI18n() {
+		return reloadI18n;
+	}
+
+	public void setReloadI18n(String reloadI18n) {
+		this.reloadI18n = reloadI18n;
+	}
+
+	public String getAnalyticsI18n() {
+		return analyticsI18n;
+	}
+
+	public void setAnalyticsI18n(String analyticsI18n) {
+		this.analyticsI18n = analyticsI18n;
 	}
 
 	public Long getId() {
