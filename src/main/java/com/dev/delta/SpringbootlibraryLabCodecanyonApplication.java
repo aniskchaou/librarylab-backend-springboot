@@ -113,7 +113,7 @@ public class SpringbootlibraryLabCodecanyonApplication implements CommandLineRun
 		searchDTO.populate();
 		paymentDTO.populate();
 		incomeDTO.populate();
-		expenseDTO.populate();*/
+		expenseDTO.populate();
 
 	}
 
