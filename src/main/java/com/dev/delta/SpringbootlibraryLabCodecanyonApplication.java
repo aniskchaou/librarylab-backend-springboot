@@ -104,7 +104,7 @@ public class SpringbootlibraryLabCodecanyonApplication implements CommandLineRun
 		writerDTO.populate();
 		typeMemberDTO.populate();
 		categoryDTO.populate();
-		bookDTO.populate();
+		//bookDTO.populate();
 		circulationDTO.populate();
 		requestedBookDTO.populate();
 		settingsDTO.populate();
