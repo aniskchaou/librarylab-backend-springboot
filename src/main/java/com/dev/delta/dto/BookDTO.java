@@ -46,7 +46,7 @@ public class BookDTO implements DTO {
 		book.setPublishing_year("2021");
 		book.setTitle(faker.book().title());
 		book.setCategory(category);
-		insertImage(book.getPhoto());
+		//insertImage(book.getPhoto());
 		book.setStatus(bookStatus);
 		bookRepository.save(book);
 
@@ -62,7 +62,7 @@ public class BookDTO implements DTO {
 		book2.setPublishing_year("2011");
 		book2.setTitle(faker.book().title());
 		book2.setCategory(category2);
-		insertImage(book2.getPhoto());
+		//insertImage(book2.getPhoto());
 		book2.setStatus(bookStatus);
 		bookRepository.save(book2);
 
@@ -78,7 +78,7 @@ public class BookDTO implements DTO {
 		book3.setPublishing_year("2000");
 		book3.setTitle(faker.book().title());
 		book3.setCategory(category3);
-		insertImage(book3.getPhoto());
+		//insertImage(book3.getPhoto());
 		book3.setStatus(bookStatus2);
 		bookRepository.save(book3);
 
@@ -94,7 +94,7 @@ public class BookDTO implements DTO {
 		book4.setPublishing_year("1998");
 		book4.setTitle(faker.book().title());
 		book4.setCategory(category);
-		insertImage(book4.getPhoto());
+		//insertImage(book4.getPhoto());
 		book4.setStatus(bookStatus3);
 		bookRepository.save(book4);
 
@@ -110,7 +110,7 @@ public class BookDTO implements DTO {
 		book5.setPublishing_year("2021");
 		book5.setTitle(faker.book().title());
 		book5.setCategory(category);
-		insertImage(book5.getPhoto());
+		//insertImage(book5.getPhoto());
 		book5.setStatus(bookStatus2);
 		bookRepository.save(book5);
 
@@ -127,7 +127,7 @@ public class BookDTO implements DTO {
 		book6.setTitle(faker.book().title());
 		book6.setCategory(category);
 		book6.setStatus(bookStatus);
-		insertImage(book6.getPhoto());
+		//insertImage(book6.getPhoto());
 		bookRepository.save(book6);
 
 		book7.setWriter(writer);
@@ -143,7 +143,7 @@ public class BookDTO implements DTO {
 		book7.setTitle(faker.book().title());
 		book7.setCategory(category2);
 		book7.setStatus(bookStatus);
-		insertImage(book7.getPhoto());
+		//insertImage(book7.getPhoto());
 		bookRepository.save(book7);
 
 		bookI18n.setAuthorI18n("Writer ");
