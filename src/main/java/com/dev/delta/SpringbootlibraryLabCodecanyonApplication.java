@@ -97,7 +97,7 @@ public class SpringbootlibraryLabCodecanyonApplication implements CommandLineRun
 	@Override
 	public void run(String... args) throws Exception {
 
-		/*bookStatusDTO.populate();
+		//bookStatusDTO.populate();
 		memberDTO.populate();
 		circulationStatusDTO.populate();
 		publisherDTO.populate();
