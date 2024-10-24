@@ -18,4 +18,10 @@ public interface CategoryBookRepository extends JpaRepository<Category, Long> {
 	@Query(nativeQuery = true, value = "select count(*) from Category c where c.category_name = :category_name")
 	Long getCategoryCount(String category_name);
 
+	// Most Popular Genres
+	@Query("SELECT c.category_name, COUNT(c.category_name) FROM CatalogItem ci JOIN ci.category c GROUP BY c.category_name ORDER BY COUNT(c.category_name) DESC")
+	List<Object[]> findMostPopularGenres();
+
+	long countByPublished(boolean published);
+
 }

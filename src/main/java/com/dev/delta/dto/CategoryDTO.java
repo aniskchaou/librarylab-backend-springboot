@@ -1,10 +1,13 @@
 package com.dev.delta.dto;
 
+import com.dev.delta.entities.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dev.delta.repositories.CategoryBookRepository;
 import com.dev.delta.repositoriesi18n.CategoryI18nRepository;
+
+import java.util.Random;
 
 /**
  * CategoryDTO
@@ -23,13 +26,48 @@ public class CategoryDTO implements DTO {
 
 	@Override
 	public void populate() {
+		/*Category category = new Category();
 		category.setCategory_name(faker.book().genre());
-		categoryBookRepository.save(category);
+		category.setPublished(true);
+		category.setSlug(faker.book().genre());
+		categoryBookRepository.save(category);*/
+
+		for (int i = 0; i < 21; i++) {
+			Category category5 = new Category();
+
+			// Set the category name using faker
+			category5.setCategory_name(faker.book().genre());
+
+			// Set the image name (you can customize this part)
+			category5.setImage_name(faker.file().fileName());
+
+			// Generate a random byte array for the image (e.g., simulating image data)
+			byte[] imageBytes = new byte[1000];
+			new Random().nextBytes(imageBytes);  // Random image data
+			category5.setImage(imageBytes);
+
+			// Set the published status
+			category5.setPublished(true);
+
+			// Set the slug (you could generate a slug based on the category name)
+			category5.setSlug(faker.book().genre().toLowerCase().replace(" ", "-"));
+
+			// Add logic to save the category to the database
+			categoryBookRepository.save(category5);
+		}
+
+
 		category1.setCategory_name(faker.book().genre());
+		category1.setPublished(false);
+		category1.setSlug(faker.book().genre());
 		categoryBookRepository.save(category1);
 		category2.setCategory_name(faker.book().genre());
+		category2.setPublished(false);
+		category2.setSlug(faker.book().genre());
 		categoryBookRepository.save(category2);
 		category3.setCategory_name(faker.book().genre());
+		category3.setPublished(false);
+		category3.setSlug(faker.book().genre());
 		categoryBookRepository.save(category3);
 
 		categoryI18n.setCategory_nameI18n("Category ");

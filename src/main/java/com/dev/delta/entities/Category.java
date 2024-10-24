@@ -23,6 +23,24 @@ public class Category {
 	private String image_name;
 	@Column(name = "picByte", length = 1000)
 	private byte[] image;
+	private boolean published;
+	private String slug;
+
+	public boolean isPublished() {
+		return published;
+	}
+
+	public void setPublished(boolean published) {
+		this.published = published;
+	}
+
+	public String getSlug() {
+		return slug;
+	}
+
+	public void setSlug(String slug) {
+		this.slug = slug;
+	}
 
 	public Category() {
 		// TODO Auto-generated constructor stub

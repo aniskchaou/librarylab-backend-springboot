@@ -3,14 +3,18 @@ package com.dev.delta.dto;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Comparator;
+import java.util.Random;
 
+import com.dev.delta.entities.CatalogItem;
+import com.dev.delta.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
 import com.dev.delta.entities.ImageModel;
-import com.dev.delta.repositories.BookRepository;
-import com.dev.delta.repositories.ImageModelrepository;
 import com.dev.delta.repositoriesi18n.BookI18nRepository;
 import com.dev.delta.util.ImageUtil;
 
@@ -32,119 +36,253 @@ public class BookDTO implements DTO {
 	@Autowired
 	ImageModelrepository imageRepository;
 
+	@Autowired
+	MediaTypeRepository mediaTypeRepository;
+
+	@Autowired
+	PublisherRepository publisherRepository;
+
+	@Autowired
+	WriterRepository writerRepository;
+
+	@Autowired
+	CategoryBookRepository categoryRepository;
+
+	@Autowired
+	DepartmentRepository departmentRepository;
+
+	@Autowired
+	ShelfRepository shelfRepository;
+
+	@Autowired
+	RowRepository rowRepository;
+
+	@Autowired
+	PhysicalDescriptionRepository physicalDescriptionRepository;
+
 	@Override
 	public void populate() {
-		book.setWriter(writer);
-		book.setEdition(faker.book().publisher());
-		book.setEdition_year("2021");
-		book.setIsbn("978-3-16-148410-0");
-		book.setNotes("N/A");
-		book.setNumber_of_pages("1122");
-		book.setPhoto("2.jpg");
-		book.setPublication_place("France");
-		book.setPublisher(publisher);
-		book.setPublishing_year("2021");
-		book.setTitle(faker.book().title());
-		book.setCategory(category);
-		insertImage(book.getPhoto());
-		book.setStatus(bookStatus);
-		bookRepository.save(book);
 
-		book2.setWriter(writer);
-		book2.setEdition(faker.book().publisher());
-		book2.setEdition_year("2011");
-		book2.setIsbn("454-3-16-148410-0");
-		book2.setNotes("N/A");
-		book2.setNumber_of_pages("334");
-		book2.setPhoto("3.jpg");
-		book2.setPublication_place("Fance");
-		book2.setPublisher(publisher);
-		book2.setPublishing_year("2011");
-		book2.setTitle(faker.book().title());
-		book2.setCategory(category2);
-		insertImage(book2.getPhoto());
-		book2.setStatus(bookStatus);
-		bookRepository.save(book2);
 
-		book3.setWriter(writer);
-		book3.setEdition(faker.book().publisher());
-		book3.setEdition_year("2000");
-		book3.setIsbn("767-3-16-148410-0");
-		book3.setNotes("N/A");
-		book3.setNumber_of_pages("199");
-		book3.setPhoto("4.jpg");
-		book3.setPublication_place("France");
-		book3.setPublisher(publisher);
-		book3.setPublishing_year("2000");
-		book3.setTitle(faker.book().title());
-		book3.setCategory(category3);
-		insertImage(book3.getPhoto());
-		book3.setStatus(bookStatus2);
-		bookRepository.save(book3);
+		Random random = new Random();
+		/*Path booksDir = Paths.get("static/images/books");
+        try {
+            deleteDirectory(booksDir);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
-		book4.setWriter(writer);
-		book4.setEdition(faker.book().publisher());
-		book4.setEdition_year("1998");
-		book4.setIsbn("212-3-16-148410-0");
-		book4.setNotes("N/A");
-		book4.setNumber_of_pages("1000");
-		book4.setPhoto("5.jpg");
-		book4.setPublication_place("France");
-		book4.setPublisher(publisher);
-		book4.setPublishing_year("1998");
-		book4.setTitle(faker.book().title());
-		book4.setCategory(category);
-		insertImage(book4.getPhoto());
-		book4.setStatus(bookStatus3);
-		bookRepository.save(book4);
+        try {
+            Files.createDirectories(booksDir);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }*/
 
-		book5.setWriter(writer);
-		book5.setEdition(faker.book().publisher());
-		book5.setEdition_year("2021");
-		book5.setIsbn("000-3-16-148410-0");
-		book5.setNotes("N/A");
-		book5.setNumber_of_pages("888");
-		book5.setPhoto("6.jpg");
-		book5.setPublication_place("Spain");
-		book5.setPublisher(publisher);
-		book5.setPublishing_year("2021");
-		book5.setTitle(faker.book().title());
-		book5.setCategory(category);
-		insertImage(book5.getPhoto());
-		book5.setStatus(bookStatus2);
-		bookRepository.save(book5);
+        for (int i = 0; i < 55; i++) {
+			CatalogItem catalogItem = new CatalogItem();
 
-		book6.setWriter(writer);
-		book6.setEdition(faker.book().publisher());
-		book6.setEdition_year("2001");
-		book6.setIsbn("111-3-16-148410-0");
-		book6.setNotes("N/A");
-		book6.setNumber_of_pages("333");
-		book6.setPhoto("7.jpg");
-		book6.setPublication_place("Germany");
-		book6.setPublisher(publisher);
-		book6.setPublishing_year("2001");
-		book6.setTitle(faker.book().title());
-		book6.setCategory(category);
-		book6.setStatus(bookStatus);
-		insertImage(book6.getPhoto());
-		bookRepository.save(book6);
+			// Generating random indices between 0 and 5
+			int randomWriterIndex = random.nextInt(20);   // random index between 0 and 5
+			int randomPublisherIndex = random.nextInt(20); // random index between 0 and 5
+			int randomMediaTypeIndex = random.nextInt(5); // random index between 0 and 5
+			int randomCategoryIndex = random.nextInt(20);  // random index between 0 and 5
+			int randomDepartmentIndex = random.nextInt(10);
+			// Generate random ISBN (13-digit format: "978-1-1234567-89-X")
+			String randomIsbn = "978-" + random.nextInt(9) + "-" + String.format("%07d", random.nextInt(10000000)) + "-" + random.nextInt(10);
 
-		book7.setWriter(writer);
-		book7.setEdition(faker.book().publisher());
-		book7.setEdition_year("2021");
-		book7.setIsbn("000-3-16-148410-0");
-		book7.setNotes("N/A");
-		book7.setNumber_of_pages("120");
-		book7.setPhoto("1.jpg");
-		book7.setPublication_place("USA");
-		book7.setPublisher(publisher);
-		book7.setPublishing_year("1990");
-		book7.setTitle(faker.book().title());
-		book7.setCategory(category2);
-		book7.setStatus(bookStatus);
-		insertImage(book7.getPhoto());
-		bookRepository.save(book7);
+			// Generate random year and publishing year between 1900 and 2024
+			int randomYear = 1900 + random.nextInt(125);  // 1900 to 2024
+			int randomPublishingYear = 1900 + random.nextInt(125);  // 1900 to 2024
+
+			// Generate random number of pages (between 50 and 1000)
+			int randomPages = 50 + random.nextInt(951);
+
+			// Generate random country using Faker
+			String randomCountry = faker.address().country();
+
+			// Setting values
+			catalogItem.setWriter(writerRepository.findAll().get(randomWriterIndex));
+			catalogItem.setEdition(faker.book().publisher());
+			catalogItem.setEdition_year(String.valueOf(randomYear));
+			catalogItem.setIsbn(randomIsbn);  // Set random ISBN
+			catalogItem.setNotes("N/A");
+			catalogItem.setNumber_of_pages(String.valueOf(randomPages));  // Set random page number
+			//catalogItem.setPhoto(".jpg");
+			catalogItem.setPublication_place(randomCountry);  // Set random country
+			catalogItem.setPublisher(publisherRepository.findAll().get(randomPublisherIndex));
+			catalogItem.setPublishing_year(String.valueOf(randomPublishingYear));  // Set random publishing year
+			catalogItem.setTitle(faker.book().title());
+			catalogItem.setCategory(categoryRepository.findAll().get(randomCategoryIndex));
+			//insertImage(catalogItem.getPhoto());
+			catalogItem.setStatus(bookStatus);
+			catalogItem.setMediaType(mediaTypeRepository.findAll().get(randomMediaTypeIndex));
+            catalogItem.setDepartement(departmentRepository.findAll().get(randomDepartmentIndex));
+			catalogItem.setShelf(shelfRepository.findAll().get(randomMediaTypeIndex));
+			catalogItem.setRow(rowRepository.findAll().get(randomMediaTypeIndex));
+			catalogItem.setPhysicalDescription(physicalDescriptionRepository.findAll().get(randomMediaTypeIndex));
+			// Save the catalog item
+			bookRepository.save(catalogItem);
+
+			Long bookId = catalogItem.getId();  // Assuming this returns the book's unique ID
+			catalogItem.setPhoto(catalogItem.getId()+".jpg");
+			bookRepository.save(catalogItem);
+
+
+			// Move the associated image from resources/books to /static/images/books/{book_id}
+			String imageFileName = (i % 20 + 1) + ".jpg";  // To cycle between 1.jpg and 21.jpg
+			String sourceImagePath = "src/main/resources/books/" + imageFileName;
+			String destinationDirectory = "static/images/books/" + bookId;
+			String destinationImagePath = destinationDirectory + "/" + imageFileName;
+
+			// Ensure the destination directory exists
+			Path destinationPath = Paths.get(destinationDirectory);
+			if (!Files.exists(destinationPath)) {
+                try {
+                    Files.createDirectories(destinationPath);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+
+            try {
+				Files.move(Paths.get(sourceImagePath), Paths.get(destinationImagePath));
+			} catch (IOException e) {
+				e.printStackTrace();
+				// Handle the case where the image file is not found or could not be moved
+			}
+
+
+            }
+
+			// Move the image file
+
+
+			//catalogItem.setPhoto(imageFileName);
+
+			// Save the updated catalog item
+			//bookRepository.save(catalogItem);
+		}
+
+
+
+
+		CATALOG_ITEM.setWriter(writerRepository.findAll().get(0));
+		CATALOG_ITEM.setEdition(faker.book().publisher());
+		CATALOG_ITEM.setEdition_year("2021");
+		CATALOG_ITEM.setIsbn("978-3-16-148410-0");
+		CATALOG_ITEM.setNotes("N/A");
+		CATALOG_ITEM.setNumber_of_pages("1122");
+		CATALOG_ITEM.setPhoto("2.jpg");
+		CATALOG_ITEM.setPublication_place("France");
+		CATALOG_ITEM.setPublisher(publisherRepository.findAll().get(1));
+		CATALOG_ITEM.setPublishing_year("2021");
+		CATALOG_ITEM.setTitle(faker.book().title());
+		CATALOG_ITEM.setCategory(category1);
+		//insertImage(CATALOG_ITEM.getPhoto());
+		CATALOG_ITEM.setStatus(bookStatus);
+		CATALOG_ITEM.setMediaType(mediaTypeRepository.getById(1L));
+		bookRepository.save(CATALOG_ITEM);
+
+		CATALOG_ITEM_2.setWriter(writerRepository.findAll().get(1));
+		CATALOG_ITEM_2.setEdition(faker.book().publisher());
+		CATALOG_ITEM_2.setEdition_year("2011");
+		CATALOG_ITEM_2.setIsbn("454-3-16-148410-0");
+		CATALOG_ITEM_2.setNotes("N/A");
+		CATALOG_ITEM_2.setNumber_of_pages("334");
+		CATALOG_ITEM_2.setPhoto("3.jpg");
+		CATALOG_ITEM_2.setPublication_place("Fance");
+		CATALOG_ITEM_2.setPublisher(publisherRepository.findAll().get(2));
+		CATALOG_ITEM_2.setPublishing_year("2011");
+		CATALOG_ITEM_2.setTitle(faker.book().title());
+		CATALOG_ITEM_2.setCategory(category2);
+		//insertImage(CATALOG_ITEM_2.getPhoto());
+		CATALOG_ITEM_2.setStatus(bookStatus);
+		CATALOG_ITEM_2.setMediaType(mediaTypeRepository.getById(2L));
+		bookRepository.save(CATALOG_ITEM_2);
+
+		CATALOG_ITEM_3.setWriter(writerRepository.findAll().get(2));
+		CATALOG_ITEM_3.setEdition(faker.book().publisher());
+		CATALOG_ITEM_3.setEdition_year("2000");
+		CATALOG_ITEM_3.setIsbn("767-3-16-148410-0");
+		CATALOG_ITEM_3.setNotes("N/A");
+		CATALOG_ITEM_3.setNumber_of_pages("199");
+		CATALOG_ITEM_3.setPhoto("4.jpg");
+		CATALOG_ITEM_3.setPublication_place("France");
+		CATALOG_ITEM_3.setPublisher(publisherRepository.findAll().get(4));
+		CATALOG_ITEM_3.setPublishing_year("2000");
+		CATALOG_ITEM_3.setTitle(faker.book().title());
+		CATALOG_ITEM_3.setCategory(category3);
+		//insertImage(CATALOG_ITEM_3.getPhoto());
+		CATALOG_ITEM_3.setMediaType(mediaTypeRepository.getById(1L));
+		CATALOG_ITEM_3.setStatus(bookStatus2);
+		bookRepository.save(CATALOG_ITEM_3);
+
+		CATALOG_ITEM_4.setWriter(writerRepository.findAll().get(3));
+		CATALOG_ITEM_4.setEdition(faker.book().publisher());
+		CATALOG_ITEM_4.setEdition_year("1998");
+		CATALOG_ITEM_4.setIsbn("212-3-16-148410-0");
+		CATALOG_ITEM_4.setNotes("N/A");
+		CATALOG_ITEM_4.setNumber_of_pages("1000");
+		CATALOG_ITEM_4.setPhoto("5.jpg");
+		CATALOG_ITEM_4.setPublication_place("France");
+		CATALOG_ITEM_4.setPublisher(publisherRepository.findAll().get(3));
+		CATALOG_ITEM_4.setPublishing_year("1998");
+		CATALOG_ITEM_4.setTitle(faker.book().title());
+		CATALOG_ITEM_4.setCategory(category1);
+		CATALOG_ITEM_4.setMediaType(mediaTypeRepository.getById(3L));
+		//insertImage(CATALOG_ITEM_4.getPhoto());
+		CATALOG_ITEM_4.setStatus(bookStatus3);
+		bookRepository.save(CATALOG_ITEM_4);
+
+		CATALOG_ITEM_5.setWriter(writerRepository.findAll().get(4));
+		CATALOG_ITEM_5.setEdition(faker.book().publisher());
+		CATALOG_ITEM_5.setEdition_year("2021");
+		CATALOG_ITEM_5.setIsbn("000-3-16-148410-0");
+		CATALOG_ITEM_5.setNotes("N/A");
+		CATALOG_ITEM_5.setNumber_of_pages("888");
+		CATALOG_ITEM_5.setPhoto("6.jpg");
+		CATALOG_ITEM_5.setPublication_place("Spain");
+		CATALOG_ITEM_5.setPublisher(publisherRepository.findAll().get(5));
+		CATALOG_ITEM_5.setPublishing_year("2021");
+		CATALOG_ITEM_5.setTitle(faker.book().title());
+		CATALOG_ITEM_5.setCategory(category1);
+		//insertImage(CATALOG_ITEM_5.getPhoto());
+		CATALOG_ITEM_5.setMediaType(mediaTypeRepository.getById(1L));
+		CATALOG_ITEM_5.setStatus(bookStatus2);
+		bookRepository.save(CATALOG_ITEM_5);
+
+		CATALOG_ITEM_6.setWriter(writerRepository.findAll().get(5));
+		CATALOG_ITEM_6.setEdition(faker.book().publisher());
+		CATALOG_ITEM_6.setEdition_year("2001");
+		CATALOG_ITEM_6.setIsbn("111-3-16-148410-0");
+		CATALOG_ITEM_6.setNotes("N/A");
+		CATALOG_ITEM_6.setNumber_of_pages("333");
+		CATALOG_ITEM_6.setPhoto("7.jpg");
+		CATALOG_ITEM_6.setPublication_place("Germany");
+		CATALOG_ITEM_6.setPublisher(publisherRepository.findAll().get(1));
+		CATALOG_ITEM_6.setPublishing_year("2001");
+		CATALOG_ITEM_6.setTitle(faker.book().title());
+		CATALOG_ITEM_6.setCategory(category1);
+		CATALOG_ITEM_6.setStatus(bookStatus);
+		CATALOG_ITEM_6.setMediaType(mediaTypeRepository.getById(3L));
+		//insertImage(CATALOG_ITEM_6.getPhoto());
+		bookRepository.save(CATALOG_ITEM_6);
+
+		CATALOG_ITEM_7.setWriter(writer);
+		CATALOG_ITEM_7.setEdition(faker.book().publisher());
+		CATALOG_ITEM_7.setEdition_year("2021");
+		CATALOG_ITEM_7.setIsbn("000-3-16-148410-0");
+		CATALOG_ITEM_7.setNotes("N/A");
+		CATALOG_ITEM_7.setNumber_of_pages("120");
+		CATALOG_ITEM_7.setPhoto("1.jpg");
+		CATALOG_ITEM_7.setPublication_place("USA");
+		CATALOG_ITEM_7.setPublisher(publisherRepository.findAll().get(1));
+		CATALOG_ITEM_7.setPublishing_year("1990");
+		CATALOG_ITEM_7.setTitle(faker.book().title());
+		CATALOG_ITEM_7.setCategory(category2);
+		CATALOG_ITEM_7.setStatus(bookStatus);
+		CATALOG_ITEM_7.setMediaType(mediaTypeRepository.getById(2L));
+		//insertImage(CATALOG_ITEM_7.getPhoto());
+		bookRepository.save(CATALOG_ITEM_7);
 
 		bookI18n.setAuthorI18n("Writer ");
 		bookI18n.setEditionI18n("Edition");
@@ -278,6 +416,20 @@ public class BookDTO implements DTO {
 			e.printStackTrace();
 		}
 
+	}
+
+	public static void deleteDirectory(Path path) throws IOException {
+		if (Files.exists(path)) {
+			Files.walk(path)
+					.sorted(Comparator.reverseOrder())
+					.forEach(p -> {
+						try {
+							Files.delete(p);
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+					});
+		}
 	}
 
 }

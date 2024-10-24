@@ -14,7 +14,7 @@ public class RequestedBook {
 	private Long id;
 	@ManyToOne
 	@JoinColumn(name = "book_id")
-	private Book book;
+	private CatalogItem catalogItem;
 	@ManyToOne
 	@JoinColumn(name = "writer_id")
 	private Writer writer;
@@ -41,10 +41,10 @@ public class RequestedBook {
 		// TODO Auto-generated constructor stub
 	}
 
-	public RequestedBook(Book book, Writer writer, Category ctagory, String edition, String note, Member member,
-			String status) {
+	public RequestedBook(CatalogItem catalogItem, Writer writer, Category ctagory, String edition, String note, Member member,
+                         String status) {
 		super();
-		this.book = book;
+		this.catalogItem = catalogItem;
 		this.writer = writer;
 		this.ctagory = ctagory;
 		this.edition = edition;
@@ -61,12 +61,12 @@ public class RequestedBook {
 		this.id = id;
 	}
 
-	public Book getBook() {
-		return book;
+	public CatalogItem getBook() {
+		return catalogItem;
 	}
 
-	public void setBook(Book book) {
-		this.book = book;
+	public void setBook(CatalogItem catalogItem) {
+		this.catalogItem = catalogItem;
 	}
 
 	public Writer getWriter() {

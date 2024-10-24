@@ -3,6 +3,7 @@ package com.dev.delta.controllers;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.dev.delta.entities.UserSetting;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -41,6 +42,19 @@ public class SettingsController {
 	 */
 	@Autowired
 	SettingsService settingsService;
+
+
+
+	@PostMapping("/save_user_settings")
+	public UserSetting saveSettings(@RequestBody UserSetting settings) {
+		return settingsService.saveSettings(settings);
+	}
+
+	// Get settings by id (GET)
+	@GetMapping("/user_settings/{id}")
+	public UserSetting getSettings(@PathVariable Long id) {
+		return settingsService.getSettings(id);
+	}
 
 	/**
 	 * 

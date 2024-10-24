@@ -1,5 +1,6 @@
 package com.dev.delta;
 
+import com.dev.delta.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -8,25 +9,8 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-import com.dev.delta.dto.ArchiveDTO;
-import com.dev.delta.dto.BookDTO;
-import com.dev.delta.dto.BookStatusDTO;
-import com.dev.delta.dto.CategoryDTO;
-import com.dev.delta.dto.CirculationDTO;
-import com.dev.delta.dto.CirculationStatusDTO;
-import com.dev.delta.dto.DashboardDTO;
-import com.dev.delta.dto.ExpenseDTO;
-import com.dev.delta.dto.IncomeDTO;
-import com.dev.delta.dto.MemberDTO;
-import com.dev.delta.dto.MenuDTO;
-import com.dev.delta.dto.PaymentDTO;
-import com.dev.delta.dto.PublisherDTO;
-import com.dev.delta.dto.RequestedBookDTO;
-import com.dev.delta.dto.SearchDTO;
-import com.dev.delta.dto.SettingsDTO;
-import com.dev.delta.dto.TypeMemberDTO;
-import com.dev.delta.dto.WriterDTO;
-
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @EnableSwagger2
@@ -35,7 +19,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 																														// scan
 																														// repository
 																														// files
-@EntityScan({ "com.dev.delta.email", "com.dev.delta.entities", "com.dev.delta.entitiesi18n" })
+@EntityScan({ "com.dev.delta.sms","com.dev.delta.email", "com.dev.delta.entities", "com.dev.delta.entitiesi18n" })
 @EnableJpaRepositories({ "com.dev.delta.email", "com.dev.delta.repositories", "com.dev.delta.repositoriesi18n" })
 @SpringBootApplication
 public class SpringbootlibraryLabCodecanyonApplication implements CommandLineRunner {
@@ -90,23 +74,79 @@ public class SpringbootlibraryLabCodecanyonApplication implements CommandLineRun
 	@Autowired
 	PaymentDTO paymentDTO;
 
+	@Autowired
+	DepartmentDTO departmentDTO;
+
+	@Autowired
+	ShelfDTO shelfDTO;
+
+	@Autowired
+	RowDTO rowDTO;
+
+	@Autowired
+	QRCodeDTO qrCodeDTO;
+
+	@Autowired
+	BarCodeDTO barCodeDTO;
+	@Autowired
+	PhysicalDescriptionDTO physicalDescriptionDTO;
+	@Autowired
+	VendorDTO vendorDTO;
+
+	@Autowired
+	BudgetDTO budgetDTO;
+
+	@Autowired
+	FundDTO fundDTO;
+
+	@Autowired
+	NoticeTemplateDTO noticeTemplateDTO;
+
+	@Autowired
+	NoticeDTO noticeDTO;
+
+	@Autowired
+	ContractDTO contractDTO;
+
+	@Autowired
+	OrderDTO orderDTO;
+
+	@Autowired
+	InvoiceDTO invoiceDTO;
+
+	@Autowired
+	BasketDTO basketDTO;
+
+	@Autowired
+	PurchaseSuggestionDTO purchaseSuggestionDTO;
+
+	@Autowired
+	MediaTypeDTO mediaTypeDTO;
+
+	@Autowired
+	UserDTO userDTO;
+
+	@Autowired
+	NotificationDTO notificationDTO;
+
 	public static void main(String[] args) {
 		SpringApplication.run(SpringbootlibraryLabCodecanyonApplication.class, args);
 	}
 
 	@Override
 	public void run(String... args) throws Exception {
-
+		mediaTypeDTO.populate();
 		bookStatusDTO.populate();
+		typeMemberDTO.populate();
 		memberDTO.populate();
 		circulationStatusDTO.populate();
 		publisherDTO.populate();
 		writerDTO.populate();
-		typeMemberDTO.populate();
+
 		categoryDTO.populate();
-		bookDTO.populate();
-		circulationDTO.populate();
-		requestedBookDTO.populate();
+
+
+
 		settingsDTO.populate();
 		menuDTO.populate();
 		dashboardDTO.populate();
@@ -114,7 +154,32 @@ public class SpringbootlibraryLabCodecanyonApplication implements CommandLineRun
 		paymentDTO.populate();
 		incomeDTO.populate();
 		expenseDTO.populate();
+		departmentDTO.populate();
+		shelfDTO.populate();
+		rowDTO.populate();
+		barCodeDTO.populate();
+		qrCodeDTO.populate();
+		physicalDescriptionDTO.populate();
+		vendorDTO.populate();
+		budgetDTO.populate();
+		fundDTO.populate();
+		noticeTemplateDTO.populate();
+		noticeDTO.populate();
+		contractDTO.populate();
 
+		orderDTO.populate();
+		invoiceDTO.populate();
+		basketDTO.populate();
+		bookDTO.populate();
+		circulationDTO.populate();
+		requestedBookDTO.populate();
+		purchaseSuggestionDTO.populate();
+		userDTO.populate();
+		notificationDTO.populate();
+		//sendSimpleEmail("kchaouanis20@gmail.com","hello","hello world");
 	}
+
+
+
 
 }

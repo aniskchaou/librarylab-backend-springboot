@@ -1,5 +1,6 @@
 package com.dev.delta.dto;
 
+import com.dev.delta.entities.MemberType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,8 +18,89 @@ public class TypeMemberDTO implements DTO {
 
 	@Override
 	public void populate() {
-		typeMember.setName("Normal");
-		typeMemberRepository.save(typeMember);
+		MEMBER_TYPE.setName("Normal");
+		MEMBER_TYPE.setName("Normal");
+		MEMBER_TYPE.setCategoryCode("NM01");
+		MEMBER_TYPE.setDescription("Standard membership with no special privileges.");
+		MEMBER_TYPE.setUpperAgeLimit(65);
+		MEMBER_TYPE.setEnrollmentFee(50.0);
+		MEMBER_TYPE.setEnrollmentPeriod(12); // 12 months
+		MEMBER_TYPE.setHoldFee(5.0);
+		MEMBER_TYPE.setCategoryType("Standard");
+		MEMBER_TYPE.setMinPasswordLength(8);
+		MEMBER_TYPE.setRequireStrongPassword(true);
+		MEMBER_TYPE.setBlockExpiredPatrons(true);
+		typeMemberRepository.save(MEMBER_TYPE);
+
+//		MemberType normalMember = new MemberType();
+//		normalMember.setName("Normal");
+//		normalMember.setCategoryCode("NM01");
+//		normalMember.setDescription("Standard membership with no special privileges.");
+//		normalMember.setUpperAgeLimit(65);
+//		normalMember.setEnrollmentFee(50.0);
+//		normalMember.setEnrollmentPeriod(12); // 12 months
+//		normalMember.setHoldFee(5.0);
+//		normalMember.setCategoryType("Standard");
+//		normalMember.setMinPasswordLength(8);
+//		normalMember.setRequireStrongPassword(true);
+//		normalMember.setBlockExpiredPatrons(true);
+//		typeMemberRepository.save(normalMember);
+
+		MemberType seniorMember = new MemberType();
+		seniorMember.setName("Senior");
+		seniorMember.setCategoryCode("SN01");
+		seniorMember.setDescription("Special membership for patrons above 65 years old.");
+		seniorMember.setUpperAgeLimit(120);
+		seniorMember.setEnrollmentFee(30.0);
+		seniorMember.setEnrollmentPeriod(12);
+		seniorMember.setHoldFee(2.5);
+		seniorMember.setCategoryType("Discounted");
+		seniorMember.setMinPasswordLength(8);
+		seniorMember.setRequireStrongPassword(false);
+		seniorMember.setBlockExpiredPatrons(true);
+		typeMemberRepository.save(seniorMember);
+
+		MemberType studentMember = new MemberType();
+		studentMember.setName("Student");
+		studentMember.setCategoryCode("ST01");
+		studentMember.setDescription("Membership for students with discounts.");
+		studentMember.setUpperAgeLimit(25);
+		studentMember.setEnrollmentFee(25.0);
+		studentMember.setEnrollmentPeriod(6);
+		studentMember.setHoldFee(1.0);
+		studentMember.setCategoryType("Discounted");
+		studentMember.setMinPasswordLength(6);
+		studentMember.setRequireStrongPassword(false);
+		studentMember.setBlockExpiredPatrons(false);
+		typeMemberRepository.save(studentMember);
+
+		MemberType premiumMember = new MemberType();
+		premiumMember.setName("Premium");
+		premiumMember.setCategoryCode("PR01");
+		premiumMember.setDescription("Premium membership with added benefits.");
+		premiumMember.setUpperAgeLimit(120);
+		premiumMember.setEnrollmentFee(100.0);
+		premiumMember.setEnrollmentPeriod(24);
+		premiumMember.setHoldFee(0.0);
+		premiumMember.setCategoryType("Premium");
+		premiumMember.setMinPasswordLength(10);
+		premiumMember.setRequireStrongPassword(true);
+		premiumMember.setBlockExpiredPatrons(true);
+		typeMemberRepository.save(premiumMember);
+
+		MemberType juniorMember = new MemberType();
+		juniorMember.setName("Junior");
+		juniorMember.setCategoryCode("JR01");
+		juniorMember.setDescription("Membership for young patrons.");
+		juniorMember.setUpperAgeLimit(18);
+		juniorMember.setEnrollmentFee(15.0);
+		juniorMember.setEnrollmentPeriod(12);
+		juniorMember.setHoldFee(1.0);
+		juniorMember.setCategoryType("Junior");
+		juniorMember.setMinPasswordLength(6);
+		juniorMember.setRequireStrongPassword(false);
+		juniorMember.setBlockExpiredPatrons(false);
+		typeMemberRepository.save(juniorMember);
 
 		typeMemberI18n.setMember_type_nameI18n("Type Member");
 		typeMemberI18n.setLangI18n("EN");

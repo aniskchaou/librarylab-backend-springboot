@@ -1,5 +1,6 @@
 package com.dev.delta.repositories;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -17,4 +18,10 @@ public interface PaymentRepository extends JpaRepository<Payment, Long> {
 			@Param("user_type") String user_type
 
 	);
+
+	//BigDecimal sumPaymentsByMemberId(Long id);
+
+
+	@Query("SELECT SUM(p.amountPaid) FROM Payment p WHERE p.member.id = :memberId")
+	BigDecimal sumAmountPaidByMember(@Param("memberId") Long memberId);
 }

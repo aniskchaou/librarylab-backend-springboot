@@ -1,13 +1,20 @@
 package com.dev.delta.dto;
 
+import com.dev.delta.entities.Member;
+import com.dev.delta.entities.MemberType;
+import com.dev.delta.repositories.TypeMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dev.delta.repositories.MemberRepository;
 import com.dev.delta.repositoriesi18n.MemberI18nRepository;
 
+import java.time.LocalDate;
+import java.util.List;
+import java.util.Random;
+
 /**
- * 
+ *
  * @author Admin
  *
  */
@@ -20,17 +27,96 @@ public class MemberDTO implements DTO {
 	@Autowired
 	MemberI18nRepository memberI18nRepository;
 
+	@Autowired
+	TypeMemberRepository typeMemberRepository;
+
+
 	@Override
 	public void populate() {
-		member.setAddress(faker.address().fullAddress());
-		member.setEmail("kchaouanis25@gmail.com");
-		member.setMobile(faker.phoneNumber().cellPhone());
-		member.setName(faker.name().fullName());
-		member.setPassword("dfzefzee");
-		member.setStatus("Active");
-		member.setType_id("Student");
-		member.setUser_type("Normal");
+
+
+		for (int i = 0; i < 35; i++) {
+			Member member6 = new Member();
+			member6.setSurname(faker.name().lastName());
+			member6.setFirstname(faker.name().firstName()); // Set the first name
+			member6.setDob("1989-06-07"); // Set date of birth (you can modify this to generate random DOB)
+
+			// Generate a random age between 18 and 65 (you can modify the range as needed)
+			Random random = new Random();
+			int randomAge = 18 + random.nextInt(48); // Age between 18 and 65
+			member6.setAge(String.valueOf(randomAge)); // Set age as a string
+
+			// Randomly set gender
+			String[] genders = {"Male", "Female"};
+			boolean[] trueFalse={true,false};
+			String randomGender = genders[random.nextInt(genders.length)];
+			boolean randomtrueFalse = trueFalse[random.nextInt(genders.length)];
+			member6.setGender(randomGender);
+			member6.setVerified(randomtrueFalse);
+			member6.setBlocked(randomtrueFalse);
+			member6.setExpired(randomtrueFalse);
+
+			member6.setStreet_number(faker.address().buildingNumber()); // Street number
+			member6.setAddress(faker.address().fullAddress()); // Full address
+			member6.setCity(faker.address().city()); // City
+			member6.setState(faker.address().state()); // State
+			member6.setZip(faker.address().zipCode()); // ZIP/Postal code
+			member6.setCountry(faker.address().country()); // Country
+			member6.setPrimary_phone(faker.phoneNumber().cellPhone()); // Primary phone
+			member6.setSecondary_phone(faker.phoneNumber().cellPhone()); // Secondary phone (optional)
+			member6.setPrimary_email(faker.internet().emailAddress()); // Primary email
+			member6.setSecondary_email(faker.internet().emailAddress()); // Secondary email (optional)
+			member6.setHeadOfDepartment(faker.name().fullName()); // Example for head of department
+
+			// Get the list of available member types from the repository
+			List<MemberType> memberTypes = typeMemberRepository.findAll();
+
+
+			if (!memberTypes.isEmpty()) {
+				// Randomly select an index for the user type
+				int randomIndex = random.nextInt(memberTypes.size());
+				String randomMemberType = memberTypes.get(randomIndex).getName();
+				member6.setUserType(randomMemberType);
+				member6.setTypeId(randomMemberType); // Set Type ID to match user type or modify if needed
+			} else {
+				// Handle the case where there are no member types available
+				member6.setUserType("Default"); // Use a default type or handle this scenario as needed
+				member6.setTypeId("Default");
+			}
+
+
+			member6.setStatus("Active"); // Member status
+
+			memberRepository.save(member6);
+		}
+
+
+
+
+
+
+		member.setSurname(faker.name().lastName());
+		member.setFirstname(faker.name().firstName()); // Assuming you want to set the first name as well
+		member.setDob("1989-06-07".toString()); // Set date of birth
+		member.setAge("Unknown"); // Set age (you might calculate this based on the DOB in a real scenario)
+		member.setGender("Male"); // Example for gender
+		member.setStreet_number(faker.address().buildingNumber()); // Street number
+		member.setAddress(faker.address().fullAddress()); // Full address
+		member.setCity(faker.address().city()); // City
+		member.setState(faker.address().state()); // State
+		member.setZip(faker.address().zipCode()); // ZIP/Postal code
+		member.setCountry(faker.address().country()); // Country
+		member.setPrimary_phone(faker.phoneNumber().cellPhone()); // Primary phone
+		member.setSecondary_phone(faker.phoneNumber().cellPhone()); // Secondary phone (optional)
+		member.setPrimary_email(faker.internet().emailAddress()); // Primary email
+		member.setSecondary_email(faker.internet().emailAddress()); // Secondary email (optional)
+		member.setHeadOfDepartment(faker.name().fullName()); // Example for head of department
+		member.setUserType("Regular Member"); // User type (can be modified as per requirement)
+		member.setTypeId("Regular"); // Type ID (modify if needed)
+		member.setStatus("Active"); // Member status
+		member.setCreatedDate(LocalDate.now());
 		memberRepository.save(member);
+
 
 		memberI18n.setAddressI18n("Address");
 		memberI18n.setEmailI18n("Email");

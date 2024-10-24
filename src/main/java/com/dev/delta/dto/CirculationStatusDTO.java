@@ -1,5 +1,6 @@
 package com.dev.delta.dto;
 
+import com.dev.delta.entities.CirculationStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,10 +25,39 @@ public class CirculationStatusDTO implements DTO {
 	@Override
 	public void populate() {
 
-		circulationStatus.setName("Issued");
+		/*circulationStatus.setName("Issued");
 		circulationRepository.save(circulationStatus);
 		circulationStatus2.setName("Returned");
+		circulationRepository.save(circulationStatus2);*/
+
+		// Creating the "Issued" status
+		//circulationStatus.setName("Issued");
+		//circulationRepository.save(circulationStatus);
+
+// Creating the "Returned" status
+		circulationStatus2.setName("Renew");
 		circulationRepository.save(circulationStatus2);
+
+// Creating the "CheckIn" status
+		//CirculationStatus circulationStatus3 = new CirculationStatus();
+		circulationStatus.setName("CheckIn");
+		circulationRepository.save(circulationStatus);
+
+// Creating the "CheckOut" status
+
+		circulationStatus4.setName("CheckOut");
+		circulationRepository.save(circulationStatus4);
+
+// Creating the "Holded" status
+
+		circulationStatus5.setName("On Hold");
+		circulationRepository.save(circulationStatus5);
+
+// Creating the "Overdue" status
+		CirculationStatus circulationStatus6 = new CirculationStatus();
+		circulationStatus6.setName("Overdue");
+		circulationRepository.save(circulationStatus6);
+
 
 		circulationStatusI18n.setNameI18n("Circulation Status");
 		circulationStatusI18n.setLangI18n("EN");

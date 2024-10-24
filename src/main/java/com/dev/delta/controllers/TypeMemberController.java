@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.dev.delta.entities.TypeMember;
+import com.dev.delta.entities.MemberType;
 import com.dev.delta.services.TypeMemberService;
 
 import io.swagger.annotations.Api;
@@ -44,7 +44,7 @@ public class TypeMemberController {
 
 	/**
 	 * 
-	 * @param projectTypeMember
+	 * @param projectMemberType
 	 * @param result
 	 * @return
 	 */
@@ -52,7 +52,7 @@ public class TypeMemberController {
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
 			@ApiResponse(code = 404, message = "not found") })
 	@PostMapping("/create")
-	public ResponseEntity<?> addtypeMember(@Validated @RequestBody TypeMember projectTypeMember, BindingResult result) {
+	public ResponseEntity<?> addtypeMember(@Validated @RequestBody MemberType projectMemberType, BindingResult result) {
 
 		if (result.hasErrors()) {
 			Map<String, String> errorMap = new HashMap<String, String>();
@@ -63,9 +63,9 @@ public class TypeMemberController {
 			return new ResponseEntity<Map<String, String>>(errorMap, HttpStatus.BAD_REQUEST);
 		}
 
-		TypeMember newPT = typeMemberService.saveOrUpdate(projectTypeMember);
+		MemberType newPT = typeMemberService.saveOrUpdate(projectMemberType);
 
-		return new ResponseEntity<TypeMember>(newPT, HttpStatus.CREATED);
+		return new ResponseEntity<MemberType>(newPT, HttpStatus.CREATED);
 	}
 
 	/**
@@ -76,7 +76,7 @@ public class TypeMemberController {
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
 			@ApiResponse(code = 404, message = "not found") })
 	@GetMapping("/all")
-	public Iterable<TypeMember> getAllTypeMembers() {
+	public Iterable<MemberType> getAllTypeMembers() {
 		return typeMemberService.findAll();
 	}
 
@@ -90,9 +90,9 @@ public class TypeMemberController {
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
 			@ApiResponse(code = 404, message = "not found") })
 	@GetMapping("/{id}")
-	public ResponseEntity<TypeMember> getTypeMemberById(@PathVariable Long id) throws Exception {
-		TypeMember typeMember = typeMemberService.findById(id);
-		return new ResponseEntity<TypeMember>(typeMember, HttpStatus.OK);
+	public ResponseEntity<MemberType> getTypeMemberById(@PathVariable Long id) throws Exception {
+		MemberType memberType = typeMemberService.findById(id);
+		return new ResponseEntity<MemberType>(memberType, HttpStatus.OK);
 	}
 
 	/**

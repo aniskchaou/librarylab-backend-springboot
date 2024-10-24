@@ -18,8 +18,8 @@ public class RequestedBookDTO implements DTO {
 	@Override
 	public void populate() {
 		// TODO Auto-generated method stub
-		requestedBook.setBook(book);
-		requestedBook.setCtagory(category);
+		requestedBook.setBook(CATALOG_ITEM);
+		requestedBook.setCtagory(category1);
 		requestedBook.setEdition("2004");
 		requestedBook.setMember(member);
 		requestedBook.setNote("N/A");

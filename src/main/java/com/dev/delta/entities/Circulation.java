@@ -1,5 +1,7 @@
 package com.dev.delta.entities;
 
+import java.time.LocalDate;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,15 +19,13 @@ public class Circulation {
 	private Member memberName;
 	@ManyToOne
 	@JoinColumn(name = "book_id")
-	private Book bookName;
-	@ManyToOne
-	@JoinColumn(name = "writer_id")
-	private Writer writer;
+	private CatalogItem catalogItemName;
+	//private Writer writer;
 	private String issueDate;
 	private String lastDate;
-	private String toReturn;
+	private LocalDate toReturn;
 	private String returnDate;
-	private String penalty;
+	private int penalty;
 	@ManyToOne
 	@JoinColumn(name = "return_status")
 	private CirculationStatus returnStatus;
@@ -34,13 +34,13 @@ public class Circulation {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Circulation(Long id, Member memberName, Book bookName, Writer writer, String issueDate, String lastDate,
-			String toReturn, String returnDate, String penalty, CirculationStatus returnStatus) {
+	public Circulation(Long id, Member memberName, CatalogItem catalogItemName,  String issueDate, String lastDate,
+                       LocalDate toReturn, String returnDate, int penalty, CirculationStatus returnStatus) {
 		super();
 		this.id = id;
 		this.memberName = memberName;
-		this.bookName = bookName;
-		this.writer = writer;
+		this.catalogItemName = catalogItemName;
+		//this.writer = writer;
 		this.issueDate = issueDate;
 		this.lastDate = lastDate;
 		this.toReturn = toReturn;
@@ -65,22 +65,22 @@ public class Circulation {
 		this.memberName = memberName;
 	}
 
-	public Book getBookName() {
-		return bookName;
+	public CatalogItem getCatalogItemName() {
+		return catalogItemName;
 	}
 
-	public void setBookName(Book bookName) {
-		this.bookName = bookName;
+	public void setcCatalogItemName(CatalogItem catalogItemName) {
+		this.catalogItemName = catalogItemName;
 	}
 
-	public Writer getWriter() {
+	/*public Writer getWriter() {
 		return writer;
 	}
 
 	public void setWriter(Writer writer) {
 		this.writer = writer;
 	}
-
+*/
 	public String getIssueDate() {
 		return issueDate;
 	}
@@ -97,11 +97,11 @@ public class Circulation {
 		this.lastDate = lastDate;
 	}
 
-	public String getToReturn() {
+	public LocalDate getToReturn() {
 		return toReturn;
 	}
 
-	public void setToReturn(String toReturn) {
+	public void setToReturn(java.time.LocalDate toReturn) {
 		this.toReturn = toReturn;
 	}
 
@@ -113,11 +113,11 @@ public class Circulation {
 		this.returnDate = returnDate;
 	}
 
-	public String getPenalty() {
+	public int getPenalty() {
 		return penalty;
 	}
 
-	public void setPenalty(String penalty) {
+	public void setPenalty(int penalty) {
 		this.penalty = penalty;
 	}
 

@@ -3,6 +3,7 @@ package com.dev.delta.analytics;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.dev.delta.entities.CatalogItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,7 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.dev.delta.entities.Book;
 import com.dev.delta.entities.Expense;
 import com.dev.delta.entities.Income;
 import com.dev.delta.services.BookService;
@@ -48,11 +48,11 @@ public class AnalyticsController {
 	public ResponseEntity<List<Model>> getBooksByCategories() throws Exception {
 
 		List<Model> list = new ArrayList<Model>();
-		List<Book> bookRes = analyticsService.getBooksByCategories();
-		for (Book book : bookRes) {
+		List<CatalogItem> catalogItemRes = analyticsService.getBooksByCategories();
+		for (CatalogItem catalogItem : catalogItemRes) {
 			Model m = new Model();
-			m.setName(book.getCategory().getCategory_name());
-			m.setValue(analyticsService.getBookByCategory(book.getCategory().getId()).toString());
+			m.setName(catalogItem.getCategory().getCategory_name());
+			m.setValue(analyticsService.getBookByCategory(catalogItem.getCategory().getId()).toString());
 			list.add(m);
 		}
 		return new ResponseEntity<List<Model>>(list, HttpStatus.OK);
@@ -63,11 +63,11 @@ public class AnalyticsController {
 	public ResponseEntity<List<Model>> getBooksByAuthors() throws Exception {
 
 		List<Model> list = new ArrayList<Model>();
-		List<Book> bookRes = analyticsService.getBooksByAuthors();
-		for (Book book : bookRes) {
+		List<CatalogItem> catalogItemRes = analyticsService.getBooksByAuthors();
+		for (CatalogItem catalogItem : catalogItemRes) {
 			Model m = new Model();
-			m.setName(book.getWriter().getName());
-			m.setValue(analyticsService.getBookByAuthor(book.getWriter().getId()).toString());
+			m.setName(catalogItem.getWriter().getName());
+			m.setValue(analyticsService.getBookByAuthor(catalogItem.getWriter().getId()).toString());
 			list.add(m);
 		}
 		return new ResponseEntity<List<Model>>(list, HttpStatus.OK);
@@ -78,11 +78,11 @@ public class AnalyticsController {
 	public ResponseEntity<List<Model>> getBooksByPublisher() throws Exception {
 
 		List<Model> list = new ArrayList<Model>();
-		List<Book> bookRes = analyticsService.getBooksByPublishers();
-		for (Book book : bookRes) {
+		List<CatalogItem> catalogItemRes = analyticsService.getBooksByPublishers();
+		for (CatalogItem catalogItem : catalogItemRes) {
 			Model m = new Model();
-			m.setName(book.getPublisher().getName());
-			m.setValue(analyticsService.getBookByPublisher(book.getPublisher().getId()).toString());
+			m.setName(catalogItem.getPublisher().getName());
+			m.setValue(analyticsService.getBookByPublisher(catalogItem.getPublisher().getId()).toString());
 			list.add(m);
 		}
 		return new ResponseEntity<List<Model>>(list, HttpStatus.OK);
@@ -133,7 +133,7 @@ public class AnalyticsController {
 		analytics.setBookNumber(bookNumber);
 		analytics.setMemberNumber(memberNumber);
 		analytics.setIssueBookNumber(circulationNumber);
-		analytics.setIssueBookNumber(categoryNumber);
+		analytics.setCategoryNumber(categoryNumber);
 
 		return new ResponseEntity<Analytics>(analytics, HttpStatus.OK);
 

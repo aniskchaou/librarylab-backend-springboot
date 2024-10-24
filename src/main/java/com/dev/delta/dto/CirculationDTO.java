@@ -6,6 +6,10 @@ import org.springframework.stereotype.Service;
 import com.dev.delta.repositories.CirculationRepository;
 import com.dev.delta.repositoriesi18n.CirculationI18nRepository;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Random;
+
 /**
  * CirculationDTO
  * 
@@ -21,84 +25,127 @@ public class CirculationDTO implements DTO {
 	@Autowired
 	CirculationI18nRepository circulationnRepositoryI18n;
 
+	private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("yyyy/dd/MM");
+	private static final Random random = new Random();
+
+
+	public static LocalDate getRandomDate(int startYear, int endYear) {
+		int day = random.nextInt(365); // Random day offset
+		LocalDate startDate = LocalDate.of(startYear, 1, 1); // Start from the first day of the start year
+		return startDate.plusDays(day);
+	}
+
 	@Override
 	public void populate() {
 
-		circulation.setBookName(book);
-		circulation.setIssueDate("11/11/2021");
-		circulation.setLastDate("12/12/2021");
+
+		// Generating random dates
+		LocalDate randomIssueDate = getRandomDate(2021, 2022);
+		LocalDate randomLastDate = randomIssueDate.plusDays(30); // Add 30 days to the issue date for the last date
+		LocalDate randomReturnDate = getRandomDate(2022, 2023); // Random return date
+		LocalDate randomToReturnDate = getRandomDate(2022, 2023); // Random to return date
+
+		// Circulation 1
+		circulation.setcCatalogItemName(CATALOG_ITEM);
+		circulation.setIssueDate(randomIssueDate.format(DATE_FORMAT));
+		circulation.setLastDate(randomLastDate.format(DATE_FORMAT));
 		circulation.setMemberName(member);
-		circulation.setPenalty("5");
-		circulation.setReturnDate("11/9/2021");
-		circulation.setReturnStatus(circulationStatus);
-		circulation.setToReturn("11/9/2021");
-		circulation.setWriter(writer);
+		circulation.setPenalty(5);
+		circulation.setReturnDate(randomReturnDate.format(DATE_FORMAT));
+		circulation.setReturnStatus(circulationStatus5);
+		circulation.setToReturn(randomToReturnDate);
+		//circulation.setWriter(writer);
 		circulationRepository.save(circulation);
 
-		circulation2.setBookName(book3);
-		circulation2.setIssueDate("01/04/2022");
-		circulation2.setLastDate("01/05/2022");
+		// Circulation 2
+		circulation2.setcCatalogItemName(CATALOG_ITEM_3);
+		randomIssueDate = getRandomDate(2021, 2022); // Generate new random dates
+		randomLastDate = randomIssueDate.plusDays(30);
+		circulation2.setIssueDate(randomIssueDate.format(DATE_FORMAT));
+		circulation2.setLastDate(randomLastDate.format(DATE_FORMAT));
 		circulation2.setMemberName(member);
-		circulation2.setPenalty("5");
-		circulation2.setReturnDate("11/9/2021");
+		circulation2.setPenalty(5);
+		randomReturnDate = getRandomDate(2021, 2022);
+		circulation2.setReturnDate(randomReturnDate.format(DATE_FORMAT));
 		circulation2.setReturnStatus(circulationStatus);
-		circulation2.setToReturn("11/9/2021");
-		circulation2.setWriter(writer);
+		randomToReturnDate = getRandomDate(2021, 2022);
+		circulation2.setToReturn(LocalDate.of(2024, 1, 1));
+		//circulation2.setWriter(writer);
 		circulationRepository.save(circulation2);
 
-		circulation3.setBookName(book4);
-		circulation3.setIssueDate("10/03/2022");
-		circulation3.setLastDate("12/03/2022");
+		// Circulation 3
+		circulation3.setcCatalogItemName(CATALOG_ITEM_4);
+		randomIssueDate = getRandomDate(2021, 2022); // Generate new random dates
+		randomLastDate = randomIssueDate.plusDays(30);
+		circulation3.setIssueDate(randomIssueDate.format(DATE_FORMAT));
+		circulation3.setLastDate(randomLastDate.format(DATE_FORMAT));
 		circulation3.setMemberName(member);
-		circulation3.setPenalty("5");
-		circulation3.setReturnDate("11/9/2021");
-		circulation3.setReturnStatus(circulationStatus);
-		circulation3.setToReturn("11/9/2021");
-		circulation3.setWriter(writer);
+		circulation3.setPenalty(5);
+		randomReturnDate = getRandomDate(2021, 2022);
+		circulation3.setReturnDate(randomReturnDate.format(DATE_FORMAT));
+		circulation3.setReturnStatus(circulationStatus2);
+		randomToReturnDate = getRandomDate(2021, 2022);
+		circulation3.setToReturn(randomToReturnDate);
+		//circulation3.setWriter(writer);
 		circulationRepository.save(circulation3);
 
-		circulation4.setBookName(book6);
-		circulation4.setIssueDate("01/04/2022");
-		circulation4.setLastDate("02/04/2022");
+		// Circulation 4
+		circulation4.setcCatalogItemName(CATALOG_ITEM_6);
+		randomIssueDate = getRandomDate(2021, 2022); // Generate new random dates
+		randomLastDate = randomIssueDate.plusDays(30);
+		circulation4.setIssueDate(randomIssueDate.format(DATE_FORMAT));
+		circulation4.setLastDate(randomLastDate.format(DATE_FORMAT));
 		circulation4.setMemberName(member);
-		circulation4.setPenalty("5");
-		circulation4.setReturnDate("11/9/2021");
-		circulation4.setReturnStatus(circulationStatus);
-		circulation4.setToReturn("11/9/2021");
-		circulation4.setWriter(writer);
+		circulation4.setPenalty(5);
+		randomReturnDate = getRandomDate(2021, 2022);
+		circulation4.setReturnDate(randomReturnDate.format(DATE_FORMAT));
+		circulation4.setReturnStatus(circulationStatus2);
+		randomToReturnDate = getRandomDate(2021, 2022);
+		circulation4.setToReturn(randomToReturnDate);
+		//circulation4.setWriter(writer);
 		circulationRepository.save(circulation4);
 
-		circulation5.setBookName(book5);
-		circulation5.setIssueDate("01/01/2022");
-		circulation5.setLastDate("02/06/2022");
+		// Circulation 5
+		circulation5.setcCatalogItemName(CATALOG_ITEM_5);
+		randomIssueDate = getRandomDate(2021, 2022); // Generate new random dates
+		randomLastDate = randomIssueDate.plusDays(30);
+		circulation5.setIssueDate(randomIssueDate.format(DATE_FORMAT));
+		circulation5.setLastDate(randomLastDate.format(DATE_FORMAT));
 		circulation5.setMemberName(member);
-		circulation5.setPenalty("5");
-		circulation5.setReturnDate("11/9/2021");
-		circulation5.setReturnStatus(circulationStatus);
-		circulation5.setToReturn("11/9/2021");
-		circulation5.setWriter(writer);
+		circulation5.setPenalty(5);
+		randomReturnDate = getRandomDate(2021, 2022);
+		circulation5.setReturnDate(randomReturnDate.format(DATE_FORMAT));
+		circulation5.setReturnStatus(circulationStatus4);
+		randomToReturnDate = getRandomDate(2021, 2022);
+		circulation5.setToReturn(randomToReturnDate);
+		//circulation5.setWriter(writer);
 		circulationRepository.save(circulation5);
 
-		circulation6.setBookName(book2);
-		circulation6.setIssueDate("03/02/2022");
-		circulation6.setLastDate("04/03/2022");
+		// Circulation 6
+		circulation6.setcCatalogItemName(CATALOG_ITEM_2);
+		randomIssueDate = getRandomDate(2021, 2022); // Generate new random dates
+		randomLastDate = randomIssueDate.plusDays(30);
+		circulation6.setIssueDate(randomIssueDate.format(DATE_FORMAT));
+		circulation6.setLastDate(randomLastDate.format(DATE_FORMAT));
 		circulation6.setMemberName(member);
-		circulation6.setPenalty("5");
-		circulation6.setReturnDate("11/9/2021");
-		circulation6.setReturnStatus(circulationStatus);
-		circulation6.setToReturn("11/9/2021");
-		circulation6.setWriter(writer);
+		circulation6.setPenalty(5);
+		randomReturnDate = getRandomDate(2021, 2022);
+		circulation6.setReturnDate(randomReturnDate.format(DATE_FORMAT));
+		circulation6.setReturnStatus(circulationStatus5);
+		randomToReturnDate = getRandomDate(2021, 2022);
+		circulation6.setToReturn(randomToReturnDate);
+		//circulation6.setWriter(writer);
 		circulationRepository.save(circulation6);
 
-		circulation.setBookName(book3);
+		circulation.setcCatalogItemName(CATALOG_ITEM_3);
 		circulation.setIssueDate("02/01/2022");
 		circulation.setLastDate("02/05/2022");
 		circulation.setMemberName(member);
-		circulation.setPenalty("5");
+		circulation.setPenalty(5);
 		circulation.setReturnDate("11/9/2021");
-		circulation.setReturnStatus(circulationStatus);
-		circulation.setToReturn("11/9/2021");
-		circulation.setWriter(writer);
+		circulation.setReturnStatus(circulationStatus2);
+		circulation.setToReturn(randomToReturnDate);
+		//circulation.setWriter(writer);
 		circulationRepository.save(circulation);
 
 		circulationI18n2.setBookNameI18n("اسم الكتاب");

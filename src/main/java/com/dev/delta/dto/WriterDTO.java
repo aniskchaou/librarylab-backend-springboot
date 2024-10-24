@@ -1,10 +1,14 @@
 package com.dev.delta.dto;
 
+import com.dev.delta.entities.Writer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dev.delta.repositories.WriterRepository;
 import com.dev.delta.repositoriesi18n.WriterI18nRepository;
+
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 @Service
 public class WriterDTO implements DTO {
@@ -17,9 +21,33 @@ public class WriterDTO implements DTO {
 
 	@Override
 	public void populate() {
+
 		writer.setName(faker.book().author());
-		writer.setNote("N/A");
+		writer.setNote(faker.lorem().sentence());
+		writer.setDob("1990-06-01".toString()); // Fake date of birth
+		writer.setDied(faker.bool().bool() ? "yes" : "no");
+		writer.setDod(faker.bool().bool() ? "2024-09-30" : "N/A");
+		writer.setPublications(faker.book().title());
+		writer.setBio(faker.lorem().sentence());
+		writer.setAwards(faker.lorem().sentence());
+		writer.setRefrences(faker.lorem().sentence());
 		writerRepository.save(writer);
+
+
+		for (int i = 0; i < 55; i++) {
+			Writer writer5 = new Writer();
+			writer5.setName(faker.book().author());
+			writer5.setNote(faker.lorem().sentence());
+			writer5.setDob("1990-06-01".toString()); // Fake date of birth
+			writer5.setDied(faker.bool().bool() ? "yes" : "no");
+			writer5.setDod(faker.bool().bool() ? "2024-09-30".toString():"N/A");
+			writer5.setPublications(faker.book().title());
+			writer5.setBio(faker.lorem().sentence());
+			writer5.setAwards(faker.lorem().sentence());
+			writer5.setRefrences(faker.lorem().sentence());
+
+			writerRepository.save(writer5);
+		}
 
 		writerI18n.setNameI18n("Writer Name");
 		writerI18n.setNoteI18n("Note");

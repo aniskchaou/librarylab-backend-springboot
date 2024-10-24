@@ -14,16 +14,16 @@ public class Wastage {
 	Long id;
 	@ManyToOne
 	@JoinColumn(name = "book_id")
-	Book book;
+    CatalogItem catalogItem;
 	String Note;
 
 	public Wastage() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Wastage(Book book, String note) {
+	public Wastage(CatalogItem catalogItem, String note) {
 		super();
-		this.book = book;
+		this.catalogItem = catalogItem;
 		Note = note;
 	}
 
@@ -35,12 +35,12 @@ public class Wastage {
 		this.id = id;
 	}
 
-	public Book getBook() {
-		return book;
+	public CatalogItem getBook() {
+		return catalogItem;
 	}
 
-	public void setBook(Book book) {
-		this.book = book;
+	public void setBook(CatalogItem catalogItem) {
+		this.catalogItem = catalogItem;
 	}
 
 	public String getNote() {

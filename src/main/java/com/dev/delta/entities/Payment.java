@@ -6,37 +6,48 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.*;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 
 @Entity
 public class Payment {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
 	@ManyToOne
-	@JoinColumn(name = "member_id")
-	private Member memberName;
-	private int amount;
-	private String note;
-	private String date;
+	@JoinColumn(name = "member_id", nullable = false)
+	private Member member;
 
-	public Payment() {
-		// TODO Auto-generated constructor stub
-	}
+	@Column(nullable = false)
+	private BigDecimal amountPaid;  // The amount paid in this transaction
 
-	public Payment(Member memberName, int amount, String note, String date) {
-		super();
-		this.memberName = memberName;
-		this.amount = amount;
-		this.note = note;
-		this.date = date;
-	}
+	@Column(nullable = false)
+	private LocalDate paymentDate;  // The date when the payment was made
 
-	public String getDate() {
-		return date;
-	}
+	private String paymentMethod;   // Method of payment (e.g., Cash, Credit Card, etc.)
 
-	public void setDate(String date) {
-		this.date = date;
+	@Column(nullable = false)
+	private BigDecimal outstandingAmount;  // The remaining fines after this payment, if any
+
+	private String paymentReference;  // Optional field for a payment reference or transaction ID
+
+	private String paymentStatus;     // Payment status (e.g., Completed, Pending, Failed)
+
+	// Constructors, Getters, and Setters
+
+	public Payment() {}
+
+	public Payment(Member member, BigDecimal amountPaid, LocalDate paymentDate, String paymentMethod, BigDecimal outstandingAmount, String paymentReference, String paymentStatus) {
+		this.member = member;
+		this.amountPaid = amountPaid;
+		this.paymentDate = paymentDate;
+		this.paymentMethod = paymentMethod;
+		this.outstandingAmount = outstandingAmount;
+		this.paymentReference = paymentReference;
+		this.paymentStatus = paymentStatus;
 	}
 
 	public Long getId() {
@@ -47,28 +58,60 @@ public class Payment {
 		this.id = id;
 	}
 
-	public Member getMemberName() {
-		return memberName;
+	public Member getMember() {
+		return member;
 	}
 
-	public void setMemberName(Member memberName) {
-		this.memberName = memberName;
+	public void setMember(Member member) {
+		this.member = member;
 	}
 
-	public int getAmount() {
-		return amount;
+	public BigDecimal getAmountPaid() {
+		return amountPaid;
 	}
 
-	public void setAmount(int amount) {
-		this.amount = amount;
+	public void setAmountPaid(BigDecimal amountPaid) {
+		this.amountPaid = amountPaid;
 	}
 
-	public String getNote() {
-		return note;
+	public LocalDate getPaymentDate() {
+		return paymentDate;
 	}
 
-	public void setNote(String note) {
-		this.note = note;
+	public void setPaymentDate(LocalDate paymentDate) {
+		this.paymentDate = paymentDate;
 	}
 
+	public String getPaymentMethod() {
+		return paymentMethod;
+	}
+
+	public void setPaymentMethod(String paymentMethod) {
+		this.paymentMethod = paymentMethod;
+	}
+
+	public BigDecimal getOutstandingAmount() {
+		return outstandingAmount;
+	}
+
+	public void setOutstandingAmount(BigDecimal outstandingAmount) {
+		this.outstandingAmount = outstandingAmount;
+	}
+
+	public String getPaymentReference() {
+		return paymentReference;
+	}
+
+	public void setPaymentReference(String paymentReference) {
+		this.paymentReference = paymentReference;
+	}
+
+	public String getPaymentStatus() {
+		return paymentStatus;
+	}
+
+	public void setPaymentStatus(String paymentStatus) {
+		this.paymentStatus = paymentStatus;
+	}
 }
+

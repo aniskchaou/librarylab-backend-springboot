@@ -3,7 +3,7 @@ package com.dev.delta.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.dev.delta.entities.TypeMember;
+import com.dev.delta.entities.MemberType;
 import com.dev.delta.repositories.TypeMemberRepository;
 
 /**
@@ -24,12 +24,12 @@ public class TypeMemberService {
 	/**
 	 * saveOrUpdate
 	 * 
-	 * @param typeMember
+	 * @param memberType
 	 * @return
 	 */
-	public TypeMember saveOrUpdate(TypeMember typeMember) {
+	public MemberType saveOrUpdate(MemberType memberType) {
 
-		return typeMemberRepository.save(typeMember);
+		return typeMemberRepository.save(memberType);
 	}
 
 	/**
@@ -37,7 +37,7 @@ public class TypeMemberService {
 	 * 
 	 * @return
 	 */
-	public Iterable<TypeMember> findAll() {
+	public Iterable<MemberType> findAll() {
 		return typeMemberRepository.findAll();
 	}
 
@@ -48,7 +48,7 @@ public class TypeMemberService {
 	 * @return
 	 * @throws Exception
 	 */
-	public TypeMember findById(Long id) throws Exception {
+	public MemberType findById(Long id) throws Exception {
 		return typeMemberRepository.findById(id).orElseThrow(() -> new Exception("not Found"));
 	}
 
@@ -59,7 +59,7 @@ public class TypeMemberService {
 	 * @throws Exception
 	 */
 	public void delete(Long id) throws Exception {
-		TypeMember typeMember = findById(id);
-		typeMemberRepository.delete(typeMember);
+		MemberType memberType = findById(id);
+		typeMemberRepository.delete(memberType);
 	}
 }

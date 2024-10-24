@@ -6,4 +6,5 @@ import com.dev.delta.entities.CirculationStatus;
 
 public interface CirculationStatusRepository extends JpaRepository<CirculationStatus, Long> {
 
+    CirculationStatus findByName(String statusName);
 }

@@ -18,7 +18,7 @@ public class ArchiveDTO implements DTO {
 
 	@Override
 	public void populate() {
-		archive.setCategory(category);
+		archive.setCategory(category1);
 		archive.setCode(null);
 		archive.setEdition(null);
 		archive.setEditionYear(null);

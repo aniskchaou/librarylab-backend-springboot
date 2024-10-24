@@ -1,5 +1,7 @@
 package com.dev.delta.services;
 
+import com.dev.delta.entities.UserSetting;
+import com.dev.delta.repositories.UserSettingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -71,5 +73,16 @@ public class SettingsService {
 	public boolean changeLang(String lang) {
 		settingsRepository.updateSettingsByLang(lang);
 		return true;
+	}
+
+	@Autowired
+	private UserSettingRepository userSettingsRepository;
+
+	public UserSetting saveSettings(UserSetting settings) {
+		return userSettingsRepository.save(settings);
+	}
+
+	public UserSetting getSettings(Long id) {
+		return userSettingsRepository.findById(id).orElse(null);
 	}
 }

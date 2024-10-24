@@ -2,10 +2,10 @@ package com.dev.delta.analytics;
 
 import java.util.List;
 
+import com.dev.delta.entities.CatalogItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.dev.delta.entities.Book;
 import com.dev.delta.entities.Expense;
 import com.dev.delta.entities.Income;
 import com.dev.delta.repositories.BookRepository;
@@ -50,15 +50,15 @@ public class AnalyticsService {
 		return expenseRepository.findAll();
 	}
 
-	public List<Book> getBooksByCategories() {
+	public List<CatalogItem> getBooksByCategories() {
 		return bookRepository.getBooksByCategory();
 	}
 
-	public List<Book> getBooksByAuthors() {
+	public List<CatalogItem> getBooksByAuthors() {
 		return bookRepository.getBooksByAuhor();
 	}
 
-	public List<Book> getBooksByPublishers() {
+	public List<CatalogItem> getBooksByPublishers() {
 		return bookRepository.getBooksByPublisher();
 	}
 

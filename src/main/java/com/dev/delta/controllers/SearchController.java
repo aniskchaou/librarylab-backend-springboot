@@ -3,6 +3,7 @@ package com.dev.delta.controllers;
 import java.io.IOException;
 import java.util.List;
 
+import com.dev.delta.entities.CatalogItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,7 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.dev.delta.entities.Book;
 import com.dev.delta.entities.Category;
 import com.dev.delta.entities.Writer;
 import com.dev.delta.entitiesi18n.SearchI18n;
@@ -64,9 +64,9 @@ public class SearchController {
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "success"),
 			@ApiResponse(code = 404, message = "not found") })
 	@GetMapping(path = { "/book/{book}" })
-	List<Book> searchBook(@PathVariable("book") String book) throws IOException {
-		List<Book> books = bookRepository.findByTitle(book);
-		return books;
+	List<CatalogItem> searchBook(@PathVariable("book") String book) throws IOException {
+		List<CatalogItem> catalogItems = bookRepository.findByTitle(book);
+		return catalogItems;
 	}
 
 	/**

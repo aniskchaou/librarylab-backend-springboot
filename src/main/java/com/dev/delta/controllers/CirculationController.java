@@ -4,20 +4,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.dev.delta.dto.ChartData;
+import com.dev.delta.dto.output.MemberStatisticsDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.dev.delta.entities.Circulation;
 import com.dev.delta.services.CirculationService;
@@ -151,5 +146,122 @@ public class CirculationController {
 		// System.out.println(bookRes.toString());
 		return new ResponseEntity<List<Circulation>>(bookRes, HttpStatus.OK);
 
+	}
+
+	@GetMapping("/today")
+	public ResponseEntity<List<Circulation>> getOverdueItemsForToday() {
+		List<Circulation> overdueItems = circulationService.getOverdueItemsForToday();
+		return new ResponseEntity<>(overdueItems, HttpStatus.OK);
+	}
+
+	@GetMapping("/yesterday")
+	public ResponseEntity<List<Circulation>> getOverdueItemsForYesterday() {
+		List<Circulation> overdueItems = circulationService.getOverdueItemsForYesterday();
+		return new ResponseEntity<>(overdueItems, HttpStatus.OK);
+	}
+
+	@GetMapping("/tomorrow")
+	public ResponseEntity<List<Circulation>> getOverdueItemsForTomorrow() {
+		List<Circulation> overdueItems = circulationService.getOverdueItemsForTomorrow();
+		return new ResponseEntity<>(overdueItems, HttpStatus.OK);
+	}
+
+	@GetMapping("/soon")
+	public ResponseEntity<List<Circulation>> getOverdueItemsForSoon() {
+		List<Circulation> overdueItems = circulationService.getOverdueItemsForSoon();
+		return new ResponseEntity<>(overdueItems, HttpStatus.OK);
+	}
+
+	@GetMapping("/overdue")
+	public ResponseEntity<List<Circulation>> getOverdueItemsForAll() {
+		List<Circulation> overdueItems = circulationService.getOverdueItemsForAll();
+		return new ResponseEntity<>(overdueItems, HttpStatus.OK);
+	}
+
+	@GetMapping("/checkin")
+	public List<Circulation> getCheckinBooks() {
+		return circulationService.getCheckinBooks();
+	}
+
+	@GetMapping("/checkout")
+	public List<Circulation> getCheckoutBooks() {
+		return circulationService.getCheckoutBooks();
+	}
+
+	@GetMapping("/onhold")
+	public List<Circulation> getOnHoldBooks() {
+		return circulationService.getOnHoldBooks();
+	}
+
+	@GetMapping("/renew")
+	public List<Circulation> getRenewBooks() {
+		return circulationService.getRenewBooks();
+	}
+
+	@PutMapping("/update-status")
+	public ResponseEntity<String> updateCirculationStatus(
+			@RequestParam String catalogItemId,
+			@RequestParam String memberId,
+			@RequestParam String statusName) {
+
+		boolean success = circulationService.updateCirculationStatus(Long.parseLong(catalogItemId) ,Long.parseLong(memberId)  , statusName);
+
+		if (success) {
+			return ResponseEntity.ok("Circulation status updated successfully.");
+		} else {
+			return ResponseEntity.badRequest().body("Failed to update circulation status. Please check the input.");
+		}
+	}
+
+	// Endpoint to get circulations by member type
+	@GetMapping("/member-type")
+	public ResponseEntity<List<ChartData>> getCirculationsByMemberType() {
+		List<ChartData> data = circulationService.getCirculationsByMemberType();
+		return ResponseEntity.ok(data);
+	}
+
+	// Endpoint to get borrowed items by category
+	@GetMapping("/borrowed-items-category")
+	public ResponseEntity<List<ChartData>> getBorrowedItemsByCategory() {
+		List<ChartData> data = circulationService.getBorrowedItemsByCategory();
+		return ResponseEntity.ok(data);
+	}
+
+	// Endpoint to get total penalties collected
+	@GetMapping("/total-penalties")
+	public ResponseEntity<Double> getTotalPenalties() {
+		Double totalPenalties = circulationService.getTotalPenalties();
+		return ResponseEntity.ok(totalPenalties);
+	}
+
+	// Endpoint to get circulation status distribution
+	@GetMapping("/status-distribution")
+	public ResponseEntity<List<ChartData>> getCirculationStatusDistribution() {
+		List<ChartData> data = circulationService.getCirculationStatusDistribution();
+		return ResponseEntity.ok(data);
+	}
+
+
+	@GetMapping(value= "/member-satistics/{memberId}", produces = "application/json")
+	public ResponseEntity<MemberStatisticsDTO> getMemberStatistics(@PathVariable Long memberId) {
+			// Call the service method that aggregates all statistics
+			MemberStatisticsDTO statistics = circulationService.getMemberStatistics(memberId);
+		System.err.println(statistics.toString());
+		if (statistics == null) {
+			return ResponseEntity.notFound().build(); // Return 404 if no statistics found
+		}
+		return ResponseEntity.ok(statistics);
+	}
+
+	// Get circulation details by book ID
+	@GetMapping("/book/{bookId}")
+	public List<Circulation> getCirculationByBook(@PathVariable Long bookId) {
+		return circulationService.getCirculationByBook(bookId);
+	}
+
+	// Get circulation details by member ID
+	@GetMapping("/member/{memberId}")
+	public List<Circulation> getCirculationByMember(@PathVariable Long memberId) {
+		return circulationService.getCirculationByMember(memberId);
 	}
 }

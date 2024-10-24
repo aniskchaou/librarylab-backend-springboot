@@ -1,9 +1,6 @@
 package com.dev.delta.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Writer {
@@ -12,8 +9,84 @@ public class Writer {
 	private Long id;
 	private String name;
 	private String note;
+    private String dob;
+	private  String died;
+	private  String dod;
+	private String publications;
+	private String bio;
+	private String awards;
+	private String refrences;
 
 	public Writer() {
+	}
+
+
+	public String getPublications() {
+		return publications;
+	}
+
+	public void setPublications(String publications) {
+		this.publications = publications;
+	}
+
+	public String getBio() {
+		return bio;
+	}
+
+	public void setBio(String bio) {
+		this.bio = bio;
+	}
+
+	public String getAwards() {
+		return awards;
+	}
+
+	public void setAwards(String awards) {
+		this.awards = awards;
+	}
+
+	public String getRefrences() {
+		return refrences;
+	}
+
+	public void setRefrences(String refrences) {
+		this.refrences = refrences;
+	}
+
+	public String getDob() {
+		return dob;
+	}
+
+	public void setDob(String dob) {
+		this.dob = dob;
+	}
+
+	public String getDied() {
+		return died;
+	}
+
+	public void setDied(String died) {
+		this.died = died;
+	}
+
+	public String getDod() {
+		return dod;
+	}
+
+	public void setDod(String dod) {
+		this.dod = dod;
+	}
+
+	public Writer(String name, String note, String dob, String died, String dod, String publications, String bio, String awards, String refrences) {
+		this.name = name;
+		this.note = note;
+		this.dob = dob;
+		this.died = died;
+		this.dod = dod;
+		this.publications = publications;
+		this.bio = bio;
+		this.awards = awards;
+		this.refrences = refrences;
 	}
 
 	public Writer(Long id, String name, String note) {

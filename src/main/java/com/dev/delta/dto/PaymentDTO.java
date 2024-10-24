@@ -20,12 +20,12 @@ public class PaymentDTO implements DTO {
 	@Override
 	public void populate() {
 		// TODO Auto-generated method stub
-		payment.setAmount(100);
+		//payment.setAmount(100);
 
-		payment.setMemberName(member);
-		payment.setNote("");
-		payment.setDate(new Date().toString());
-		paymentRepository.save(payment);
+		//payment.setMemberName(member);
+		//payment.setNote("");
+		//payment.setDate(new Date().toString());
+		//paymentRepository.save(payment);
 
 		paymentI18n.setAmountI18n("Amount");
 		paymentI18n.setDateI18n("Date");

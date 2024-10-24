@@ -1,5 +1,6 @@
 package com.dev.delta.dto;
 
+import com.dev.delta.entities.Publisher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +19,27 @@ public class PublisherDTO implements DTO {
 	@Override
 	public void populate() {
 
+		for (int i = 0; i < 55; i++) {
+			Publisher publisher4 = new Publisher();
+
+			publisher4.setName(faker.book().publisher());
+			publisher4.setAddress(faker.address().streetAddress());
+			publisher4.setEmail(faker.internet().emailAddress());
+			publisher4.setPhone(faker.phoneNumber().phoneNumber());
+			publisher4.setCountry(faker.address().country());
+			publisher4.setWebsite(faker.internet().url());
+
+			publisherRepository.save(publisher4);
+		}
+
+
 		publisher.setName(faker.book().publisher());
+		publisher.setAddress(faker.address().streetAddress());
+		publisher.setEmail(faker.internet().emailAddress());
+		publisher.setPhone(faker.phoneNumber().phoneNumber());
+		publisher.setCountry(faker.address().country());
+		publisher.setWebsite(faker.internet().url());
+
 		publisherRepository.save(publisher);
 
 		publisherI18n.setNameI18n("Publisher Name");
