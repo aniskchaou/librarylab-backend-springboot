@@ -8,6 +8,7 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -27,23 +28,16 @@ public class FundController {
     private FundService fundService;
 
     @ApiOperation(value = "Add Fund")
-    @PostMapping("/create")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "success"),
             @ApiResponse(code = 400, message = "validation error")
     })
+    @PostMapping(value = "/create", consumes = MediaType.ALL_VALUE)
     public ResponseEntity<?> addFund(@RequestBody Fund fund, BindingResult result) {
-        if (result.hasErrors()) {
-            Map<String, String> errorMap = new HashMap<>();
-            for (FieldError error : result.getFieldErrors()) {
-                errorMap.put(error.getField(), error.getDefaultMessage());
-            }
-            return new ResponseEntity<>(errorMap, HttpStatus.BAD_REQUEST);
-        }
-
         Fund newFund = fundService.save(fund);
         return new ResponseEntity<>(newFund, HttpStatus.CREATED);
     }
+
 
     @ApiOperation(value = "Get All Funds")
     @GetMapping("/all")

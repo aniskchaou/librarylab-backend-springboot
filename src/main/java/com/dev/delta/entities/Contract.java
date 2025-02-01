@@ -40,7 +40,7 @@ public class Contract {
     public Contract() {
     }
 
-    public Contract(String contractNumber, LocalDate startDate, LocalDate endDate, Vendor vendor, List<Order> orders, String terms) {
+    public Contract(String contractNumber, LocalDate startDate, LocalDate endDate, Vendor vendor, String terms) {
         this.contractNumber = contractNumber;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -48,6 +48,8 @@ public class Contract {
         //this.orders = orders;
         this.terms = terms;
     }
+
+
 
     public Long getId() {
         return id;

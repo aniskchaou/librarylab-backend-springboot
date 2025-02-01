@@ -11,7 +11,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true, nullable = false,length = 350)
+    /*@Column(unique = true, nullable = false,length = 350)
     private String username;
 
     @Column(nullable = false,length = 350)
@@ -24,6 +24,21 @@ public class User {
     private String firstName;
 
     @Column(nullable = false,length = 350)
+    private String lastName;
+*/
+    @Column(unique = true, nullable = false, length = 255)
+    private String username;
+
+    @Column(nullable = false, length = 255)
+    private String password;
+
+    @Column(nullable = false, length = 255)
+    private String email;
+
+    @Column(nullable = false, length = 255)
+    private String firstName;
+
+    @Column(nullable = false, length = 255)
     private String lastName;
 
     @ElementCollection(fetch = FetchType.EAGER)

@@ -7,7 +7,7 @@ public class PaymentRequest {
     private String paymentLink;   // The link for making the payment
     private double amountDue;     // The amount due for the payment
     private String description;    // Description of the service/product
-
+    private String email;
     // Default constructor
     public PaymentRequest() {}
 
@@ -17,6 +17,22 @@ public class PaymentRequest {
         this.paymentLink = paymentLink;
         this.amountDue = amountDue;
         this.description = description;
+    }
+
+    public PaymentRequest(String customerName, String paymentLink, double amountDue, String description, String email) {
+        this.customerName = customerName;
+        this.paymentLink = paymentLink;
+        this.amountDue = amountDue;
+        this.description = description;
+        this.email = email;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     // Getters and Setters

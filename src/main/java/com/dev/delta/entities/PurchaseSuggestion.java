@@ -53,7 +53,7 @@ public class PurchaseSuggestion {
     @JsonIgnore
     private Fund fund;
 
-    @Column(nullable = false)
+
     private Boolean showInactive;
 
     @Column(nullable = false)

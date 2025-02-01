@@ -1,8 +1,10 @@
 package com.dev.delta.controllers;
 
 
+import com.dev.delta.dto.OpenAIProperties;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
@@ -23,8 +25,15 @@ import java.util.Map;
 @CrossOrigin(origins = "*") // Enable CORS for Angular app
 public class ChatbotController {
 
-    @Value("${openai.api.key}")
-    private String openAIKey; // Inject OpenAI API Key from application.properties
+//    @Value("${openai.api.key}")
+//    private String openAIKey; // Inject OpenAI API Key from application.properties
+
+    private final OpenAIProperties openAPIProperties;
+
+    @Autowired
+    public ChatbotController(OpenAIProperties openAPIProperties) {
+        this.openAPIProperties = openAPIProperties;
+    }
 
     // Handle chat messages from the frontend
     @PostMapping
@@ -48,7 +57,7 @@ public class ChatbotController {
 
         // Set up headers for the request
         HttpHeaders headers = new HttpHeaders();
-        headers.set("Authorization", "Bearer " + openAIKey);
+        headers.set("Authorization", "Bearer " + openAPIProperties.getApiKey());
         headers.set("Content-Type", "application/json");
 
         // Create request body for the OpenAI API

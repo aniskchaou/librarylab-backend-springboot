@@ -101,10 +101,10 @@ public class PayPalController {
         }
 
         // Send the payment link via email
-        paymentEmailService.sendEmail(customerName, paymentLink, amountDue, description,
+        paymentEmailService.sendEmail(paymentRequest.getEmail(),customerName, paymentLink, amountDue, description,
                 yourName, yourPosition, yourBusinessName, yourContactInfo);
 
-        return "Payment link sent successfully!";
+        return "Payment link sent successfully! to"+paymentRequest.getEmail();
     }
 
     // Method to create a payment link with PayPal API

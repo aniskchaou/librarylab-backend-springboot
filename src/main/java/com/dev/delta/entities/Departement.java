@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -24,7 +25,7 @@ public class Departement {
     private String headOfDepartment;
 
     @Column(nullable = false)
-    private String location;
+    private String location= "Default Location";
 
     @Column(nullable = false)
     private String phone;
@@ -38,11 +39,11 @@ public class Departement {
 
     @JsonIgnore
     @OneToMany(mappedBy = "department", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Shelf> shelves;
+    private List<Shelf> shelves= new ArrayList<>();;
 
     @JsonIgnore
     @OneToMany(mappedBy = "department", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Row> rows;
+    private List<Row> rows= new ArrayList<>();;
 
     // Getters and setters
 

@@ -1,8 +1,9 @@
 package com.dev.delta.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.*;
 
 import javax.persistence.*;
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 
 @Entity
 public class Fund {
@@ -32,9 +33,10 @@ public class Fund {
     @Column(length = 1000)
     private String notes;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "budget_id", nullable = true)
-    @JsonIgnore
+    //@JsonIgnore
+    //@JsonManagedReference
     private Budget budget;
 
     // Getters and setters

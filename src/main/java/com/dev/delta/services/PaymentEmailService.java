@@ -16,11 +16,11 @@ public class PaymentEmailService {
     @Autowired
     private JavaMailSender mailSender;
 
-    public void sendEmail(String customerName, String paymentLink, double amountDue, String description,
+    public void sendEmail(String destination,String customerName, String paymentLink, double amountDue, String description,
                           String yourName, String yourPosition, String yourBusinessName, String yourContactInfo) {
 
         // Define email properties
-        String from = "kchaouanis29@gmail.com"; // Replace with your "from" email
+        String from = yourContactInfo; // Replace with your "from" email
         String subject = "Payment Request for Your Order";
 
         // Build the email content
@@ -51,7 +51,7 @@ public class PaymentEmailService {
         // Create a SimpleMailMessage object
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(from);
-        message.setTo("kchaouanis20@gmail.com"); // Replace with the customer's email
+        message.setTo(destination); // Replace with the customer's email
         message.setSubject(subject);
         message.setText(body);
 

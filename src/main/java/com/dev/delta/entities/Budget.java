@@ -1,8 +1,12 @@
 package com.dev.delta.entities;
 
+import com.fasterxml.jackson.annotation.*;
+
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 
 @Entity
 public class Budget {
@@ -29,8 +33,12 @@ public class Budget {
     @Column(nullable = false)
     private Boolean lockBudget;
 
-    @OneToMany(mappedBy = "budget", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Fund> funds;
+    @OneToMany(mappedBy = "budget", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    //@JsonIgnore
+    //@JsonManagedReference
+    @JsonIgnore
+    private List<Fund> funds = new ArrayList<>();
+
 
     // Getters and setters
 

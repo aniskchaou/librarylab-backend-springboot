@@ -55,7 +55,7 @@ public class UserDTO implements DTO {
     }
 
     // Method to generate and insert fake users
-    public void insertFakeUsers(int count) {
+  /*  public void insertFakeUsers(int count) {
         for (int i = 0; i < count; i++) {
             User userEntity = new User();
             userEntity.setUsername(faker.internet().emailAddress());
@@ -79,5 +79,44 @@ public class UserDTO implements DTO {
             // Save user to the database
             userRepository.save(userEntity);
         }
+    }*/
+
+
+    public void insertFakeUsers(int count) {
+        for (int i = 0; i < count; i++) {
+            User userEntity = new User();
+
+            // Use a helper method to safely truncate strings
+            userEntity.setUsername(truncate(faker.internet().emailAddress(), 250));
+            userEntity.setPassword(truncate(faker.internet().password(), 250));
+            userEntity.setEmail(truncate(faker.internet().emailAddress(), 250));
+            userEntity.setFirstName(truncate(faker.name().firstName(), 250));
+            userEntity.setLastName(truncate(faker.name().lastName(), 250));
+
+            userEntity.setActive(true);
+
+            // Optional fields, ensure within limit
+            userEntity.setAbout(truncate(faker.lorem().paragraph(), 250));
+            userEntity.setAddress(truncate(faker.address().fullAddress(), 250));
+
+            System.out.println(userEntity.toString());
+
+            // Assign default and random roles
+            Set<String> roles = new HashSet<>();
+            roles.add("ROLE_USER");
+            if (faker.bool().bool()) {
+                roles.add("ROLE_ADMIN");
+            }
+            userEntity.setRoles(roles);
+
+            // Save user to the database
+            userRepository.save(userEntity);
+        }
     }
+
+    // Helper method to safely truncate strings
+    private String truncate(String value, int maxLength) {
+        return value != null && value.length() > maxLength ? value.substring(0, maxLength) : value;
+    }
+
 }

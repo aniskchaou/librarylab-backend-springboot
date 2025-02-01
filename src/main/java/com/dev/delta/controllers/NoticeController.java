@@ -99,7 +99,7 @@ public class NoticeController {
     public void sendSimpleEmail(String toEmail, String subject, String body) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(from);
-        message.setTo("kchaouanis20@gmail.com");
+        message.setTo(toEmail);
         message.setSubject(subject);
         message.setText(body);
 
