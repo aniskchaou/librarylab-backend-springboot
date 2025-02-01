@@ -31,7 +31,7 @@ public class WebConfig implements WebMvcConfigurer {
         converters.add(new MappingJackson2HttpMessageConverter());
     }
 
-        @Override
+      /*  @Override
     public void addCorsMappings(CorsRegistry registry) {
         // Allow all origins for all endpoints
         registry.addMapping("/**")
@@ -39,5 +39,5 @@ public class WebConfig implements WebMvcConfigurer {
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // Allow methods
                 .allowedHeaders("*") // Allow all headers
                 .allowCredentials(true); // If you need to allow cookies
-    }
+    }*/
 }
