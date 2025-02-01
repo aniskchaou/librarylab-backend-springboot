@@ -53,7 +53,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		/*http.csrf().disable().authorizeRequests().antMatchers(HttpMethod.OPTIONS, "/**").permitAll().anyRequest()
 				.authenticated().and().httpBasic();*/
 
-		http.csrf().disable()
+		/*http.csrf().disable()
 				.authorizeRequests()
 				// Allow unauthenticated access to the specific QR code URL
 				.antMatchers("/book/get/**","/users/**","/version/get/**","/qrcode/get/**","/barcode/get/**","/users/get/**","/contract/vendor-files/**").permitAll()
@@ -62,7 +62,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				// All other requests must be authenticated
 				.anyRequest().authenticated()
 				.and()
-				.httpBasic();
+				.httpBasic();*/
+
+              http.csrf().disable() // Disable CSRF protection for CORS
+            .authorizeRequests()
+            .antMatchers("/**").permitAll(); 
 	}
 
 	/**
