@@ -52,14 +52,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable()
         .authorizeRequests()
-        // Allow unauthenticated access to specific URLs
-        .antMatchers("/book/get/**", "/users/**", "/version/get/**", "/qrcode/get/**", "/barcode/get/**", "/users/get/**", "/contract/vendor-files/**")
-        .permitAll()
-        // Allow all OPTIONS requests (usually for CORS preflight)
-        .antMatchers(HttpMethod.OPTIONS, "/**")
-        .permitAll()
-        // All other requests must be authenticated
-        .anyRequest().authenticated()
+        .antMatchers("/favicon.ico").permitAll()
+        .antMatchers("/**").permitAll()
+        .anyRequest().permitAll() // Optional, but ensures any remaining requests are also permitted
         .and()
         .httpBasic();
 	}
