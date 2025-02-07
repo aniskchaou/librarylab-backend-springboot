@@ -50,25 +50,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	 */
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		/*http.csrf().disable().authorizeRequests().antMatchers(HttpMethod.OPTIONS, "/**").permitAll().anyRequest()
-				.authenticated().and().httpBasic();*/
-
-		/*http.csrf().disable()
-				.authorizeRequests()
-				// Allow unauthenticated access to the specific QR code URL
-				.antMatchers("/book/get/**","/users/**","/version/get/**","/qrcode/get/**","/barcode/get/**","/users/get/**","/contract/vendor-files/**").permitAll()
-				// Allow all OPTIONS requests (usually for CORS preflight)
-				.antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-				// All other requests must be authenticated
-				.anyRequest().authenticated()
-				.and()
-				.httpBasic();*/
-
-              http.csrf().disable() 
-            .authorizeRequests()
-            .antMatchers("/**")
-	    .antMatchers("/book/get/**","/users/**","/version/get/**","/qrcode/get/**","/barcode/get/**","/users/get/**","/contract/vendor-files/**")
-	    .permitAll(); 
+		http.csrf().disable()
+        .authorizeRequests()
+        // Allow unauthenticated access to specific URLs
+        .antMatchers("/book/get/**", "/users/**", "/version/get/**", "/qrcode/get/**", "/barcode/get/**", "/users/get/**", "/contract/vendor-files/**")
+        .permitAll()
+        // Allow all OPTIONS requests (usually for CORS preflight)
+        .antMatchers(HttpMethod.OPTIONS, "/**")
+        .permitAll()
+        // All other requests must be authenticated
+        .anyRequest().authenticated()
+        .and()
+        .httpBasic();
 	}
 
 	/**
